@@ -1,0 +1,104 @@
+@font-face {
+	font-family: "OpenSans-Regular";
+	src: url(../fonts/OpenSans-Regular.woff);
+}
+body, 
+header, 
+section, 
+footer, 
+h1, 
+h2, 
+h3, 
+a, 
+ul {
+/*Просто обнуляю отступы без нормализации и оптимизации, хочу попробовать без оптимизации*/
+	margin: 0;	
+	padding: 0;	
+} 
+header, section, footer {
+	padding-left: 48px;
+}
+body {
+	width: 100%;
+	font-family: "OpenSans-Regular", sans-serif;
+	font-weight: 400;
+	color: #000000;
+	background-color: #ffffff;
+}
+header {
+	background-image: url(../img/header_bg.jpg);
+	-webkit-background-size: 100%;
+	background-size: cover; 
+/*поставил картинку на весь контейнер, а то вдруг заголовок в 5 строк будет*/
+	background-repeat: no-repeat;	
+	padding-top: 112px;
+	padding-bottom: 136px;
+}
+main {
+	max-width: 95%;
+}
+section {
+	padding-bottom: 44px;
+}
+h1 {
+	font-weight: 400;
+	font-size: 48px;
+	line-height: 59px;
+	color: #ffffff;
+	text-align: center; 
+/*выровнял текст по центру*/
+}
+h2 {
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 59px;
+	padding-top: 12px;
+	padding-bottom: 3px;
+}
+h3 {
+	color: #325d72;
+	font-size: 24px;
+	font-weight: 400;
+	line-height: 24px;
+	margin-bottom: 25px;
+	padding-bottom: 7px;
+	border-bottom: 1px solid #dddddd;
+}
+p {
+	font-size: 16px;
+	line-height: 24px;
+	padding-bottom: 8px;
+}
+p time {
+	font-weight: 700;
+}
+/*В блоках ниже переиграл на флот влево и вправо и отодвинул всё паддингом родительского контейнера*/
+footer {
+	padding-top: 5px;
+	height: 18vh;
+	background-color: #f5f5f5;
+	border-top: 1px solid #dddddd;
+}
+footer span {
+	float: left;
+	font-size: 14px;
+	line-height: 59px;
+	color: #bebebe;
+}
+a {
+	text-decoration: none;
+	color: #4183c4;
+}
+nav {
+	float: right; 
+    margin-right: 50px;
+}
+nav li {
+	list-style: none;
+	display: inline-block;
+	margin-left: 18px;
+}
+nav a {
+	font-size: 14px;
+	line-height: 59px;
+}

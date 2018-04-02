@@ -1,0 +1,62 @@
+// Миксины
+@mixin row($justify-content) {
+	display: flex;
+	flex-direction: row;
+	justify-content: $justify-content;
+}
+@mixin column($justify-content) {
+	display: flex;
+	flex-direction: column;
+	justify-content: $justify-content;
+}
+@mixin font(
+	$font-family, 
+	$font-size, 
+	$font-weight, 
+	$text-transform,
+	$text-decoration) {
+		font-family: $font-family;
+		font-size: $font-size;
+		font-weight: $font-weight;
+		text-transform: $text-transform;
+		text-decoration: $text-decoration;
+}
+@mixin dark($base_color) {
+	background-color: darken($base_color, 10%);
+    transition: 0.2s all linear;
+}
+@mixin colors($base_color, $base_color_alpha, $pos_x, $pos_y) {
+	border-color: $base_color;
+	&::after {
+		background-color: $base_color;
+		background-position: $pos_x $pos_y;
+	}
+	.card-top-content {
+		background-color: $base_color_alpha;
+	}
+	.btn-show {
+		background-color: $base_color;
+	}
+	.partner {
+		color: $base_color;
+	}
+}
+@mixin offer_toggler($base_color) {
+	&.active,
+	&:hover {
+		background-position-y: -68px;
+		border-color: $base_color;
+		transition: 0.2s all linear;
+	}
+	.offer-title {
+		color: $base_color;
+	}
+}
+@mixin category-toggle($base_color) {
+	&.active {
+		background-color: $base_color;
+	}
+	&:hover {
+		@include dark($base_color);
+	}
+}

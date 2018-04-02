@@ -1,0 +1,24 @@
+$path: "../fonts/";
+
+@font-face {
+	font-family: "ProximaNova";
+	src: url($path + "proximanova-regular-webfont.woff");
+	src: url($path + "proximanova-regular-webfont.eot");
+	src: 
+		url($path + "proximanova-regular-webfont.eot?#iefix") format("embedded-opentype"),
+		url($path + "proximanova-regular-webfont.woff2") format("woff2"),
+		url($path + "proximanova-regular-webfont.woff") format("woff"),
+		url($path + "proximanova-regular-webfont.ttf") format("truetype"),
+		url($path + "proximanova-regular-webfont.svg#gothamblack") format("svg");
+}
+@font-face {
+	font-family: "ProximaNovaBold";
+	src: url($path + "proximanova-semibold-webfont.eot");   
+	src: 
+		url($path + "proximanova-semibold-webfont.eot?#iefix") format("embedded-opentype"),         
+		url($path + "proximanova-semibold-webfont.woff2") format("woff2"),        
+		url($path + "proximanova-semibold-webfont.woff") format("woff"),        
+		url($path + "proximanova-semibold-webfont.ttf") format("truetype"),        
+		url($path + "proximanova-semibold-webfont.svg#open_sansregular") format("svg");
+}
+

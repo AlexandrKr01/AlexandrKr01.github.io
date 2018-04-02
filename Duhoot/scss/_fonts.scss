@@ -1,0 +1,27 @@
+$path: "../fonts/";
+
+@font-face {
+	font-family: "Gotham";
+	src: url($path + "Gotham-Medium.woff");
+	src: url($path + "Gotham-Medium.eot");
+	src: 
+		url($path + "Gotham-Medium.eot?#iefix") format("embedded-opentype"),
+		url($path + "Gotham-Medium.woff2") format("woff2"),
+		url($path + "Gotham-Medium.woff") format("woff"),
+		url($path + "Gotham-Medium.ttf") format("truetype"),
+		url($path + "Gotham-Medium.svg#gothamblack") format("svg");
+}
+@font-face {
+	font-family: "GothamBook";
+	src: url($path + "Gotham-Book.woff");
+	src: url($path + "Gotham-Book.eot");
+	src: 
+		url($path + "Gotham-Book.eot?#iefix") format("embedded-opentype"),
+		url($path + "Gotham-Book.woff2") format("woff2"),
+		url($path + "Gotham-Book.woff") format("woff"),
+		url($path + "Gotham-Book.ttf") format("truetype"),
+		url($path + "Gotham-Book.svg#gothamblack") format("svg");
+}
+
+
+

@@ -1,0 +1,505 @@
+// Сторонние файлы
+@import "_reset";
+@import "_fonts";
+
+// Цвета
+$main_text_color: #161616;
+$nav_color: #1b1b1b;
+$pink: #d03958;
+$white: #ffffff;
+$btn_color: #e3d5b8;
+
+
+// Миксины
+@mixin row($justify-content) {
+	display: flex;
+	flex-direction: row;
+	justify-content: $justify-content;
+}
+@mixin column($justify-content) {
+	display: flex;
+	flex-direction: column;
+	justify-content: $justify-content;
+}
+@mixin font(
+	$font-family, 
+	$font-size, 
+	$font-weight, 
+	$text-transform,
+	$text-decoration) {
+		font-family: $font-family;
+		font-size: $font-size;
+		font-weight: $font-weight;
+		text-transform: $text-transform;
+		text-decoration: $text-decoration;
+}
+@mixin hover {
+	background-color: darken($btn_color, 50);
+	color: $white;
+	transition: 200ms all linear;
+}
+
+// Никогда до этого не использовал Flex, по этому, надеюсь нашёл золотую середину между "пихать везде" и "недоиспользовать"
+// Стили
+
+body {
+	font-family: "PtSerif";
+	color: $main_text_color;
+	font-size: 62.5%;
+}
+
+.container {
+	max-width: 1010px;
+    min-width: 800px;
+    margin: 0 auto;
+}
+.page-header {
+	width: 100%;
+	background-image: url("../img/main_bg_cover.png"),url("../img/main_bg.jpg");
+	background-repeat: no-repeat, no-repeat;
+	background-size: cover, cover;
+	background-position: center center, center center;
+	padding: 38px 0 100px 13px;
+	box-sizing: border-box;
+	.header-top {
+		@include row (space-between);
+		width: 100%;
+		.main-navigation {
+			padding-bottom: 70px;
+			flex-grow: 1;;
+		}
+		.navigation-list {
+			@include row (flex-end);
+			padding-top: 31px;
+			.navigation {
+				&-item {
+					padding: 0 1px 0 1px;
+				}
+				&-link {
+					@include font("MontserratBold", 18px, 900, uppercase, none);
+					color: $nav_color;
+					line-height: 22px;
+					padding: 11px 14px 8px 14px;
+					border-radius: 5px;
+					&.active,
+					&:hover {
+						background-color: $pink;
+						color: $white;
+					}
+				}
+			}
+			
+		}
+	}
+	.header-content {
+		@include row (space-between);
+		position: relative;
+		&-description {
+			width: 48%;
+		}
+		&-title {
+			color: $main_text_color;
+			@include font("MontserratBold", 90px, 900, uppercase, none);
+			line-height: 80px;
+			letter-spacing: -3.8px;
+    		padding: 102px 5px 20px 0;
+			.title-red {
+				color: $pink;
+			}
+		}
+		&-text {
+			color: $main_text_color;
+			@include font("PtSerif", 20px, 400, none, none);
+			line-height: 28px;
+			letter-spacing: -0.4px;
+			padding: 8px 5px 57px 0;
+		}
+		.header-quote-form {
+			@include column (center);
+			align-items: center;
+			width: 39.333%;
+		    position: absolute;
+		    right: 1.7%;
+    		bottom: -42%;
+    		line-height: 152%;
+			background-color: $pink;
+			border-radius: 5px;
+			.form-title {
+				color: $white;
+				@include font("MontserratBold", 22px, 700, uppercase, none);
+				letter-spacing: -0.44px;
+				padding: 35px 0 37px 0;
+			}
+			.form-input {
+				width: 89%;
+				height: 57px;
+				border-radius: 5px;
+				margin: 0 0 18px 0;
+				padding-left: 19px;
+				box-sizing: border-box;
+				border: 0;
+				outline: 0;
+				@include font("PTSerif", 20px, 400, none, none);
+				line-height: 25px;
+				letter-spacing: -0.4px;
+				&::placeholder {
+					@include font("PTSerif", 20px, 400, none, none);
+					line-height: 25px;
+					letter-spacing: -0.4px;
+				}
+			}
+			.wrapper {
+				position: relative;
+				width: 89%;
+				padding: 6px;
+				.form-checkbox {
+					display: none;
+					border: 0;
+					outline: 0;
+					&-label {
+						color: $white;
+						@include font("PTSerif", 20px, 400, none, none);
+						line-height: 25px;
+						letter-spacing: -0.4px;
+						padding: 0 0 0 42px;
+						&::before {
+							content: "";
+							width: 19px;
+							height: 19px;
+							background-color: $white;
+							border-radius: 5px;
+							position: absolute;
+							top: 7px;
+   							left: 8px;
+   							box-sizing: border-box;
+   							border: 3px solid $white;
+						}
+					}	
+				}
+				.form-checkbox:checked ~ .form-checkbox-label::before {
+					background-color: $pink;
+					border: 3px solid $white;
+					border-radius: 0;
+					border-top: none;
+				    border-right: none;
+				    height: 13px;
+				    transform: rotate(-407deg);
+				    top: 5px;
+				    left: 13px;
+				    transition: 200ms all linear;
+				}
+			}
+			.form-btn {
+				width: 89%;
+				background-color: $main_text_color;
+				color: $white;
+				@include font("MontserratBold", 22px, 900, uppercase, none);
+				letter-spacing: -0.44px;
+				padding: 18px;
+				border: 0;
+				outline: 0;
+				border-radius: 5px;
+				margin: 12px 0 25px 0;
+				cursor: pointer;
+				&:hover {
+					box-shadow: 0 0 0 2px $main_text_color;
+					color: $main_text_color;
+					background-color: $white; 
+					transition: 200ms all linear;
+				}
+			}
+		}
+	}
+} 
+.services {
+	&-title {
+		color: $main_text_color;
+		@include font("Couture", 50px, 700, uppercase, none);
+		line-height: 80px;
+		letter-spacing: -1.8px;
+    	padding: 18px 5px 20px 3px;
+		.title-red {
+			color: $pink;
+		}
+	}
+	.servece-container {
+		@include row (space-between);
+		text-align: center;
+		padding: 15px 0 43px 0;
+		.servece {
+			@include column (center);
+			align-items: center;
+			width: 18%;
+			color: $main_text_color;
+			@include font("PTSerif", 20px, 400, none, none);
+			line-height: 28px;
+			letter-spacing: -0.4px;
+			padding: 0 0 20px 0;
+			&::before {
+				content: "";
+				display: block;
+				width: 163px;
+				height: 163px;
+				background-repeat: no-repeat;
+				background-position: center center;
+				padding: 0 0 63px 0;
+			}
+		}
+		.service-1::before {
+			background-image: url("../img/heart.png");
+		}
+		.service-2::before {
+			background-image: url("../img/tools.png");
+		}
+		.service-3::before {
+			background-image: url("../img/lamp.png");
+		}
+		.service-4::before {
+			background-image: url("../img/compas.png");
+		}
+	}
+}
+.story {
+	background-color: $pink;
+	.wrapper {
+		@include row (space-between);
+		padding: 30px 10px 25px 9px;
+	}
+	&-title {
+		display: none;
+	}
+	&-content {
+		width: 62%;
+		color: $white;
+		@include font("PTSerif", 20px, 400, none, none);
+		line-height: 28px;
+		letter-spacing: -0.4px;
+		padding: 0 4px 10px 0;
+	}
+	&-link {
+		@include row (center);
+		align-items: center;
+		background-color: $btn_color;
+		width: 27%;
+		@include font("MontserratBold", 22px, 400, uppercase, none);
+		color: $main_text_color;
+		line-height: 28px;
+		letter-spacing: -0.44px;
+		border-radius: 5px;
+		&:hover {
+			@include hover;
+		}
+	}
+}
+.prices {
+	padding: 24px 0 0 0;
+	background-color: $btn_color;
+	.prices-title {
+		color: #1f1f1f;
+		@include font("MontserratBold", 50px, 700, uppercase, none);
+		line-height: 80px;
+		letter-spacing: -1px;
+		text-align: center;
+		padding: 20px 20px 34px 20px;
+	}
+	.price-cards {
+		@include row (center);
+		.price-card {
+			position: relative;
+			width: 318px;
+			text-align: center;
+			background-color: $white;
+			margin-right: 18px;
+			padding: 21px 0 0 0;
+			border-radius: 5px;
+			&:last-child {
+				margin-right: 0;
+			}
+			&:first-child {
+				margin-left: 5px;
+			}
+			&-title {
+				@include font("PTSerif", 22px, 400, none, none);
+				line-height: 28px;
+				letter-spacing: -0.44px;
+				padding: 10px 0;
+			}
+			&-value {
+				color: $pink;
+				@include font("MontserratBold", 60px, 700, uppercase, none);
+				line-height: 80px;
+				letter-spacing: -1.2px;
+				padding: 7px 0 6px 0;
+    			display: block;
+			}
+			.tarif-advantages {
+				padding-bottom: 25px;
+			}
+			.tarif-advantage {
+				color: $main_text_color;
+				@include font("PTSerif", 20px, 400, none, none);
+				line-height: 28px;
+				letter-spacing: -0.4px;
+			}
+			.price-link {
+				display: inline-block;
+				width: 63%;
+				background-color: $btn_color;
+				@include font("MontserratBold", 22px, 400, uppercase, none);
+				line-height: 28px;
+				letter-spacing: -0.44px;
+				color: $main_text_color;
+				border-radius: 5px;
+				padding: 12px 0 9px 0;
+				margin-top: 1px;
+				&:hover {
+					@include hover;
+				}
+			}
+			&.popular {
+				overflow: hidden;
+				.price-link {
+					background-color: $pink;
+					color: $white;
+					&:hover {
+						@include hover;
+					}
+				}
+				&::before {
+					content: "Popular";
+					position: absolute;
+					width: 130px;
+					height: 130px;
+					@include column (flex-end);
+					background-color: #b4a993;
+					transform: rotate(-46deg);
+			    	top: -65px;
+			    	left: -68px;
+					color: #1f1f1f;
+					@include font("PTSerif", 16px, 400, none, none);
+					line-height: 40.97px;
+					letter-spacing: -0.32px;
+				}
+			}
+		}
+	}
+}
+%title {
+	text-align: center;
+	color: #1f1f1f;
+	@include font("MontserratBold", 50px, 700, uppercase, none);
+	line-height: 80px;
+	letter-spacing: -1px;
+	padding: 35px 0 21px 0;
+}
+.reviews-and-gallery {
+	padding: 100px 0 90px 0;
+	.wrapper {
+		@include row (space-between);
+		.reviews {
+			width: 48%;
+			&-title {
+				@extend %title;
+			}
+			.review {
+				&-container {
+					position: relative;
+					border-radius: 5px;
+					width: 90%;
+					box-sizing: border-box;
+					margin-bottom: 29px;
+    				padding-bottom: 30px;
+
+					&:nth-of-type(even) {
+						background-color: $btn_color;
+					}
+				}
+				&-content {
+					color: $main_text_color;
+					@include font("PTSerif", 20px, 400, none, none);
+					line-height: 28px;
+					letter-spacing: -0.4px;
+					padding: 17px 70px 9px 12px;
+				}
+				&-cite {
+					color: $pink;
+					@extend .review-content;
+					font-family: "MontserratBold";
+					font-style: normal;
+					letter-spacing: -0.7px;
+				}
+				&-photo {
+					position: absolute;
+					top: 12%;
+    				right: -7%;
+    				border-radius: 50%;
+    				box-shadow: 0 0 10px 0 $btn_color;
+    				filter: drop-shadow(0 0 10px $btn_color);
+				}
+			}
+		}
+		.gallery-container {
+			width: 46%;
+			@include column (flex-start);
+			align-items: center;
+			.gallery {
+				@include row (space-around);
+				flex-wrap: wrap;
+				align-content: space-between;
+			    width: 90%;
+			    min-height: 48%;
+			    margin: 18px 0 41px 11%;
+				&-title {
+					@extend %title;
+					color: $pink;
+				}
+				.photo-link {
+					display: block;
+					border-radius: 50%;
+    				box-shadow: 0 0 10px 0 $btn_color;
+    				filter: drop-shadow(0 0 10px $btn_color);
+    				&:hover {
+						transform: scale(1.1);
+						transition: 200ms all linear;
+					}
+				}
+				&-link {
+					color: $pink;
+					@include font("MontserratBold", 20px, 400, uppercase, underline);
+					line-height: 28px;
+					letter-spacing: -0.4px;
+					&:hover {
+						color: $main_text_color;
+						transition: 200ms all linear;
+					}
+				}
+			}
+		}
+	}
+}
+.page-footer {
+	background-color: $main_text_color;
+	.wrapper {
+		@include row (space-between);
+		align-items: center;
+		.copy {
+			color: $white;
+			@include font("PTSerif", 20px, 400, none, none);
+			line-height: 22px;
+			letter-spacing: -0.4px;
+		}
+		.author-link {
+			@extend .copy;
+			color: $pink;
+		}
+		.logo-link {
+			padding: 73px 16px 60px 16px;
+		}
+		.footer-logo {
+			width: 98px;
+			height: 46px;
+		}
+	}
+}
+// Вроде победа, но не уверен в правильности применения флексов.
+// Жаль, что ниже 800рх по ширине начинает ломаться, зато чекбокс прикольный получился))))

@@ -1,0 +1,252 @@
+@import url(https://meyerweb.com/eric/tools/css/reset/reset200802.css);
+@font-face {
+	font-family: "Myriad Pro";
+	src: url(../fonts/MyriadPro-Regular.woff);
+}
+@font-face {
+	font-family: "SourceSans Pro";
+	src: url(../fonts/SourceSansPro-Regular.woff);
+}
+body {
+	font-family: "Myriad Pro", sans-serif;
+	font-weight: 400;
+	width: 100%;
+	color: #000;
+}
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.logo {
+	position: relative;
+    float: left;
+    margin-left: 112px;
+    margin-top: 19px;
+    padding-left: 86px;
+    padding-top: 7px;
+    display: inline-block;
+    font-size: 42px;
+    letter-spacing: 0.45px;
+}
+.logo::before {
+	content: "“";
+    position: absolute;
+    display: inline-block;
+    top: -5px;
+    left: 29px;
+    height: 42px;
+    width: 44px;
+    border-radius: 50%;
+    background-color: #5094f2;
+    margin-top: 10px;
+    font-family: "SourceSans Pro";
+    font-size: 64px;
+    color: #fff;
+    line-height: 64px;
+    text-align: center;
+    padding-top: 2px;
+}
+.navigate-menu {
+	float: right;
+	margin-right: 141px;
+}
+.navigate-item {
+	display: inline-block;
+}
+.navigate-link {
+	display: inline-block;
+	text-decoration: none;
+	font-size: 20px;
+	color: #6c6c6c;
+	width: 87px;
+	text-align: center;
+	/*Чисто интуетивно думаю что весь контейнер в высоту должен быть активным, по этому ссылкам padding*/
+	padding-top: 35px;
+	padding-bottom: 31px;
+	margin-right: 12px;
+	border-bottom: 3px solid transparent;
+}
+.navigate-item:first-of-type .navigate-link {
+	margin-right: 3px;
+}
+.navigate-link:hover,
+.navigate-link.active {
+	border-bottom: 3px solid #5094f2;
+}
+.header-content {
+	/*min-height: 490px;*/
+	background-image: /*url("../img/iphone.png"),*/ url("../img/main_bg.jpg") ;
+	-webkit-background-size: /*27.6% 89%,*/ cover;
+	background-size: /*27.6% 89%,*/ cover;
+	background-repeat: no-repeat;
+	background-position: /*19.6% 38px,*/ center -85px;
+	color: #fff;
+}
+.header-content-image {
+	padding-left: 14.2%;
+    padding-top: 38px;
+}
+.header-content-conteiner {
+	width: 32%;
+	float: right;
+	margin-right: 17.9%;
+    margin-top: 148px;
+}
+.content-title {
+	line-height: 45px;
+	font-size: 42px;
+	font-weight: 400;
+}
+.content-description {
+	line-height: 45px;
+	font-size: 26px;
+	font-weight: 400;
+	padding-top: 2px;
+}
+.login-link {
+	position: relative;
+	display: inline-block;
+    width: 129px;
+    height: 39px;
+    background-color: #5094f2;
+    border-radius: 2px;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 45px;
+    text-decoration: none;
+    margin-top: 27px;
+    margin-left: 12px;
+    margin-bottom: 133px;
+    padding-left: 44px;
+    padding-bottom: 4px;
+}
+.login-link::before {
+	content: url("../img/check.png");
+    position: absolute;
+    display: inline-block;
+    top: 4px;
+    left: 10px;
+}
+.main {
+	padding-left: 140px;
+}
+.preferences {
+	padding-bottom: 35px;
+	text-align: center; 	
+}
+.card {
+	display: inline-block;
+	width: 23%;
+	padding-top: 57px;
+	padding-right: 111px;
+}
+.card:nth-child(even) {
+	padding-right: 85px;
+}
+.card-logo {
+	display: block;
+	width: 186px;
+	height: 186px;
+	border-radius: 50%;
+	margin: 0 auto;
+	background-image: url("../img/icon_sprite.png");
+	background-repeat: no-repeat;
+}
+.card-title {
+	color: #5094f2;
+	font-size: 20px;
+	line-height: 44px;
+	text-align: center;
+	padding-top: 13px;
+}
+.card-content {
+	color: #909090;
+	font-size: 14px;
+	font-weight: 400;
+	text-align: center;
+}
+.write-logo {
+	background-color: #5094f2;
+	background-position: 60px 39px;
+}
+.calculate-logo {
+	background-color: #d94748;
+	background-position: -310px 39px;
+}
+.save-logo {
+	background-color: #ebbb11;
+	background-position: -654px 39px;
+}
+.product {
+	padding-left: 19px;
+    padding-top: 55px;
+}
+.product-title {
+	color: #6f7173;
+	font-size: 42px;
+	line-height: 45px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+}
+.cart-image {
+	float: left;
+	width: 371px;
+	padding-top: 30px;
+	padding-bottom: 50px;
+}
+.cart-description {
+	float: right;
+	padding-right: 17%;
+}
+.description-title {
+	color: #6f7173;
+	font-size: 26px;
+	line-height: 45px;
+	margin-bottom: 9px;
+}
+.description-list {
+	color: #909090;
+	font-size: 15px;
+	line-height: 36px;
+	letter-spacing: 0.15px;
+}
+.footer {
+	border-top: 1px solid #e5e5e5;
+	/*По макету не по центру, но по опыту прошлой вёрстки, лучше выровняю по центру*/
+	text-align: center;
+	color: #909090;
+	font-size: 15px;
+	line-height: 36px;
+	padding-top: 22px;
+    padding-bottom: 35px;
+}
+
+
+/*Ниже стили просто для придания динамических эффектов*/
+.navigate-link:hover,
+.navigate-link.active:hover,
+.login-link:hover,
+.login-link:hover::before {
+	transition: 1s all linear;
+}
+.navigate-link.active:hover {
+	border-bottom: 3px solid #6c6c6c;
+}
+.login-link:hover {
+	background-color: #ffffff;
+    color: #000000;
+}
+.login-link:hover::before {
+	filter: invert(100%);
+}
+.card-logo:hover {
+	transform: rotate(360deg);
+	transition: 0.2s all linear;
+}
+.description-list>.description-item:hover {
+	transform: scale(1.1) translateX(20px);
+	color: #000000;
+	transition: 0.5s all linear;
+}

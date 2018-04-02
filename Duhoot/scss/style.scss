@@ -1,0 +1,1303 @@
+// Сторонние файлы
+@import "_reset";
+@import "_fonts";
+@import "_colors";
+@import "_mixins";
+
+// Стили
+body {
+	font-family: "Gotham";
+	color: $main_text_color;
+	font-size: 62.5%;
+	background-color: $white;
+}
+.hide {
+	display: none;
+}
+.container {
+	max-width: 980px;
+    width: 100%;
+}
+.rate {
+	@include row(center);
+	align-items: center;
+}
+.your-rating-container,
+.rating-container,
+.user-rating-container {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	.rating {
+		color: $white;
+	}
+}
+.rating-container,
+.user-rating-container {
+	.rating {
+		color: $entertainment_color;
+	}
+}
+.your-rating-container {
+	.rating:hover::before,
+	.rating:hover ~  .rating::before {
+		content: "\f005";
+	}
+}
+.rating.active::before,
+.rating.active ~  .rating::before {
+	content: "\f005";
+}
+.page-header {
+	@include row(center);
+	width: 100%;
+	overflow: hidden;
+	padding: 0 10px 0 10px;
+    box-sizing: border-box;
+	.container {
+		@include row(space-between);
+		align-items: center;
+	}
+	.header-logo-image {
+		width: 154px;
+		height: 45px;
+	}
+	.header-navigation {
+		flex-grow: 1;
+		padding: 0 18px 0 10%;
+
+	}
+	.navigation-list {
+		@include row(space-between);
+		flex-wrap: wrap;
+	}
+	.navigation-item {
+		padding: 0 5px 0 0;
+	}
+	.navigation-link {
+		color: $main_text_color;
+		@include font("Gotham", 14px, 500, uppercase, none);
+		line-height: 24px;
+		&:hover {
+			color: darken($main_text_color, 30);
+			transition: 0.2s all linear;
+		}
+	}
+	.btn-block{
+		@include row(flex-end);
+		width: 237/980*100%;
+	}
+	.search {
+		@include row(center);
+		align-items: center;
+		font-size: 0;
+		box-sizing: border-box;
+		width: 74px;
+		height: 74px;
+		background-color: #e2dee0;
+		&:hover {
+			background-color: darken(#e2dee0, 30);
+			transition: 0.2s all linear;
+		}
+		.loop {
+			color: $white;
+			font-size: 24px;
+			font-weight: 400;
+			line-height: 48px;
+			text-transform: uppercase;
+			text-decoration: none;
+		}
+	}
+	.login {
+		@include row(center);
+		align-items: center;
+		box-sizing: border-box;
+		position: relative;
+		width: 69%;
+		height: 74px;
+		background-color: $living_color;
+		color: $white;
+		@include font("Gotham", 14px, 500, uppercase, none);
+		line-height: 24px;
+		z-index: 1;
+		padding-right: 7px;
+		&:hover,
+		&:hover::after {
+			background-color: darken($living_color, 15);
+			transition: 0.2s all linear;
+		}
+		.log {
+			font-size: 18px;
+		}
+		&::after {
+			content: "";
+		    position: absolute;
+		    left: 92%;
+		    top: 0;
+		    height: 74px;
+		    width: 100%;
+			background-color: $living_color;
+		}
+		&.hide {
+			display: none;
+		}
+	}
+}
+.search-intro {
+	@include row(center);
+	background-image: url("../img/main_bg.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 200%;
+    background-position: 0 -70px;
+	padding: 25px 0 10px 0;
+	.container {
+		@include column(flex-start);
+		align-items: center;	
+	}
+	.search-title {
+		text-shadow: 0 1px 1px rgba(0, 0, 1, 0.15);
+		color: $white;
+		@include font("Gotham", 30px, 500, none, none);
+		line-height: 48px;
+		padding: 20px 0 20px 0;
+	}
+	.search-form {
+		@include column(flex-start);
+		align-items: center;
+		width: 500px;
+		padding: 0 15px 15px 15px;
+	}
+	.selects {
+		width: 100%;
+		@include row(space-between);
+		padding: 3px 0 15px 0;
+	}
+	.select-block {
+		position: relative;
+		width: 220px;
+		height: 50px;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		background-color: rgba(255, 255, 255, 0.1);
+		border-radius: 50px;
+		&.place {
+			margin-left: 15px;
+		}
+		&.category {
+			margin-right: 15px;
+		}
+	}
+	.place-list,
+	.category-list {
+		background-color: transparent;
+		position: absolute;
+	    -webkit-appearance: none;
+	    -moz-appearance: none;
+	    appearance: none;
+	    width: 80%;
+	    height: 50px;
+		border: none;
+		outline: none;
+		border-radius: 50px;
+		color: $white;
+		opacity: 1;
+		@include font("GothamBook", 18px, 400, none, none);
+		line-height: 30px;
+		margin-left: 20px;
+		padding: 0 10px 0 10px;
+		cursor: pointer;
+		}
+	.list-item {
+		background-color: #5e5b4e;
+	}
+	.arrow-block {
+		z-index: 1;
+		position: absolute;
+		top: 3px;
+    	right: 22px;
+		pointer-events: none;
+		.sel-arrow {
+			color: $white;
+			font-size: 22px;
+			font-weight: 600;
+			line-height: 48px;
+			text-transform: uppercase;
+		}
+	}
+	.search-row {
+		box-sizing: border-box;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		background-color: rgba(255, 255, 255, 0.1);
+		width: 94%;
+		height: 55px;
+		border-radius: 55px;
+		margin: 7px 0 15px 0;
+		padding: 1px 5px 0 32px;
+		color: $white;
+		@include font("GothamBook", 18px, 400, none, none);
+		line-height: 30px;
+		&::placeholder {
+			color: $white;
+			@include font("GothamBook", 18px, 400, none, none);
+			line-height: 30px;
+		}
+	}
+	.submit-search {
+		width: 140px;
+		padding: 7px 0 5px 0;
+		margin: 15px;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		box-shadow: 0 2px 0 #c1412e;
+		background-color: $living_color;
+		text-shadow: 0 1px 1px rgba(0, 0, 1, 0.15);
+		color: $white;
+		@include font("Gotham", 18px, 500, uppercase, none);
+		line-height: 48px;
+		border-radius: 60px;
+		&:hover {
+			font-size: 20px;
+			background-color: darken($living_color, 20);
+			transition: 0.2s all linear;
+		}
+	}
+}
+.nav-panel {
+	@include row(center);
+	padding: 7px 10px 7px 10px;
+	box-sizing: border-box;
+	.container {
+		@include row(space-between);
+		flex-wrap: wrap;
+	}
+	.toggle-wrapper {
+		@include row(center);
+		padding: 5px 5px 0 5px;
+	}
+	.panel-title {
+		font-size: 0;
+		position: absolute;
+	}
+	.link-group {
+		padding-right: 15px;
+	}
+	.nav-panel-link {
+		color: $main_text_color;
+		@include font("Gotham", 12px, 500, uppercase, none);
+		line-height: 48px;
+		margin: 0 17px 0 0;
+		&:hover,
+		&.active {
+			color: $living_color;
+		}
+	}
+	.map-group {
+		margin-right: 12px;
+	}
+	.select-block {
+		position: relative;
+		width: 115px;
+		height: 35px;
+		border: 1px solid $main_text_color;
+		background-color: $white;
+		border-radius: 35px;
+		text-align: center;
+	}
+	.place-list {
+		background-color: $white;
+		position: relative;
+	    -webkit-appearance: none;
+	    -moz-appearance: none;
+	    appearance: none;
+	    width: auto;
+	    height: 35px;
+		border: none;
+		outline: none;
+		color: $living_color;
+		@include font("Gotham", 12px, 500, uppercase, none);
+		line-height: 36px;
+		box-sizing: border-box;
+		padding: 0 0 0 3px;
+		cursor: pointer;
+	}
+	.arrow-block {
+		z-index: 1;
+		position: absolute;
+		top: -5px;
+    	right: 20px;
+		pointer-events: none;
+		.sel-arrow {
+			color: $main_text_color;
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 44px;
+			text-transform: uppercase;
+		}
+	}
+	.map-toggle {
+		box-sizing: border-box;
+		width: 125px;
+		height: 35px;
+		border: 1px solid $reality_color;
+		background-color: $reality_color;
+		border-radius: 35px;
+		color:$white;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 48px;
+		display: flex;
+    	align-items: center;
+    	&:hover {
+    		background-color: darken($reality_color, 10%);
+    		transition: 0.2s all linear;
+    	}
+	}
+	.map-link {
+		width: 100%;
+		color:$white;
+		@include font("Gotham", 12px, 500, uppercase, none);
+		line-height: 48px;
+		padding: 0 0 0 17px;
+	}
+	.map-mark {
+		padding: 0 0 0 16px;
+    	font-size: 15px;
+	}
+	.filter-group {
+		@include row(flex-end);
+		align-items: center;
+	}
+	.filter-name {
+		@include font("Gotham", 12px, 500, uppercase, none);
+		line-height: 48px;
+	}
+	.category {
+		margin-left: 10px;
+		font-size: 0;
+		width: 40px;
+		height: 40px;
+		background-color: $not_active_color;
+		border-radius: 50%;
+		background-image: url("../img/deco_sprite_sm.png");
+		background-repeat: no-repeat;
+		&-realty {
+			background-position: 8px 10px;
+			@include category-toggle($reality_color);
+		}
+		&-living {
+			background-position: -41px 9px;
+			@include category-toggle($living_color);
+		}
+		&-education {
+			background-position: -91px 9px;
+			@include category-toggle($education_color);
+		}
+		&-entertainment {
+			background-position: -141px 9px;
+			@include category-toggle($entertainment_color);
+		}
+		&-mobility {
+			background-position: -191px 9px;
+			@include category-toggle($mobility_color);
+		}
+	}
+}
+.galery {
+	@include row(center);
+	background-color: #f3f1f2;
+	padding: 19px 0 0 0;
+	.container {
+		border-bottom: 1px solid #e2dee0;
+	}
+	.galery-cards {
+		@include row(space-between);
+		flex-wrap: wrap;
+		align-content: stretch;
+		padding: 9px 0 9px 0;
+	}
+	.galery-card {
+		display: block;
+		width: 210/980*100%;
+		position: relative;
+		background-color: $white;
+		box-sizing: border-box;
+		margin: 15px 15px 17px 17px;
+		border-radius: 5px;
+	}
+	.card-top {
+		@include column(center);
+		align-items: center;
+		position: relative;
+		min-height: 140px;
+		background-repeat: no-repeat;
+		border-bottom: 3px solid;
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			z-index: 1;
+			width: 55px;
+			height: 55px;
+			border: 3px solid $white;
+			bottom: -32px;
+			border-radius: 50%;
+			background-image: url("../img/deco_sprite.png");
+			background-repeat: no-repeat;
+			background-size: 420px 218px;
+		}
+		&:hover {
+			opacity: 0.8;
+			.price {
+				visibility: hidden;
+			}
+		}
+		.card-top-content {
+			position: relative;
+			z-index: 1;
+			@include column(space-around);
+			align-items: center;
+			width: 100%;
+			min-height: 140px;
+			opacity: 0;
+			padding: 15px 0 31px 0;
+    		box-sizing: border-box;
+			&:hover,
+			&.active {
+				opacity: 1;
+				transition: 0.2s all linear;
+			}
+			.btn-show {
+				display: block;
+				width: 141px;
+				height: 35px;
+				border: 2px solid $white;
+				color: $white;
+				@include font("Gotham", 12px, 500, uppercase, none);
+				line-height: 31px;
+				border-radius: 31px;
+				box-sizing: border-box;
+				padding: 0 0 0 20px;
+			}
+			.search {
+				margin-right: 4px;
+			}
+			.rate {
+				@include row(center);
+				align-items: center;
+			}
+			.your-rating-container {
+				margin-right: 27px;
+			}
+			.rating {
+				font-size: 18px;
+			}
+			.comment {
+				font-size: 0;
+			}
+			.comm {
+				content: "\f005";
+				font-size: 24px;
+				text-decoration: none;
+				color: $white;
+			}
+		}
+		&.home {
+			background-image: url("../img/home.jpg");
+		}
+		&.party {
+			background-image: url("../img/party.jpg");
+		}
+		&.hotel {
+			background-image: url("../img/hotel.jpg");
+		}
+		&.disco {
+			background-image: url("../img/club.jpg");
+		}
+		&.room {
+			background-image: url("../img/room.jpg");
+		}
+		&.category-realty {
+			@include colors($reality_color, $reality_color_alpha, 14px, -86px);
+		}
+		&.category-living {
+			@include colors($living_color, $living_color_alpha, -84px, -86px);
+		}
+		&.category-education {
+			@include colors($education_color, $education_color_alpha, -183px, -87px);
+		}
+		&.category-entertainment {
+			@include colors($entertainment_color, $entertainment_color_alpha, -281px, -84px);
+		}
+		&.category-mobility {
+			@include colors($mobility_color, $mobility_color_alpha, -379px, -85px);
+		}
+	}
+	.card-top-content.active + .price {
+		visibility: hidden;
+	}
+	.price {
+		position: absolute;
+		z-index: 0;
+		min-width: 56px;
+		background-color: $reality_color;
+		border-radius: 25px;
+		color: $white;
+		@include font("Gotham", 12px, 500, uppercase, none);
+		line-height: 15px;
+		top: 6px;
+   		right: 6px;
+    	padding: 6px 0 5px 10px;
+	}
+	.card-bottom {
+		@include column(space-between);
+		align-items: center;
+		padding: 31px 15px 13px 14px;
+		min-height: 123px;
+		box-sizing: border-box;
+		.rate {
+			margin-top: 3px;
+		}
+	}
+	.card-description {
+		color: $comment_color;
+		@include font("Gotham", 14px, 500, none, none);
+		line-height: 18px;
+		text-align: center;
+	}
+	.partner {
+		@include font("Gotham", 12px, 500, uppercase, none);
+		margin-top: auto;
+	}
+	.category-realty {
+		.partner {
+			color: $reality_color;
+		}
+	}
+	.category-living {
+		.partner {
+			color: $living_color;
+		}
+	}
+	.category-education {
+		.partner {
+			color: $education_color;
+		}
+	}
+	.category-entertainment {
+		.partner {
+			color: $entertainment_color;
+		}
+	}
+	.category-mobility {
+		.partner {
+			color: $mobility_color;
+		}
+	}
+	.rating-container {
+		.rating {
+			font-size: 12px;
+		}
+		.counter {
+			font-size: 12px;
+			font-weight: 500;
+			padding-left: 5px;
+		}
+	}
+	.galery-card-wide {
+		@extend .galery-card;
+		width: 455/980*100%;
+		.card-top {
+			align-items: center;
+			justify-content: flex-end;
+			min-height: 120px;
+			position: relative;
+			&::after {
+				left: 20px;
+			}
+		}
+		.card-top-content {
+			min-height: 120px;
+			position: absolute;
+			padding: 25px;
+		}
+		.card-top-content.active + .card-top-description,
+		.card-top-content:hover + .card-top-description {
+			visibility: hidden;
+		}
+		.card-top-description {
+			@include row(space-between);
+			color: $white;
+			padding-bottom: 7px;
+    		width: 55%;
+			.partner {
+				color: $white;
+				text-shadow: 0 1px 1px rgba(0, 0, 1, 0.15);
+				@include font("Gotham", 18px, 500, uppercase, none);
+			}
+			.rate {
+				font-size: 12px;
+			}
+			.rating-container {
+				padding: 0 7px 0 0px;
+			}
+		}
+		.card-bottom {
+			min-height: 147px;;
+			padding-top: 18px;
+		}
+		.user-photo-block {
+			border: 2px solid $white;
+			border-radius: 50%;
+		    margin: 7px 6px 0 6px;
+		}
+		.last-comment {
+			@include row(flex-start);
+			align-items: center;
+		}
+		.connent-rate-block {
+			@include column(flex-start);
+			align-items: flex-start;
+			box-sizing: border-box;
+			padding: 0 2px 0 14px;
+		}
+		.user-rating-container {
+			font-size: 18px;
+		}
+		.user-name {
+			color: $comment_color;
+			@include font("Gotham", 16px, 700, uppercase, none);
+			margin: 14px 0 5px 0;
+		}
+		.user-comment {
+			@include font("GothamBook", 14px, 400, none, none);
+			line-height: 20px;
+		}
+		.comment-link {
+			@include font("Gotham", 14px, 500, none, underline);
+			color: $comment_color;
+		
+		}
+	}
+	.learn-more {
+		display: block;
+		text-align: center;
+		@include font("Gotham", 18px, 500, none, underline);
+		color: $comment_color;
+		margin: 12px 4px 35px 9px;
+		&:hover {
+			color: $black;
+			transform: scale(1.1);
+			transition: 0.2s all linear;
+		}
+	}
+	.learn-arrow {
+		text-decoration: none;
+	}
+}
+.offers {
+	@include row(center);
+	background-color: #f3f1f2;
+	padding: 63px 0 129px 0;
+	overflow: hidden;
+	.container {
+		@include column(flex-start);
+		align-items: center;
+	}
+	.offers-title {
+		color: $comment_color;
+		@include font("Gotham", 22px, 500, none, none);
+		line-height: 30px;
+		padding: 18px 0 5px 0;
+	}
+	.offers-description {
+		color: $main_text_color;
+		@include font("GothamBook", 16px, 400, none, none);
+		line-height: 20px;
+		padding: 0 5px 20px 5px;
+	}
+	.offer-block {
+		display: none;
+	}
+	.toggle_btn:checked + .offer-block {
+		@include column(flex-start);
+		align-items: center;
+	}
+
+	.toggle-block {
+		@include row(space-between);
+		width: 78%;
+		padding: 49px 0 9px 0;
+		overflow: hidden;
+		z-index: 1;	
+	}
+	.main-toggle {
+		position: relative;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		border: 2px solid #9dacad;
+		background-image: url("../img/deco_sprite.png");
+		background-repeat: no-repeat;
+		background-color: #f3f1f2;
+		background-size: 720% 380%;
+		z-index: 1;	
+		cursor: pointer;
+		&::after {
+			content: "";
+			display: inline-block;
+			position: absolute;
+			width: 53%;
+			height: 2px;
+			background-color: #e2dee0;
+			top: 48px;
+   			right: -60%;
+    		z-index: 0;
+		}
+	}
+	.toggle_btn {
+		display: none;
+	}
+	.category-realty {
+		@include offer_toggler($reality_color);
+		background-position: 27px 22px;
+		.offer-icon-wrapper {
+			background-color: $reality_color;
+		}
+	}
+	.category-living {
+		@include offer_toggler($living_color);
+		background-position: -140px 22px;
+		.offer-icon-wrapper {
+			background-color: $living_color;
+		}
+	}
+	.category-education {
+		@include offer_toggler($education_color);
+		background-position: -310px 24px;
+		.offer-icon-wrapper {
+			background-color: $education_color;
+		}
+	}
+	.category-entertainment {
+		@include offer_toggler($entertainment_color);
+		background-position: -480px 23px;
+		.offer-icon-wrapper {
+			background-color: $entertainment_color;
+		}
+	}
+	.category-mobility {
+		@include offer_toggler($mobility_color);
+		background-position: -649px 24px;
+		.offer-icon-wrapper {
+			background-color: $mobility_color;
+		}
+	}
+	.offer-title {
+		@include font("Gotham", 24px, 500, none, none);
+		line-height: 30px;
+		padding: 20px 0 0 0;
+	}
+	.offer-wrapper {
+		@include row(space-between);
+		width: 80%;
+	    padding: 34px 0 10px 0;
+	    margin-left: 30px;
+	}
+	.offer-icon-wrapper {
+		@include row(center);
+		align-items: center;
+		min-width: 62px;
+		height: 62px;
+		border-radius: 50%;
+		font-size: 30px;
+		font-weight: 400;
+		line-height: 24px;
+		color: $white;
+		margin: 8px 15px 0 0;
+	}
+	.offer-description {
+		color: $comment_color;
+		@include font("GothamBook", 14px, 400, none, none);
+		line-height: 24px;
+		padding: 0px 35px 0 17px;
+	}
+}
+.page-footer {
+	@include row(center);
+	padding: 45px 30px 57px 30px;
+	background-image: url("../img/footer_bg.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: hidden;
+	.container {
+		@include column(flex-start);
+		align-items: center;
+	}
+	.newsletter {
+		@include column(flex-start);
+		align-items: center;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		padding-bottom: 33px;
+		width: 100%;
+	}
+	.newsletter-title {
+		text-shadow: 0 1px 1px rgba(0, 0, 1, 0.15);
+		color: $white;
+		@include font("Gotham", 24px, 500, none, none);
+		line-height: 30px;
+		padding: 10px 5px 15px 5px;
+	}
+	.newsletter-block {
+		width: 495px;
+		height: 60px;
+		border-radius: 60px;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		@include row(space-between);
+		align-items: center;
+		background-color: rgba(255, 255, 255, 0.1);
+		box-sizing: border-box;
+		margin: 27px 0 24px 0;
+	}
+	.email {
+		background-color: transparent;
+	    height: 60px;
+		border: none;
+		outline: none;
+		color: $white;
+		@include font("GothamBook", 18px, 400, none, none);
+		&::placeholder {
+			color: $white;
+			@include font("GothamBook", 18px, 400, none, none);
+		}
+	}
+	.email-icon {
+		color: $white;
+		font-size: 18px;
+		padding: 0 18px 0 33px;
+	}
+	.subscribe {
+		width: 120px;
+		height: 50px;
+		border-radius: 50px;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		box-shadow: 0 2px 0 #c1412e;
+		background-color: $living_color;
+		text-shadow: 0 1px 1px rgba(0, 0, 1, 0.15);
+		color: $white;
+		@include font("Gotham", 14px, 500, uppercase, none);
+		margin: 0 3px 2px 0;
+		&:hover {
+			background-color: darken($living_color, 20);
+			transition: 0.2s all linear;
+		}
+	}
+	.footer-bottom {
+		@include row(space-between);
+		width: 89.6%;
+	    padding: 21px 0 0 0;
+	    align-self: flex-start;
+	}
+	.nav-title {
+		color: $white;
+		@include font("Gotham", 16px, 500, none, underline);
+		line-height: 24px;
+		padding: 16px 0 17px 0;
+	}
+	.footer-nav-link {
+		color: #c0bebc;
+		@include font("GothamBook", 14px, 400, none, none);
+		line-height: 24px;
+		&:hover {
+			color: $white;
+			text-decoration: underline;
+			transition: 0.2s sll linear;
+		}
+	}
+	.follow-title {
+		@extend .nav-title;
+	}
+	.social-list {
+		@include row(flex-start);
+		margin: 7px 0 10px 0;
+	}
+	.social-item {
+		margin-right: 22px;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	.social {
+		color: $white;
+		text-decoration: none;
+		font-size: 30px;
+		font-weight: 400;
+		line-height: 24px;
+		&:hover {
+			color: darken($white, 40%);
+			transition: 0.2s all linear;
+		}
+	}
+	.copy {
+		color: $white;
+		@include font("GothamBook", 14px, 400, none, none);
+		line-height: 24px;
+		margin-top: 55px;
+	}
+}
+.pop-up-wrapper.visible {
+	@include row(center);
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.9);
+	position: fixed;
+	z-index: 3;
+}
+.pop-up-block {
+	@include column(space-around);
+	align-items: center;
+	position: relative;
+	width: 500px;
+	height: 500px;
+	background-color: $entertainment_color_alpha;
+	border-radius: 6px;
+	border: 2px solid $white;
+	box-sizing: border-box;
+	padding-top: 15px;
+	.close {
+		display: block;
+	    width: 25px;
+	    height: 25px;
+	    top: 9px;
+	    right: 2px;
+	    position: absolute;
+	    font-size: 22px;
+	    color: white;
+	    cursor: pointer;
+	}
+	.log-to {
+		width: 120px;
+		height: 50px;
+		border-radius: 50px;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		background-color: $living_color;
+		color: $white;
+		@include font("Gotham", 14px, 500, uppercase, none);
+		margin-top: auto;
+		margin-bottom: 25px;
+	}
+	.email-label,
+	.password-label {
+		margin-top: 35px;
+		color: $white;
+		@include font("Gotham", 20px, 500, none, none);
+	}
+	.user-email,
+	.user-password {
+		margin-top: 10px;
+		width: 80%;
+		height: 60px;
+		border-radius: 60px;
+		border: 2px solid rgba(255, 255, 255, 0.8);
+		box-sizing: border-box;
+		background-color: transparent;
+		outline: none;
+		color: $white;
+		padding-left: 15px;
+		@include font("GothamBook", 18px, 400, none, none);
+		&::placeholder {
+			color: $white;
+			@include font("GothamBook", 18px, 400, none, none);
+		}
+	}
+}
+@media screen and (max-width: 895px) {
+	.page-header {
+		.navigation-list {
+			@include row(center);
+		}
+		.navigation-item {
+			padding-right: 15px;
+		}
+		.btn-block {
+			width: auto;
+			flex-grow: 1;
+		}
+	}
+	.nav-panel {
+		.container {
+			justify-content: space-between;
+		}
+	}
+	.galery {
+		.galery-cards {
+			@include row(center);
+		}
+		.galery-card {
+    		width: 26.42857%;
+			.card-top {
+				background-size: cover;
+			}
+		}
+		.galery-card-wide {
+			width: 56.42857%;
+			.card-top {
+				background-size: cover;
+			}
+		}
+	}
+}
+@media screen and (max-width: 709px) {
+	.page-header {
+		padding-left: 0;
+		padding-right: 0;
+		.container {
+			flex-direction: column;
+		}
+		.header-logo-link {
+			margin: 20px;
+		}
+		.navigation-list {
+			@include row(center);
+			margin-bottom: 20px;
+		}
+		.navigation-item {
+			padding-right: 15px;
+		}
+		.btn-block {
+			width: 100%;
+		}
+		.search,
+		.login {
+			width: 50%;
+		}
+		.login:after {
+			display: none;
+		}
+	}
+	.nav-panel {
+		.container {
+			justify-content: space-around;
+		}
+		.filter-group {
+			margin-top: 20px;
+		}
+	}
+	.galery {
+		.galery-cards {
+			@include row(center);
+		}
+		.galery-card {
+			width: 28.15%;
+		}
+		.galery-card-wide {
+			width: 61%;
+		}
+	}
+	.offers { 
+		.toggle-block {
+			width: 95%;
+		}
+		.offer-wrapper {
+			width: 95%;
+			padding: 10px;
+		}
+		.offer-description {
+			padding-right: 25px;
+		}
+	}
+}
+@media screen and (max-width: 617px) {
+	.galery {
+		.galery-card {
+			width: 42%;
+		}
+		.galery-card-wide {
+			width: 89%;
+		}
+	}
+	.offers {
+		.toggle-block {
+			@include row(center);
+			flex-wrap: wrap;
+		}
+		.main-toggle {
+			margin-left: 0;
+			margin-right: 0;
+			border-radius: 0;
+			margin-bottom: 10px;
+			&::after {
+				display: none;
+			}
+		}
+		.offer-wrapper {
+			flex-direction: column;
+			align-items: center;
+		}
+		.offer-description {
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+	}
+	.page-footer {
+		.footer-bottom {
+			flex-wrap: wrap;
+			width: 100%;
+		}
+		.footer-nav-block {
+			width: 50%;
+			text-align: center;
+		}
+		.follow-copy-block {
+			margin-top: 20px;
+			width: 100%;
+			@include row(space-around);
+		}
+	}
+}
+@media screen and (max-width: 535px) {
+	.search-intro {
+		.search-title {
+			text-align: center;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+		.selects {
+			flex-wrap: wrap;
+			width: 100%;
+			margin-left: 0;
+			margin-right: 0;
+		}
+		.select-block {
+			width: 100%;
+			&.place {
+				margin-left: 0;
+				margin-bottom: 20px;
+			}
+			&.category {
+				margin-right: 0;
+			}
+		}
+		.search-form {
+			padding-left: 0;
+			padding-right: 0;
+			width: 100%;
+		}
+		.search-row {
+			width: 100%;
+		}
+		.submit-search {
+			width: 100%;
+		}
+	}
+	.nav-panel {
+		padding-left: 0;
+		padding-right: 0;
+		.link-group {
+			width: 100%;
+			padding-right: 0;
+			text-align: center;
+		}
+		.toggle-wrapper {
+			width: 100%;
+			padding-left: 0;
+			padding-right: 0;
+		}
+		.map-group,
+		.map-toggle {
+			width: 50%;
+			border-radius: 0;
+			padding-left: 0;
+			padding-right: 0;
+			margin-right: 0;
+			min-height: 40px;
+		}
+		.place-nav {
+			width: 100%;
+			border-radius: 0;
+			min-height: 38px;
+		}
+		.place-list {
+			width: 100%;
+			padding-left: 15px;
+		}
+	}
+	.galery {
+		.galery-card {
+			width: 100%;
+			margin: 10px 0 10px 0;
+
+			.card-top {
+				background-position: center center;
+				background-size: 100% 100%;
+			}
+		}
+		.galery-card-wide {
+			width: 100%;
+			margin: 10px 0 10px 0;
+			.card-top {
+				background-position: center center;
+			}
+		}
+	}
+	.offers {
+		.offers-title,
+		.offers-description {
+			text-align: center;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+	}
+	.page-footer {
+		padding-left: 0;
+		padding-right: 0;
+		.newsletter-block {
+			width: 100%;
+		}
+		.newsletter-title {
+			text-align: center;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+		.email-icon {
+			font-size: 12px;
+		}
+		.email {
+			width: 65%;
+			font-size: 12px;
+			&::placeholder {
+				font-size: 12px;
+			}
+		}
+		.subscribe {
+			width: 25%;
+			font-size: 9px;
+		}
+		.follow-copy-block {
+			flex-direction: column;
+			align-items: center;
+		}
+		.follow-block {
+			text-align: center;
+		}
+		.follow-block {
+			width: 100%;
+		}
+		.social-item {
+			border: 2px solid $white;
+			margin-left: 0;
+			margin-right: 0;
+			box-sizing: border-box;
+			width: 25%;
+			height: 50px;
+			.social {
+				line-height: 45px;
+				width: 100%;
+			}
+		}
+	}
+}

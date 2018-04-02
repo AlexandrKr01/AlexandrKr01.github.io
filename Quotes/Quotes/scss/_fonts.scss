@@ -1,0 +1,54 @@
+$path: "../fonts/";
+
+@font-face {
+	font-family: "Montserrat";
+	src: url($path + "Montserrat-Regular.woff");
+	src: url($path + "Montserrat-Regular.eot");
+	src: 
+		url($path + "Montserrat-Regular.eot?#iefix") format("embedded-opentype"),
+		url($path + "Montserrat-Regular.woff2") format("woff2"),
+		url($path + "Montserrat-Regular.woff") format("woff"),
+		url($path + "Montserrat-Regular.ttf") format("truetype"),
+		url($path + "Montserrat-Regular.svg#gothamblack") format("svg");
+}
+
+@font-face {
+	font-family: "Raleway - Extra Light";
+	src: url($path + "Raleway-ExtraLight.eot");   
+	src: 
+		url($path + "Raleway-ExtraLight.eot?#iefix") format("embedded-opentype"),         
+		url($path + "Raleway-ExtraLight.woff2") format("woff2"),        
+		url($path + "Raleway-ExtraLight.woff") format("woff"),        
+		url($path + "Raleway-ExtraLight.ttf") format("truetype"),        
+		url($path + "Raleway-ExtraLight.svg#open_sansregular") format("svg");
+}
+@font-face {
+	font-family: "Raleway";
+	src: url($path + "Raleway-Regular.eot");   
+	src: 
+		url($path + "Raleway-Regular.eot?#iefix") format("embedded-opentype"),         
+		url($path + "Raleway-Regular.woff2") format("woff2"),        
+		url($path + "Raleway-Regular.woff") format("woff"),        
+		url($path + "Raleway-Regular.ttf") format("truetype"),        
+		url($path + "Raleway-Regular.svg#open_sansregular") format("svg");
+}
+@font-face {
+	font-family: "Raleway - Semi Bold";
+	src: url($path + "Raleway-SemiBold.eot");   
+	src: 
+		url($path + "Raleway-SemiBold.eot?#iefix") format("embedded-opentype"),         
+		url($path + "Raleway-SemiBold.woff2") format("woff2"),        
+		url($path + "Raleway-SemiBold.woff") format("woff"),        
+		url($path + "Raleway-SemiBold.ttf") format("truetype"),        
+		url($path + "Raleway-SemiBold.svg#open_sansregular") format("svg");
+}
+@font-face {
+	font-family: "Raleway - Thin";
+	src: url($path + "Raleway-Thin.eot");   
+	src: 
+		url($path + "Raleway-Thin.eot?#iefix") format("embedded-opentype"),         
+		url($path + "Raleway-Thin.woff2") format("woff2"),        
+		url($path + "Raleway-Thin.woff") format("woff"),        
+		url($path + "Raleway-Thin.ttf") format("truetype"),        
+		url($path + "Raleway-Thin.svg#open_sansregular") format("svg");
+}

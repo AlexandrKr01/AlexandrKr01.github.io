@@ -1,0 +1,1481 @@
+// Сторонние файлы
+@import "_reset";
+@import "_fonts";
+
+// Цвета
+$main_text_color: #161616;
+$black: #000000;
+$white: #ffffff;
+$main_bg_color: #0a0e34;
+$dark_bg_color: #5e3db3;
+$title_color: #e7e7e7;
+$sub_title_color: #c1c1c1;
+
+
+// Миксины
+@mixin row($justify-content) {
+	display: flex;
+	flex-direction: row;
+	justify-content: $justify-content;
+}
+@mixin column($justify-content) {
+	display: flex;
+	flex-direction: column;
+	justify-content: $justify-content;
+}
+@mixin font(
+	$font-family, 
+	$font-size, 
+	$font-weight, 
+	$text-transform,
+	$text-decoration) {
+		font-family: $font-family;
+		font-size: $font-size;
+		font-weight: $font-weight;
+		text-transform: $text-transform;
+		text-decoration: $text-decoration;
+}
+// Фон с высотой
+@mixin deco_bg (
+	$height,  
+	$main_bg_url, 
+	$sub_bg_url) {
+	&::before,
+	&::after {
+		content: "";
+	    width: 100%;
+	    height: $height;
+	    position: absolute;
+	    background-repeat: no-repeat;
+	}
+	&::before{
+	    z-index: 2;
+	    background-image: url($main_bg_url);
+	}
+	&::after {
+	    z-index: 1;
+	    background-image: url($sub_bg_url);
+	}
+}
+// Обёртка слайда
+%-wrapper {
+	@include column (flex-start);
+	width: 100%;
+}
+// Основной заголовок блока
+@mixin main_title {
+	position: relative;
+	color: $title_color;
+	@include font("ProximaNovaBold", 50px, 700, uppercase, none);
+	line-height: 60px;
+}
+// Подзаголовок блока
+@mixin sub_title {
+	position: relative;
+	color: $sub_title_color;
+	@include font("ProximaNovaBold", 28px, 700, uppercase, none);
+	line-height: 34.49px;
+	letter-spacing: 1.8px;
+}
+// Цифра в подзаголовке
+@mixin sub_title_number {
+	position: absolute;
+	top: 35%;
+	left: 19px;
+	color: $black;
+	@include font("ProximaNova", 14px, 900, uppercase, none);
+	line-height: 34.49px;
+	letter-spacing: 0.7px;
+	&::after {
+		content: "";
+		display: block;
+		width: 17px;
+		height: 5px;
+		border-radius: 2px;
+		background-color: #5e42b0;
+		position: absolute;
+		bottom: 5px;
+		left: 0;
+	}
+}
+// Блок с переключатилями слайдера
+@mixin toggle_block {
+	position: absolute;
+	left: 25%;
+	box-sizing: border-box;
+	width: 50%;
+	@include row (center);
+}
+// Переключатель слайдера
+@mixin toggle_btn {
+	display: block;
+	width: 10px;
+	height: 10px;
+	background-color: #d8d8d8;
+	border-radius: 50%;
+	margin-right: 10px;
+	z-index: 2;
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+// Стили
+
+body {
+	font-family: "ProximaNova";
+	color: $main_text_color;
+	font-size: 62.5%;
+}
+.container {
+	max-width: 768px;
+    width: 100%;
+}
+.page-header {
+	@include column (center);
+	align-items: center;
+	width: 100%;
+	background-image: url("../img/main_bg_min.png");
+	background-repeat: no-repeat;
+	background-color: $main_bg_color;
+	background-position: center center;
+	background-size: 1140px 100%;
+	box-sizing: border-box;
+	padding: 20px 0 0 0;
+	.header-top {
+		@include column (center);
+		align-items: center;
+		width: 100%;
+		padding: 13px 0 100px 0;
+	}
+	.header-logo-image {
+		width: 140px;
+		padding: 5px 0 0 0;
+	}
+	.header-promo {
+		display: none;
+	}	
+	.header-title {
+		width: 300/320*100%;
+		color: $white;
+		@include font("ProximaNovaBold", 32px, 700, uppercase, none);
+		line-height: 31.32px;
+		letter-spacing: 1.76px;
+		@include column (space-between);
+		padding: 37px 0 100px 10px;
+		background-image: url("../img/rectangle.png");
+		background-repeat: no-repeat;
+		background-position: 50% 10%;
+    	background-size: 141px;
+		&-top {
+			width: 80%;
+			@include row (center);
+			padding-bottom: 10px;
+		}
+		&-bottom {
+			@include row (center);
+			align-self: flex-end;
+			padding-top: 6px;
+			width: 82%;
+			line-height: 120%;
+		}
+	}
+	.wrapper {
+		@include column (center);
+	}
+	.btn-container {
+		@include row (center);
+		padding: 10px 0 28px 0;
+	}
+	.btn-link {
+		position: relative;
+		color: $white;
+		@include font("ProximaNova", 8px, 300, uppercase, none);
+		letter-spacing: 0.4px;
+		@include column (space-around);
+		padding: 11px 0 8px 46px;;
+		width: 98px;
+		line-height: 125%;
+		margin: 0 6px 0 0; 
+		background-color: $dark_bg_color;
+		border-radius: 20px;
+		&::before {
+			content: "";
+			position: absolute;
+			width: 18px;
+			height: 18px;
+			top: 25%;
+			left: 15%;
+			background-image: url("../img/brand_sprite.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		&:hover {
+			background-color: darken($dark_bg_color, 20);
+			box-shadow: 
+				-1px -1px 1px 0 $white inset,
+				1px 1px 1px 0 $white inset;
+			transition: 200ms all linear;
+		}
+		.btn-bottom {
+			font-family: "ProximaNovaBold";
+		}
+	}
+	.google-play {
+		margin-right: 0;
+		width: 89px;
+		padding-left: 56px;
+		&::before {
+			left: 22%;
+			background-position: -176px -1px;
+		}
+	}
+	.header-navigation {
+		width: 100%;
+		padding: 10px 0 19px 0;
+		@include row (center);
+		.navigation-list {
+			@include row (space-around);
+			flex-wrap: wrap;
+			width: 270/320*100%;
+			.navigation-item {
+				margin: 7px 10px 0 6px;
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+			.navigation-link {
+				color: #9071ea;
+				@include font("ProximaNova", 12px, 300, uppercase, none);
+				&:hover {
+					color: $white;
+					text-decoration: underline;
+					transition: 200ms all linear;
+				}
+			}
+		}
+	}
+}
+.athlets {
+	position: relative;
+	// Фон с высотой
+	@include deco_bg(300px, "../img/footballer.png", "../img/rectangle_cross.png");
+	&::before{
+	    top: 89px;
+	    background-size: 220px 329px;
+	    background-position: center;
+	}
+	&::after {
+	    top: 89px;
+	    left: -11px;
+	    background-size: 200px 206px;
+	    background-position: center top;
+	}
+	// Заголовок блока
+	&-title {
+		@include main_title;
+		padding: 15px 5px 91px 19px;
+	}
+	// Слайдер вцелом
+	&-slider {
+		position: relative;
+		@include row (flex-start);
+		padding: 140px 0 0 0;
+		.athlets-slide {
+			display: none;
+			position: relative;
+			width: 100%;
+			padding: 50px 0 0 0px;
+			min-height: 285px;
+			box-sizing: border-box;
+			&.slide_1 {
+				background-color: $white;
+			}
+			&.slide_2 {
+				background-color: #f5f4f9;
+			}
+			&.slide_3 {
+				background-color: $dark_bg_color;
+				.slide-number {
+					&::after {
+						background-color: #efefef;
+					}
+				}
+				.athlets-slide-content {
+					color: $white;
+				}
+			}
+		}
+		// Обёртка
+		.athlets-wrapper {
+			@extend %-wrapper;
+		}
+		// Переключалка слайдов
+		.athlets-slider-btn {
+			display: none;
+			&:checked + .athlets-slide {
+				display: block;
+			}
+		}
+		// Закраска при переключении.
+		#athlets-btn-1:checked ~ .athlets-slide-toggles .athlets-slide-toggle[for="athlets-btn-1"],
+		#athlets-btn-2:checked ~ .athlets-slide-toggles .athlets-slide-toggle[for="athlets-btn-2"] {
+			background-color: #5c3caf;
+		}
+		#athlets-btn-3:checked ~ .athlets-slide-toggles .athlets-slide-toggle[for="athlets-btn-3"] {
+			background-color: $black;
+		}
+		// Декор слайда (заголовок и текст)
+		.athlets-slide {
+			 &-title {
+			 	@include sub_title;
+				padding: 25px 0 5px 46px;
+				.slide-number {
+					@include sub_title_number;
+				}
+			}
+			&-content {
+				color: $black;
+				@include font("ProximaNovaBold", 15px, 400, none, none);
+				line-height: 18px;
+				letter-spacing: 0.75px;
+				padding: 12px 7px 66px 14px;
+			}
+		}
+		// Переключатели
+		.athlets-slide-toggles {
+			@include toggle_block;
+			bottom: 7%;
+
+			.athlets-slide-toggle {
+				@include toggle_btn;
+				cursor: pointer;
+			}
+		}
+	}
+}
+.players {
+	position: relative;
+	// Фон с высотой
+	@include deco_bg(300px, "../img/basketballer.png", "../img/duble_rectangle_cross.png");
+	&::before {
+		top: 101px;
+	    left: -4px;
+	    background-size: 298px 247px;
+	    background-position: center 0;
+	}
+	&::after {
+	    top: 98px;
+	    background-size: 230px 232px;
+	    background-position: center top;
+	}
+	// Заголовок блока
+	&-title {
+		@include main_title;
+		padding: 23px 5px 91px 21px;
+	}
+	// Слайдер вцелом
+	&-slider {
+		position: relative;
+		@include row (flex-start);
+		padding: 140px 0 0 0;
+		.players-slide {
+			display: none;
+			position: relative;
+			width: 100%;
+			padding: 50px 0 0 0px;
+			min-height: 240px;
+			box-sizing: border-box;
+			&.slide_1 {
+				background-color: $white;
+			}
+			&.slide_2 {
+				background-color: #f5f4f9;
+			}
+			&.slide_3 {
+				background-color: #f5f4f9;				
+			}
+		}
+		// Обёртка
+		.players-wrapper {
+			@include column (flex-start);
+			// align-items: center;
+			width: 100%;
+		}
+		// Переключалка слайдов
+		.players-slider-btn {
+			display: none;
+			&:checked + .players-slide {
+				display: block;
+			}
+		}
+		// Закраска при переключении.
+		#players-btn-1:checked ~ .players-slide-toggles .players-slide-toggle[for="players-btn-1"],
+		#players-btn-2:checked ~ .players-slide-toggles .players-slide-toggle[for="players-btn-2"],
+		#players-btn-3:checked ~ .players-slide-toggles .players-slide-toggle[for="players-btn-3"] {
+			background-color: #5c3caf;
+		}
+		// Декор слайда (заголовок и текст)
+		.players-slide {
+			 &-title {
+			 	@include sub_title;
+				padding: 25px 0 5px 46px;
+				.slide-number {
+					@include sub_title_number;
+				}
+			}
+			&-content {
+				color: $black;
+				@include font("ProximaNovaBold", 15px, 400, none, none);
+				line-height: 18px;
+				letter-spacing: 0.75px;
+				padding: 11px 7px 66px 16px;
+			}
+		}
+		// Переключатели
+		.players-slide-toggles {
+			@include toggle_block;
+			bottom: 8%;
+			.players-slide-toggle {
+				@include toggle_btn;
+				cursor: pointer;
+			}
+		}
+	}
+}
+.join-us {
+	.steps {
+		@include column (flex-start);
+	}
+	.steps::before {
+		content: "";
+		display: block;
+		width: 100%;
+		padding-top: 351/320*100%;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.step-1::before {
+		background-image: url("../img/shutterstock.jpg");
+		background-position: 70% center;
+	}
+	.step-2::before {
+		background-image: url("../img/bigstock.jpg");
+		background-position: 52% center;
+	}
+	.step-3::before {
+		background-image: url("../img/team.jpg");
+		background-position: 52% center;
+	}
+	.step-block {
+		padding: 14px 5px 34px 9px;
+		box-sizing: border-box;
+	}
+	.block-number {
+		display: none;
+	}
+	.step-title {
+		position: relative;
+		color: $title_color;
+		@include font("ProximaNovaBold", 28px, 700, uppercase, none);
+		line-height: 34.49px;
+		letter-spacing: 1.4px;
+		padding: 14px 0 5px 9px;
+		.step-number {
+			position: absolute;
+			@include column (center);
+			align-items: center;
+			width: 70px;
+			height: 70px;
+			background-color: #5e42b0;
+			color: #f5f6f7;
+			@include font("ProximaNovaBold", 14px, 700, uppercase, none);
+			line-height: 22.49px;
+			letter-spacing: 0.7px;
+			top: -74px;
+			left: 10px;
+			box-sizing: border-box;
+			display: flex;
+			&::after {
+				content: "";
+				display: block;
+				width: 16px;
+				height: 4px;
+				border-radius: 2px;
+				background-color: #ffffff;
+				opacity: 0.3;
+			}
+			
+		}
+	}
+	.step-content {
+		position: relative;
+		color: $black;
+		@include font("ProximaNovaBold", 16px, 700, none, none);
+		line-height: 20px;
+		letter-spacing: 0.8px;
+		padding: 5px 30px 45px 9px;
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			width: 22px;
+			height: 5px;
+			border-radius: 2px;
+			background-color: #5e3db3;
+			bottom: 18px;
+    		left: 10px;
+		}
+	}
+	.step-1 {
+		.step-content {
+			padding-right: 41px;
+		}
+	}
+	.step-2 {
+		.step-title {
+			padding-top: 18px;
+		}
+	}
+	.step-3 {
+		.step-title {
+			padding-top: 18px;
+			padding-bottom: 7px;
+		}
+		.step-content {
+			padding-bottom: 33px;
+			&::after {
+				bottom: 16px;
+			}
+		}
+	}
+}
+.page-footer {
+	@include column (center);
+	align-items: center;
+	width: 100%;
+	background-image: url("../img/footer_bg_min.png");
+	background-repeat: no-repeat;
+	background-color: $main_bg_color;
+	background-position: 58% center;
+    background-size: 1140px 100%;
+	box-sizing: border-box;
+	padding: 20px 0 0 0;
+	.footer-top {
+		@include column (flex-start);
+		align-items: center;
+		padding: 50px 0 10px 0;    
+	}
+	.artwork {
+		width: 73px;
+		height: 78px;
+		padding: 26px 0 26px 0;
+	}
+	.footer-wrapper {
+		background-image: url("../img/rectangle_duble.png");
+	    background-repeat: no-repeat;
+	    background-size: 226px;
+    	background-position: 0 -3px;
+	}
+	.footer-title {
+		color: $white;
+		@include font("ProximaNovaBold", 34px, 700, uppercase, none);
+		letter-spacing: 1.7px;
+		padding: 28px 0 3px 0;
+	}
+	.footer-content {
+		color: #9b8ec1;
+		@include font("ProximaNovaBold", 15px, 700, uppercase, none);
+		letter-spacing: 0.75px;
+		padding: 2px 0 40px 0;
+	}
+	.footer-btn-container {
+		@include row (center);
+		padding: 20px 0 128px 0;
+		.btn-link {
+			position: relative;
+			color: $white;
+			@include font("ProximaNova", 8px, 300, uppercase, none);
+			letter-spacing: 0.4px;
+			@include column (space-around);
+			padding: 11px 0 8px 46px;;
+			width: 98px;
+			line-height: 125%;
+			margin: 0 6px 0 0; 
+			background-color: $dark_bg_color;
+			border-radius: 20px;
+			&:hover {
+				background-color: darken($dark_bg_color, 20);
+				box-shadow: 
+					-1px -1px 1px 0 $white inset,
+					1px 1px 1px 0 $white inset;
+				transition: 200ms all linear;
+			}
+			&::before {
+				content: "";
+				position: absolute;
+				width: 18px;
+				height: 18px;
+				top: 25%;
+				left: 15%;
+				background-image: url("../img/brand_sprite.png");
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			.btn-bottom {
+				font-family: "ProximaNovaBold";
+			}
+		}
+		.google-play {
+			margin-right: 0;
+			width: 89px;
+			padding-left: 56px;
+			&::before {
+				left: 22%;
+				background-position: -176px -1px;
+			}
+		}
+	}
+	.footer-contacts {
+		opacity: 0.6;
+		@include row (center);
+		width: 100%;
+		background-color: #0a0e34;
+		.footer-logo-link {
+			display: none;
+		}
+		.social-container {
+			@include row (space-around);
+			font-size: 0px;
+			padding: 14px 0 14px 0;
+    		width: 50%;
+			.social {
+				color: $white;
+				display: block;
+				width: 27px;
+				height: 27px;
+				background-repeat: no-repeat;
+				background-image: url("../img/social_sprite.png");
+				background-size: 103px;
+				&:hover {
+					transform: scale(1.1);
+					transition: 200ms all linear;
+				}
+			}
+			.fb {
+				background-position: 5px 3px;
+			}
+			.tw {
+				background-position: -41px 3px;
+			}
+			.in {
+				background-position: -81px 3px;
+			}
+		}
+		.contacts-container {
+			display: none;
+		}
+	}
+}
+// Альбомная просто для теста на телефоне
+@media screen and (min-width: 768px), (orientation: landscape) {
+	.container,
+	.athlets-container {
+		max-width: 730px;
+	    width: 100%;
+	}
+	.page-header {
+		background-image: url("../img/main_bg.png");
+		background-size: 1928px 100%;
+		background-position-y: top;
+		padding: 35px 0 63px 0;
+		.header-top {
+			@include row (space-between);
+			.header-logo-image {
+				width: 195px;
+			}
+			.header-promo {
+				display: block;
+				font-size: 16px;
+				color: $white;
+				@include font("ProximaNova", 14px, 300, uppercase, none);
+				line-height: 34.49px;
+				letter-spacing: 0.7px;
+			}	
+		}
+		.header-title {
+			order: -2;
+			width: 83%;
+			font-size: 64px;
+			line-height: 47.32px;
+			letter-spacing: 3.76px;
+			padding: 90px 0 100px 66px;
+			background-position: 57% 39%;
+   			background-size: 257px;
+		}
+		.btn-container {
+			padding: 34px 0 28px 0;
+			.btn-link {
+				@include column (flex-start);
+				font-size: 14px;
+				padding: 23px 0 50px 104px;
+    			line-height: 115%;
+				box-sizing: border-box;
+				width: 311px;
+				height: 77px;
+				margin: 0 30px 0 0; 
+				border-radius: 36px;
+				&::before {
+					width: 39px;
+					height: 39px;
+	    			left: 13%;
+				}
+			}
+			.google-play {
+				padding-left: 125px;
+				margin-right: 0;
+				&::before {
+					left: 20%;
+	    			background-position: 101% -1px;
+				}
+			}
+		}
+		.header-navigation {
+			order: -1;
+			width: 100%;
+			padding: 60px 0 80px 0;
+			@include row (center);
+			.navigation-list {
+				@include row (space-around);
+				flex-wrap: nowrap;
+				width: 100%;
+				.navigation-item {
+					margin: 7px 0 0 0;
+				}
+				.navigation-link {
+					font-size: 16px;
+				}
+			}
+		}
+	}
+	.athlets {
+		@include column (flex-start);
+		align-items: center;
+		@include deco_bg(610px, "../img/footballer.png", "../img/rectangle_cross_md.png");
+		&::before{
+			top: 79px;
+		    background-size: 552px 816px;
+		    background-position: -210px -2%;
+		}
+		&::after {
+		    top: 76px;
+		    background-size: 288px 356px;
+		    background-position: -37px -2px;
+		}
+		&-title {
+			font-size: 90px;
+			padding: 87px 5px 20px 275px;
+		}
+		&-slider {
+			flex-direction: column;
+			padding: 5px 0 0 0;
+			width: 100%;
+			.athlets-slide {
+				@include column (flex-start);
+				align-items: flex-end;
+				padding: 5px 0 0 0;
+				min-height: 0;
+				.athlets-container {
+					width: 64.5%;
+				}
+				// .athlets-wrapper {
+				// 	max-width: 450px;
+				// }
+				 &-title {
+				 	font-size: 36px;
+					padding: 25px 0 5px 50px;
+					.slide-number {
+						font-size: 18px;
+						padding-bottom: 7px;
+						line-height: 150%;
+						&::after {
+							width: 19px;
+						}
+					}
+				}
+				&-content {
+					font-size: 18px;
+				    padding: 15px 28px 43px 16px;
+				    line-height: 150%;
+				}
+				&:not(:nth-of-type(1)) {
+					.athlets-slide-title {
+						padding-top: 30px;
+						.slide-number {
+							line-height: 190%;
+							&::after {
+								width: 22px;
+							}
+						}
+					}
+					.athlets-slide-content {
+						padding-bottom: 36px;
+					}
+				}
+			}
+			.athlets-slide-toggles {
+				display: none;
+			}
+			.athlets-slider-btn {
+				&:checked + .athlets-slide {
+					display: flex;
+				}
+			}
+		}
+	}
+	.players {
+		@include column (flex-start);
+		overflow-x: hidden;
+		@include deco_bg(590px, "../img/basketballer.png", "../img/duble_rectangle_cross_md.png");
+		&::before{
+			top: 36px;
+		    left: 38%;
+		    background-size: 682px 567px;
+		    background-position: 50% -2%;
+		}
+		&::after {
+		    top: 76px;
+		    background-size: 270px 412px;
+    		background-position: 98% 23px;
+		}
+		&-title {
+			font-size: 90px;
+			padding: 84px 5px 20px 38px;
+		}
+		&-slider {
+			flex-direction: column;
+			padding: 5px 0 0 0;
+			width: 100%;
+			.players-slide {
+				@include column (flex-start);
+				align-items: flex-start;
+				padding: 5px 0 0 0;
+				min-height: 0;
+				.players-container {
+					width: 100%;
+				}
+				.players-wrapper {
+					width: 58%;
+				}
+				 &-title {
+				 	font-size: 36px;
+					padding: 25px 0 5px 65px;
+					.slide-number {
+						font-size: 18px;
+						padding-bottom: 7px;
+						padding-left: 14px;
+						line-height: 150%;
+						&::after {
+							width: 19px;
+							bottom: 4px;
+    						left: 14px;
+						}
+					}
+				}
+				&-content {
+					font-size: 18px;
+				    padding: 15px 28px 13px 28px;
+				    line-height: 150%;
+				}
+				&:nth-of-type(2) {
+					.players-wrapper {
+						width: 62%;
+					}
+					.players-slide-title {
+						padding-top: 55px;
+						padding-left: 65px;
+						.slide-number {
+							line-height: 165%;
+							padding-top: 18px;
+							&::after {
+								width: 22px;
+							}
+						}
+					}
+					.players-slide-content {
+						padding-bottom: 70px;
+						padding-left: 32px;
+					}
+				}
+				&:nth-of-type(3) {
+					background-color: #090c35;
+					.players-slide-title {
+						padding-top: 46px;
+						padding-left: 65px;
+						.slide-number {
+							line-height: 165%;
+							padding-top: 12px;
+							color: $dark_bg_color;
+							&::after {
+								width: 22px;
+								background-color: #efefef;
+							}
+						}
+					}
+					.players-slide-content {
+						padding-bottom: 46px;
+						padding-left: 32px;
+						color: $white;
+					}
+				}
+			}
+			.players-slide-toggles {
+				display: none;
+			}
+			.players-slider-btn {
+				&:checked + .players-slide {
+					display: flex;
+				}
+			}
+		}
+	}
+	.join-us {
+		.steps::before {
+			padding-top: 584/768*100%;
+		}
+		.step-block {
+			padding: 14px 5px 34px 9px;
+			box-sizing: border-box;
+		}
+		.step-title {
+			font-size: 90px;
+			line-height: 90px;
+			padding: 64px 0 5px 18px;
+			.step-number {
+				width: 116px;
+				height: 116px;
+				font-size: 24px;
+				line-height: 31.49px;
+				top: -105px;
+    			left: 24px;
+				&::after {
+					width: 22px;
+					height: 5px;
+					border-radius: 2px;
+					background-color: #ffffff;
+					opacity: 0.3;
+				}
+			}
+		}
+		.step-content {
+			font-size: 24px;
+			line-height: 28px;
+			letter-spacing: 0.95px;
+			padding: 10px 55px 65px 24px;
+			&::after {
+				bottom: 29px;
+   				left: 23px;
+			}
+		}
+		.step-1 {
+			.step-number {
+				top: -94px;
+    			left: 24px;
+			}
+			.step-content {
+				padding-right: 41px;
+			}
+		}
+		.step-2 {
+			.step-title {
+				padding-top: 53px;
+			}
+			.step-content {
+				margin-bottom: 7px;
+			}
+		}
+		.step-3 {
+			.step-title {
+				padding-top: 52px;
+				padding-bottom: 7px;
+			}
+			.step-content {
+				padding-bottom: 44px;
+   				margin-bottom: 33px;
+				&::after {
+					bottom: 16px;
+				}
+			}
+		}
+	}
+	.page-footer {
+		background-image: url("../img/footer_bg_min.png");
+		background-position: 50% center;
+    	background-size: 1900px 100%;
+		.footer-top {
+			margin-top: 33px;
+			background-image: url("../img/rectangle_duble_md.png");
+		    background-repeat: no-repeat;
+		    background-size: 562px;
+		    background-position: 30px 200px;
+			padding-bottom: 55px;
+		}
+		.artwork {
+			width: 130px;
+			height: 137px;
+			padding: 26px 0 26px 0;
+		}
+		.footer-wrapper {
+			background: none;
+		}
+		.footer-title {
+			font-size: 80px;
+			letter-spacing: 4.85px;
+			margin-top: 18px;
+		}
+		.footer-content {
+			text-align: center;
+			color: #a496ca;
+			font-size: 36px;
+			line-height: 51px;
+			padding: 2px 0 40px 0;
+			letter-spacing: 0.4px;
+		}
+		.footer-btn-container {
+			margin-top: 70px;
+			.btn-link {
+				font-size: 14px;
+				width: 311px;
+				height: 77px;
+				box-sizing: border-box;
+				border-radius: 36px;
+				margin-right: 30px;
+				padding: 23px 50px 22px 105px;
+				line-height: 125%;
+				&::before {
+					width: 40px;
+					height: 40px;
+					top: 25%;
+					left: 14%;
+				}
+			}
+			.google-play {
+				margin-right: 0;
+				width: 311px;
+				height: 77px;
+				box-sizing: border-box;
+				padding-left: 127px;
+				&::before {
+					left: 20%;
+					background-position: 100% -1px;
+				}
+			}
+		}
+		.footer-contacts {
+			.social-container {
+				padding: 31px 0 27px 0;
+	    		width: 23%;
+				.social {
+					width: 35px;
+					height: 35px;
+					background-size: 400%;
+				}
+				.fb {
+					background-position: 5px 3px;
+				}
+				.tw {
+					background-position: -56px 3px;
+				}
+				.in {
+					background-position: -115px 3px;
+				}
+			}
+			.contacts-container {
+				display: none;
+			}
+		}
+	}
+}
+@media screen and (min-width: 1024px) {
+	.container,
+	.athlets-container,
+	.players-container {
+		max-width: 1560px;
+	    width: 100%;
+	}
+	.page-header {
+		background-size: cover;
+		.header-top {
+			padding-top: 14px;
+			.header-logo-image {
+				margin-left: 12px;
+			}
+			.header-promo {
+				padding-right: 14px;
+			}	
+		}
+		.wrapper {
+			background-image: url("../img/rectangle.png");
+			background-repeat: no-repeat;
+			background-position: 31% 29%;
+		    background-size: 255px;
+		    z-index: 0;
+		    position: relative;
+		}
+		.header-title {
+			position: relative;
+			z-index: 1;
+			@include column (space-between);
+			align-items: center;
+			width: 100%;
+			font-size: 90px;
+			line-height: 47.32px;
+			letter-spacing: 3.76px;
+			padding: 100px 0 2px 0;
+    		margin-top: 117px;
+			background: none;
+   			.header-title-top {
+   				display: block;
+				margin-left: 10px;
+   				letter-spacing: 5.2px;
+   				align-self: flex-start;
+   			}
+   			.header-title-bottom {
+   				text-align: right;
+   				width: 70%;
+   				line-height: 110%;
+// Без ширины всё ломается, когда мало места и текст переносится на 2 строки. 
+// Равнял всем, но текст никак не становится нормально вправо, эффект,
+// будто верхняя часть ориентированна налево, а нижняя поцентру
+   				letter-spacing: 4.8px;
+    			margin-right: 10px;
+   			}
+		}
+		.btn-container {
+			margin-top: 68px;
+			margin-bottom: 19px;
+			.btn-link {
+				margin-right: 50px;
+			}
+			.google-play {
+				padding-left: 125px;
+				margin-right: 0;
+				&::before {
+					left: 20%;
+	    			background-position: 101% -1px;
+				}
+			}
+		}
+		.header-navigation {
+			padding: 0 0 80px 0;
+			.navigation-list {
+				@include row (flex-end);
+				width: 98%;
+				.navigation-item {
+					margin: 7px 53px 0 0;
+				}
+				.navigation-link {
+					font-size: 14px;
+				}
+			}
+		}
+	}
+	.athlets {
+		@include deco_bg(1000px, "../img/footballer.png", "../img/rectangle_cross_lg.png");
+		&::before{
+			width: 50%;
+		    top: 40px;
+		    left: -2%;
+		    background-size: 710px 111%;
+		    background-position: 126% 15%;
+		}
+		&::after {
+		    top: 64px;
+		    left: -2%;
+		    background-size: 582px;
+		    background-position: 90% -2px;
+		    width: 50%;
+		}
+		.athlets-container {
+			width: 100%;
+			@include row (flex-end);
+		}
+		.athlets-wrapper {
+			width: 47.5%;
+		}
+		&-title {
+			padding: 114px 5px 51px 15px;
+		}
+		&-slider {
+			.athlets-slide {
+				&:nth-of-type(2) {
+					.athlets-slide-title {
+						padding-top: 30px;
+    					margin-top: 20px;
+					}
+					.athlets-slide-content {
+						padding-bottom: 51px;
+					}
+				}
+				&:nth-of-type(3) {
+					.athlets-slide-title {
+						margin-top: 48px;
+					}
+					.athlets-slide-content {
+						margin-bottom: 60px;
+					}
+				}
+				.athlets-wrapper {
+					max-width: 1560px;
+  					width: 75%;
+				}
+				&-title {
+					padding: 25px 0 11px 50px;
+				}
+				&-content {
+					font-size: 20px;
+				    padding: 15px 200px 55px 16px;
+				    letter-spacing: 0.9px;
+				}
+			}			
+		}
+	}
+	.players {
+		// overflow-y: visible; Почемуто не сработало даже в комбинации с 
+		// z-index контейнерам и элементам, при этом в блоке выше всё сработало и без мук
+		// пришлось ломать отрицательным отступом
+		margin-top: -42px;
+		@include column (center);
+		align-items: center;
+		@include deco_bg(810px, "../img/basketballer.png", "../img/duble_rectangle_cross_lg.png");
+		&::before{
+			top: 13px;
+		    left: 42%;
+		    background-size: 984px 813px;
+		    background-position: left -2%;
+		}
+		&::after {
+	        top: 76px;
+	        right: 0px;
+		    background-size: 747px;
+		    background-position: left 3px;
+		    width: 48.5%;   
+		}
+		.players-container {
+			width: 70%;
+		}
+		&-title {
+			margin: 70px 0 38px 0;
+		}
+		&-slider {
+			.players-slide {
+				align-items: center;
+				.players-container {
+					width: 69.5%;
+				}
+				.players-wrapper {
+					width: 50%;
+				}
+				&-content {
+					font-size: 20px;
+					letter-spacing: 1px;
+				    line-height: 135%;
+				    margin-bottom: 58px;
+				}
+				&:nth-of-type(2) {
+					.players-wrapper {
+						width: 50%;
+					}
+					.players-slide-title {
+						margin-bottom: 6px;
+					}
+					.players-slide-content {
+						margin-bottom: 3px;
+					}
+				}
+				&:nth-of-type(3) {
+					.players-slide-title {
+						margin-top: 43px;
+					}
+					.players-slide-content {
+						padding-bottom: 35px;
+					}
+				}
+			}
+		}
+	}
+	.join-us {
+		.steps {
+			// overflow: hidden;
+			flex-direction: row;
+			.step-wrapper {
+				position: absolute;
+				@include row (center);
+				width: 100%;
+				height: 400px;
+				margin-top: 211px;
+			}
+			.block-number {
+				// Просто эксперимент)
+				position: sticky;
+				top: 0;
+				@include column (center);
+				align-items: center;
+				width: 168px;
+				height: 155px;
+				background-color: #5e42b0;
+				color: #f5f6f7;
+				@include font("ProximaNovaBold", 25px, 700, uppercase, none);
+				line-height: 29.49px;
+				letter-spacing: 0.7px;
+				box-sizing: border-box;
+				&::after {
+					content: "";
+					display: block;
+					width: 22px;
+					height: 5px;
+					border-radius: 2px;
+					background-color: #ffffff;
+					opacity: 0.3;
+				}
+			}
+		}
+		.steps::before {
+			width: 50%;
+			padding-top: 730/1920*100%;
+		}
+		.step-block {
+			width: 50%;
+			padding: 65px 5px 34px 100px;
+			box-sizing: border-box;
+		}
+		.step-title {
+			padding: 181px 0px 85px 18px;
+			.step-number {
+				display: none;
+			}
+		}
+		.step-content {
+			letter-spacing: 1.2px;
+			padding: 10px 55px 65px 24px;
+			width: 64%;
+			&::after {
+				bottom: -25px;
+   				left: 27px;
+			}
+		}
+		.step-1 {
+			.step-content {
+				width: 44%;
+				padding-right: 41px;
+			}
+		}
+		.step-2 {
+			flex-direction: row-reverse;
+			.step-block {
+				padding-left: 8%;
+			}
+			.step-title {
+			    margin: 124px 0 0 18px;
+			    padding-bottom: 50px;
+			}
+			.step-content {
+				padding: 7px 0 130px 44px;
+			    width: 50%;
+			    letter-spacing: 0.8px;
+			    &::after {
+					bottom: 10px;
+	    			left: 46px;
+				}
+			}
+		}
+		.step-3 {
+			.step-title {
+				margin: 127px 0 75px 5px;
+			}
+			.step-content {
+				letter-spacing: 1px;
+				&::after {
+					bottom: -50px;
+				}
+			}
+		}
+	}
+	.page-footer {
+		background-image: url("../img/footer_bg.png");
+		background-position: 50% top;
+    	background-size: cover;
+		.footer-top {
+			@include row (center);
+		    background-size: 648px;
+    		background-position: 54% 65px;
+		    padding-top: 135px;
+			padding-bottom: 55px;
+		}
+		.footer-wrapper {
+			@include column (center);
+			align-items: flex-start;
+		}
+		.artwork {
+			margin-right: 30px;
+		}
+		.footer-title {
+			font-size: 90px;
+			letter-spacing: 4.96px;
+		}
+		.footer-content {
+			line-height: 70%;
+		}
+		.footer-btn-container {
+			margin-top: 46px;
+			margin-bottom: 66px;
+			.btn-link {
+				margin-right: 48px;
+				&::before {
+					width: 40px;
+					height: 40px;
+					top: 24%;
+   					left: 19%;
+				}
+			}
+			.google-play {
+				margin-right: 0;
+				&::before {
+					left: 22%;
+				}
+			}
+		}
+		.footer-contacts {
+			@include row (space-between);
+			align-items: center;
+			padding: 41px 0 32px 0;
+			.footer-logo-link {
+				display: block;
+				margin-left: 48px;
+			}
+			.footer-logo-image {
+				width: 172px;
+			}
+			.social-container {
+				padding: 30px 0 27px 0;
+	    		width: 9%;
+    			margin-left: 8%;
+			}
+			.contacts-container {
+				display: block;
+				margin-right: 57px;
+				.contact,
+				.devider {
+					color: $white;
+					@include font("ProximaNovaBold", 20px, 400, none, none);
+					letter-spacing: 1.5px;
+				}
+				.contact:hover {
+					color: #5e3db3;
+					text-decoration: underline;
+					transition: 200ms all linear;
+				}	
+			}
+		}
+	}
+}

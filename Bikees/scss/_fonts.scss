@@ -1,0 +1,53 @@
+$path: "../fonts/";
+
+@font-face {
+	font-family: "OpenSansCondensed-Bold";
+	src: url($path + "OpenSansCondensed-Bold.woff");
+	src: url($path + "OpenSansCondensed-Bold.eot");
+	src: 
+		url($path + "OpenSansCondensed-Bold.eot?#iefix") format("embedded-opentype"),
+		url($path + "OpenSansCondensed-Bold.woff2") format("woff2"),
+		url($path + "OpenSansCondensed-Bold.woff") format("woff"),
+		url($path + "OpenSansCondensed-Bold.ttf") format("truetype"),
+		url($path + "OpenSansCondensed-Bold.svg#gothamblack") format("svg");
+}
+@font-face {
+	font-family: "OpenSansCondensed-Light";
+	src: url($path + "OpenSansCondensed-Light.eot");   
+	src: 
+		url($path + "OpenSansCondensed-Light.eot?#iefix") format("embedded-opentype"),         
+		url($path + "OpenSansCondensed-Light.woff2") format("woff2"),        
+		url($path + "OpenSansCondensed-Light.woff") format("woff"),        
+		url($path + "OpenSansCondensed-Light.ttf") format("truetype"),        
+		url($path + "OpenSansCondensed-Light.svg#open_sansregular") format("svg");
+}
+@font-face {
+	font-family: "OpenSans-Light";
+	src: url($path + "OpenSans-Light.eot");
+	src: 
+		url($path + "OpenSans-Light.eot?#iefix") format("embedded-opentype"),
+		url($path + "OpenSans-Light.woff2") format("woff2"),
+		url($path + "OpenSans-Light.woff") format("woff"),
+		url($path + "OpenSans-Light.ttf") format("truetype"),
+		url($path + "OpenSans-Light.svg#latoregular") format("svg");
+}
+@font-face {
+	font-family: "OpenSans";
+	src: url($path + "OpenSans-Regular.eot");
+	src: 
+		url($path + "OpenSans-Regular.eot?#iefix") format("embedded-opentype"),
+		url($path + "OpenSans-Regular.woff2") format("woff2"),
+		url($path + "OpenSans-Regular.woff") format("woff"),
+		url($path + "OpenSans-Regular.ttf") format("truetype"),
+		url($path + "OpenSans-Regular.svg#latoregular") format("svg");
+}
+@font-face {
+	font-family: "OpenSans-SemiBold";
+	src: url($path + "OpenSans-SemiBold.eot");
+	src: 
+		url($path + "OpenSans-SemiBold.eot?#iefix") format("embedded-opentype"),
+		url($path + "OpenSans-SemiBold.woff2") format("woff2"),
+		url($path + "OpenSans-SemiBold.woff") format("woff"),
+		url($path + "OpenSans-SemiBold.ttf") format("truetype"),
+		url($path + "OpenSans-SemiBold.svg#latoregular") format("svg");
+}
