@@ -1,0 +1,36 @@
+$path: "../fonts/";
+
+@font-face {
+	font-family: "Gotham";
+	src: url($path + "Gotham-Black.woff");
+	src: url($path + "Gotham-Black.eot");
+	src: 
+		url($path + "Gotham-Black.eot?#iefix") format("embedded-opentype"),
+		url($path + "Gotham-Blackt.woff2") format("woff2"),
+		url($path + "Gotham-Black.woff") format("woff"),
+		url($path + "Gotham-Black.ttf") format("truetype"),
+		url($path + "Gotham-Black.svg#gothamblack") format("svg");
+}
+@font-face {
+	font-family: "Lato";
+	src: url($path + "lato-regular-webfont.eot");
+	src: 
+		url($path + "lato-regular-webfont.eot?#iefix") format("embedded-opentype"),
+		url($path + "lato-regular-webfont.woff2") format("woff2"),
+		url($path + "lato-regular-webfont.woff") format("woff"),
+		url($path + "lato-regular-webfont.ttf") format("truetype"),
+		url($path + "lato-regular-webfont.svg#latoregular") format("svg");
+}
+@font-face {
+	font-family: "OpenSans";
+	src: url($path + "opensans-regular-webfont.eot");   
+	src: 
+		url($path + "opensans-regular-webfont.eot?#iefix") format("embedded-opentype"),         
+		url($path + "opensans-regular-webfont.woff2") format("woff2"),        
+		url($path + "opensans-regular-webfont.woff") format("woff"),        
+		url($path + "opensans-regular-webfont.ttf") format("truetype"),        
+		url($path + "opensans-regular-webfont.svg#open_sansregular") format("svg");
+}
+
+
+
