@@ -1,0 +1,33 @@
+$path: "../fonts/";
+
+@font-face {
+	font-family: "Couture";
+	src: url($path + "Couture-Bold.woff");
+	src: url($path + "Couture-Bold.eot");
+	src: 
+		url($path + "Couture-Bold.eot?#iefix") format("embedded-opentype"),
+		url($path + "Couture-Bold.woff2") format("woff2"),
+		url($path + "Couture-Bold.woff") format("woff"),
+		url($path + "Couture-Bold.ttf") format("truetype"),
+		url($path + "Couture-Bold.svg#gothamblack") format("svg");
+}
+@font-face {
+	font-family: "PtSerif";
+	src: url($path + "pt_serif-web-regular-webfont.eot");   
+	src: 
+		url($path + "pt_serif-web-regular-webfont.eot?#iefix") format("embedded-opentype"),         
+		url($path + "pt_serif-web-regular-webfont.woff2") format("woff2"),        
+		url($path + "pt_serif-web-regular-webfont.woff") format("woff"),        
+		url($path + "pt_serif-web-regular-webfont.ttf") format("truetype"),        
+		url($path + "pt_serif-web-regular-webfont.svg#open_sansregular") format("svg");
+}
+@font-face {
+	font-family: "MontserratBold";
+	src: url($path + "montserrat-bold-webfont.eot");
+	src: 
+		url($path + "montserrat-bold-webfont.eot?#iefix") format("embedded-opentype"),
+		url($path + "montserrat-bold-webfont.woff2") format("woff2"),
+		url($path + "montserrat-bold-webfont.woff") format("woff"),
+		url($path + "montserrat-bold-webfont.ttf") format("truetype"),
+		url($path + "montserrat-bold-webfont.svg#latoregular") format("svg");
+}
