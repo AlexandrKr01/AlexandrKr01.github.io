@@ -76,6 +76,7 @@ body {
 			.navigation {
 				&-item {
 					padding: 0 1px 0 1px;
+					text-align: center;
 				}
 				&-link {
 					@include font("MontserratBold", 18px, 900, uppercase, none);
