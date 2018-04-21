@@ -1,509 +1,569 @@
 // Сторонние файлы
 @import "_reset";
 @import "_fonts";
+@import "_colors";
+@import "_mixins";
 
-// Цвета
-$main_text_color: #161616;
-$nav_color: #1b1b1b;
-$pink: #d03958;
-$white: #ffffff;
-$btn_color: #e3d5b8;
-
-
-// Миксины
-@mixin row($justify-content) {
-	display: flex;
-	flex-direction: row;
-	justify-content: $justify-content;
-}
-@mixin column($justify-content) {
-	display: flex;
-	flex-direction: column;
-	justify-content: $justify-content;
-}
-@mixin font(
-	$font-family, 
-	$font-size, 
-	$font-weight, 
-	$text-transform,
-	$text-decoration) {
-		font-family: $font-family;
-		font-size: $font-size;
-		font-weight: $font-weight;
-		text-transform: $text-transform;
-		text-decoration: $text-decoration;
-}
-@mixin hover {
-	background-color: darken($btn_color, 50);
-	color: $white;
-	transition: 200ms all linear;
-}
-
-// Никогда до этого не использовал Flex, по этому, надеюсь нашёл золотую середину между "пихать везде" и "недоиспользовать"
 // Стили
-
 body {
-	font-family: "PtSerif";
+	font-family: "OpenSans";
 	color: $main_text_color;
 	font-size: 62.5%;
+	background-color: $title_color;
 }
-
 .container {
-	max-width: 1010px;
-    min-width: 800px;
-    margin: 0 auto;
-}
-.page-header {
 	width: 100%;
-	background-image: url("../img/main_bg_cover.png"),url("../img/main_bg.jpg");
-	background-repeat: no-repeat, no-repeat;
-	background-size: cover, cover;
-	background-position: center center, center center;
-	padding: 38px 0 100px 13px;
-	box-sizing: border-box;
-	.header-top {
-		@include row (space-between);
+	max-width: 2550px;
+	position: relative;
+}		
+.page-header {
+	background-color: #000;
+	@include column(center);
+	align-items: center;
+	.container {
+		@include column(center);
+		align-items: center;
+	}
+	.main-nav {
 		width: 100%;
-		.main-navigation {
-			padding-bottom: 70px;
-			flex-grow: 1;;
-		}
-		.navigation-list {
-			@include row (flex-end);
-			padding-top: 31px;
-			padding-left: 20px;
-			flex-wrap: wrap;
-			.navigation {
-				&-item {
-					padding: 0 1px 0 1px;
-					text-align: center;
-					margin-top: 15px;
-				}
-				&-link {
-					@include font("MontserratBold", 18px, 900, uppercase, none);
-					color: $nav_color;
-					line-height: 22px;
-					padding: 11px 14px 8px 14px;
-					border-radius: 5px;
-					&.active,
-					&:hover {
-						background-color: $pink;
-						color: $white;
-					}
-				}
-			}
-			
-		}
+		@include row(center);
 	}
-	.header-content {
-		@include row (space-between);
-		position: relative;
-		&-description {
-			width: 48%;
-		}
-		&-title {
-			color: $main_text_color;
-			@include font("MontserratBold", 90px, 900, uppercase, none);
-			line-height: 80px;
-			letter-spacing: -3.8px;
-    		padding: 102px 5px 20px 0;
-			.title-red {
-				color: $pink;
-			}
-		}
-		&-text {
-			color: $main_text_color;
-			@include font("PtSerif", 20px, 400, none, none);
-			line-height: 28px;
-			letter-spacing: -0.4px;
-			padding: 8px 5px 57px 0;
-		}
-		.header-quote-form {
-			@include column (center);
-			align-items: center;
-			width: 39.333%;
-		    position: absolute;
-		    right: 1.7%;
-    		bottom: -42%;
-    		line-height: 152%;
-			background-color: $pink;
-			border-radius: 5px;
-			.form-title {
-				color: $white;
-				@include font("MontserratBold", 22px, 700, uppercase, none);
-				letter-spacing: -0.44px;
-				padding: 35px 0 37px 0;
-			}
-			.form-input {
-				width: 89%;
-				height: 57px;
-				border-radius: 5px;
-				margin: 0 0 18px 0;
-				padding-left: 19px;
-				box-sizing: border-box;
-				border: 0;
-				outline: 0;
-				@include font("PTSerif", 20px, 400, none, none);
-				line-height: 25px;
-				letter-spacing: -0.4px;
-				&::placeholder {
-					@include font("PTSerif", 20px, 400, none, none);
-					line-height: 25px;
-					letter-spacing: -0.4px;
-				}
-			}
-			.wrapper {
-				position: relative;
-				width: 89%;
-				padding: 6px;
-				.form-checkbox {
-					display: none;
-					border: 0;
-					outline: 0;
-					&-label {
-						color: $white;
-						@include font("PTSerif", 20px, 400, none, none);
-						line-height: 25px;
-						letter-spacing: -0.4px;
-						padding: 0 0 0 42px;
-						&::before {
-							content: "";
-							width: 19px;
-							height: 19px;
-							background-color: $white;
-							border-radius: 5px;
-							position: absolute;
-							top: 7px;
-   							left: 8px;
-   							box-sizing: border-box;
-   							border: 3px solid $white;
-						}
-					}	
-				}
-				.form-checkbox:checked ~ .form-checkbox-label::before {
-					background-color: $pink;
-					border: 3px solid $white;
-					border-radius: 0;
-					border-top: none;
-				    border-right: none;
-				    height: 13px;
-				    transform: rotate(-407deg);
-				    top: 5px;
-				    left: 13px;
-				    transition: 200ms all linear;
-				}
-			}
-			.form-btn {
-				width: 89%;
-				background-color: $main_text_color;
-				color: $white;
-				@include font("MontserratBold", 22px, 900, uppercase, none);
-				letter-spacing: -0.44px;
-				padding: 18px;
-				border: 0;
-				outline: 0;
-				border-radius: 5px;
-				margin: 12px 0 25px 0;
-				cursor: pointer;
-				&:hover {
-					box-shadow: 0 0 0 2px $main_text_color;
-					color: $main_text_color;
-					background-color: $white; 
-					transition: 200ms all linear;
-				}
-			}
-		}
+	.nav-list {
+		width: 80%;
+		@include row(space-around);
+		align-items: stretch;
+		flex-wrap: wrap;
 	}
-} 
-.services {
-	&-title {
-		color: $main_text_color;
-		@include font("Couture", 50px, 700, uppercase, none);
-		line-height: 80px;
-		letter-spacing: -1.8px;
-    	padding: 18px 5px 20px 3px;
-		.title-red {
-			color: $pink;
-		}
-	}
-	.servece-container {
-		@include row (space-between);
-		text-align: center;
-		padding: 15px 0 43px 0;
-		.servece {
-			@include column (center);
-			align-items: center;
-			width: 18%;
-			color: $main_text_color;
-			@include font("PTSerif", 20px, 400, none, none);
-			line-height: 28px;
-			letter-spacing: -0.4px;
-			padding: 0 0 20px 0;
-			&::before {
-				content: "";
-				display: block;
-				width: 163px;
-				height: 163px;
-				background-repeat: no-repeat;
-				background-position: center center;
-				padding: 0 0 63px 0;
-			}
-		}
-		.service-1::before {
-			background-image: url("../img/heart.png");
-		}
-		.service-2::before {
-			background-image: url("../img/tools.png");
-		}
-		.service-3::before {
-			background-image: url("../img/lamp.png");
-		}
-		.service-4::before {
-			background-image: url("../img/compas.png");
-		}
-	}
-}
-.story {
-	background-color: $pink;
-	.wrapper {
-		@include row (space-between);
-		padding: 30px 10px 25px 9px;
-	}
-	&-title {
-		display: none;
-	}
-	&-content {
-		width: 62%;
-		color: $white;
-		@include font("PTSerif", 20px, 400, none, none);
-		line-height: 28px;
-		letter-spacing: -0.4px;
-		padding: 0 4px 10px 0;
-	}
-	&-link {
-		@include row (center);
-		align-items: center;
-		background-color: $btn_color;
-		width: 27%;
-		@include font("MontserratBold", 22px, 400, uppercase, none);
-		color: $main_text_color;
-		line-height: 28px;
-		letter-spacing: -0.44px;
+	.nav-item {
+		width: 32%;
+		background-color: #fff;
 		border-radius: 5px;
+		margin: 25px 0 25px 0;
+	}
+	.nav-link {
+		color: $main_text_color;
+		@include font ("OpenSans", 20px, 300, none, none);
+		display: block;
+		padding: 25px 10px 25px 10px;
 		&:hover {
-			@include hover;
+			background-color: $block_2_bg;
+			box-shadow: 0 0 2px 2px #000 inset;
+			cursor: pointer;
+			transition: 0.3s all linear;
 		}
 	}
+	
 }
-.prices {
-	padding: 24px 0 0 0;
-	background-color: $btn_color;
-	.prices-title {
-		color: #1f1f1f;
-		@include font("MontserratBold", 50px, 700, uppercase, none);
-		line-height: 80px;
-		letter-spacing: -1px;
-		text-align: center;
-		padding: 20px 20px 34px 20px;
+.profile {
+	overflow: hidden;
+	@include column(center);
+	align-items: center;
+	border-bottom: 2px solid $side_1_bg;
+	background-image: 
+	    linear-gradient(to right, $side_1_bg 50%, $block_1_bg 50%);
+	.container {
+		@include row(center);
 	}
-	.price-cards {
-		@include row (center);
-		.price-card {
-			position: relative;
-			width: 318px;
-			text-align: center;
-			background-color: $white;
-			margin-right: 18px;
-			padding: 21px 0 0 0;
-			border-radius: 5px;
-			&:last-child {
-				margin-right: 0;
-			}
-			&:first-child {
-				margin-left: 5px;
-			}
-			&-title {
-				@include font("PTSerif", 22px, 400, none, none);
-				line-height: 28px;
-				letter-spacing: -0.44px;
-				padding: 10px 0;
-			}
-			&-value {
-				color: $pink;
-				@include font("MontserratBold", 60px, 700, uppercase, none);
-				line-height: 80px;
-				letter-spacing: -1.2px;
-				padding: 7px 0 6px 0;
-    			display: block;
-			}
-			.tarif-advantages {
-				padding-bottom: 25px;
-			}
-			.tarif-advantage {
-				color: $main_text_color;
-				@include font("PTSerif", 20px, 400, none, none);
-				line-height: 28px;
-				letter-spacing: -0.4px;
-			}
-			.price-link {
-				display: inline-block;
-				width: 63%;
-				background-color: $btn_color;
-				@include font("MontserratBold", 22px, 400, uppercase, none);
-				line-height: 28px;
-				letter-spacing: -0.44px;
-				color: $main_text_color;
-				border-radius: 5px;
-				padding: 12px 0 9px 0;
-				margin-top: 1px;
-				&:hover {
-					@include hover;
-				}
-			}
-			&.popular {
-				overflow: hidden;
-				.price-link {
-					background-color: $pink;
-					color: $white;
-					&:hover {
-						@include hover;
-					}
-				}
-				&::before {
-					content: "Popular";
-					position: absolute;
-					width: 130px;
-					height: 130px;
-					@include column (flex-end);
-					background-color: #b4a993;
-					transform: rotate(-46deg);
-			    	top: -65px;
-			    	left: -68px;
-					color: #1f1f1f;
-					@include font("PTSerif", 16px, 400, none, none);
-					line-height: 40.97px;
-					letter-spacing: -0.32px;
-				}
-			}
-		}
-	}
-}
-%title {
-	text-align: center;
-	color: #1f1f1f;
-	@include font("MontserratBold", 50px, 700, uppercase, none);
-	line-height: 80px;
-	letter-spacing: -1px;
-	padding: 35px 0 21px 0;
-}
-.reviews-and-gallery {
-	padding: 100px 0 90px 0;
-	.wrapper {
-		@include row (space-between);
-		.reviews {
-			width: 48%;
-			&-title {
-				@extend %title;
-			}
-			.review {
-				&-container {
-					position: relative;
-					border-radius: 5px;
-					width: 90%;
-					box-sizing: border-box;
-					margin-bottom: 29px;
-    				padding-bottom: 30px;
-
-					&:nth-of-type(even) {
-						background-color: $btn_color;
-					}
-				}
-				&-content {
-					color: $main_text_color;
-					@include font("PTSerif", 20px, 400, none, none);
-					line-height: 28px;
-					letter-spacing: -0.4px;
-					padding: 17px 70px 9px 12px;
-				}
-				&-cite {
-					color: $pink;
-					@extend .review-content;
-					font-family: "MontserratBold";
-					font-style: normal;
-					letter-spacing: -0.7px;
-				}
-				&-photo {
-					position: absolute;
-					top: 12%;
-    				right: -7%;
-    				border-radius: 50%;
-    				box-shadow: 0 0 10px 0 $btn_color;
-    				filter: drop-shadow(0 0 10px $btn_color);
-				}
-			}
-		}
-		.gallery-container {
-			width: 46%;
-			@include column (flex-start);
-			align-items: center;
-			.gallery {
-				@include row (space-around);
-				flex-wrap: wrap;
-				align-content: space-between;
-			    width: 90%;
-			    min-height: 48%;
-			    margin: 18px 0 41px 11%;
-				&-title {
-					@extend %title;
-					color: $pink;
-				}
-				.photo-link {
-					display: block;
-					border-radius: 50%;
-    				box-shadow: 0 0 10px 0 $btn_color;
-    				filter: drop-shadow(0 0 10px $btn_color);
-    				&:hover {
-						transform: scale(1.1);
-						transition: 200ms all linear;
-					}
-				}
-				&-link {
-					color: $pink;
-					@include font("MontserratBold", 20px, 400, uppercase, underline);
-					line-height: 28px;
-					letter-spacing: -0.4px;
-					&:hover {
-						color: $main_text_color;
-						transition: 200ms all linear;
-					}
-				}
-			}
-		}
-	}
-}
-.page-footer {
-	background-color: $main_text_color;
-	.wrapper {
-		@include row (space-between);
+	.main-title {
+		position: absolute;
+		right: -6%;
+	    top: 90px;
+	    width: 378/2050*100vw;
+		max-height: 186px;
+		height: 186/2050*100vw;
+		background-color: $side_1_bg;
+		@include font ("OpenSans", 60/2050*100vw, 400, uppercase, none);
+		color: $main_title;
+		@include row(center);
 		align-items: center;
-		.copy {
-			color: $white;
-			@include font("PTSerif", 20px, 400, none, none);
-			line-height: 22px;
-			letter-spacing: -0.4px;
+		padding-left: 93px;
+		padding-right: 60px;
+		margin-left: 5px;
+		transform: rotate(-90deg);
+		&::before {
+			content: "";
+		    border: 93px solid #e1e8eb;
+		    border-right: none;
+		    border-top-color: transparent;
+		    border-bottom-color: transparent;
+		    width: 0;
+		    height: 0;
+		    z-index: 1;
+		    position: absolute;
+		    left: -1px;  
 		}
-		.author-link {
-			@extend .copy;
-			color: $pink;
+	}
+	.profile-title {
+		width: 19.61%;
+		@include side_title ($side_1_bg);
+		padding: 0 0 72px 3.7%;
+		background-image: url("../img/info.png");
+		background-position: 89px 118px;
+		background-size: 82%;
+	}
+	.profile-info {
+		width: 80.39%;
+		background-color: $block_1_bg;
+		@include column(center);
+		align-items: center;
+		padding: 90px 0 63px 0;
+	}
+	.main-info {
+		@include row(flex-start);
+		width: 83%;
+		padding: 25px 0 35px 0;
+		border-bottom: 2px solid rgba(92,139,172,0.2);
+	}
+	.my-photo {
+		width: 374/(2050*0.82)*100%;
+		height: 100%;
+		padding: 10px 50px 0 10px;
+	}
+	.wrapper {
+		width: 59%;
+	}
+	.name {
+		@include font ("OpenSans", 110/2550*100vw, 300, none, none);
+		padding: 2% 10px 15px 17px;
+	}
+	.first-name {
+		@include font ("OpenSans-SemiBold", 110/2550*100vw, 400, none, none);
+		line-height: 1.26%;
+	}
+	.position {
+		@include font ("OpenSans", 80/2550*100vw, 300, uppercase, none);
+		opacity: 0.5;
+		padding: 13px 10px 15px 17px;
+	}
+	.contacts {
+		font-size: 0;
+		padding-top: 2%;
+	}
+	.email,
+	.phone {
+		display: inline-block;
+		color: $main_text_color;
+		@include font ("OpenSans", 40px, 400, none, none);
+		line-height: 69px;
+		margin: 10px 10px 10px 90px;
+		position: relative;
+		@media screen and (max-width: 2100px) {
+			display: block;
 		}
-		.logo-link {
-			padding: 73px 16px 60px 16px;
+		@media screen and (max-width: 1400px) {
+			font-size: 30px;
 		}
-		.footer-logo {
-			width: 98px;
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 16px;
+    		left: -70px;
+			width: 50px;
+			height: 50px;
+			background-image: url("../img/contact_sprite.png");
+			background-repeat: no-repeat;
+		}
+	}
+	.email::before {
+		background-position: 0px 4px;;
+	}
+	.phone::before {
+		background-position: -496px 7px;;
+	}
+	.social-info {
+		width: 83%;
+		@include row(space-between);
+		flex-wrap: wrap;
+		align-items: center;
+		border-bottom: 2px solid rgba(92,139,172,0.2);
+		padding: 12px 0 12px 0;
+	}
+	.social-title {
+		@include font ("OpenSans", 45px, 400, none, none);
+		margin-right: 10px;
+	}
+	.social {
+		color: $main_text_color;
+		@include font ("OpenSans", 30px, 300, none, none);
+		padding: 30px 10px 30px 110px;
+		position: relative;
+		&:hover {
+			text-decoration: underline;
+		}
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 10px;
+    		left: 0px;
+			width: 75px;
+			height: 75px;
+			background-image: url("../img/social_sprite.png");
+			background-repeat: no-repeat;
+			&:hover {
+
+			}
+		}
+	}
+	// .fb::before {
+	// 	background-position: 0 0;
+	// }
+	// .vk::before {
+	// 	background-position: 0 0;
+	// }
+	// .li::before {
+	// 	background-position: 0 0;
+	// }
+}
+.experience {
+	overflow: hidden;
+	@include column(center);
+	align-items: center;
+	border-bottom: 2px solid $side_2_bg;
+	background-image: 
+	    linear-gradient(to right, $side_2_bg 50%, $block_2_bg 50%);
+	.container {
+		@include row(center);
+	}
+	.experience-title {
+		width: 19.61%;
+		@include side_title ($side_2_bg);
+		padding: 0 0 72px 3.7%;
+		background-image: url("../img/experience.png");
+		background-position: 89px 118px;
+		background-size: 82%;
+	}
+	.experience-list {
+		width: 80.39%;
+		background-color: $block_2_bg;
+		@include column(flex-start);
+		padding-bottom: 45px;
+	}
+	.experience-item {
+		@include row(spase-between);
+	}
+	.position-block {
+		box-sizing: border-box;
+		@include column(flex-start);
+		width: 40%;
+		padding: 30px 10px 15px 8.85%;
+	}
+	.position-name,
+	.company-name {
+		@include font ("OpenSans", 45px, 400, none, none);
+		line-height: 69px;
+		padding: 33px 0 0 0;
+	}
+	.position-period {
+		color: $date_color;
+		@include font ("OpenSans", 30px, 300, none, none);
+		line-height: 60px;
+	}
+	.company-block {
+		box-sizing: border-box;
+		@include column(flex-start);
+		width: 60%;
+		padding: 30px 8% 15px 5%;
+	}
+	.company-description {
+		color: $description_color;
+		@include font ("OpenSans", 30px, 300, none, none);
+		line-height: 50px;
+	}
+}
+.education {
+	overflow: hidden;
+	@include column(center);
+	align-items: center;
+	border-bottom: 2px solid $side_3_bg;
+	background-image: 
+	    linear-gradient(to right, $side_3_bg 50%, $block_2_bg 50%);
+	.container {
+		@include row(center);
+	}
+	.education-title {
+		width: 19.61%;
+		@include side_title ($side_3_bg);
+		padding: 0 0 72px 3.7%;
+		background-image: url("../img/my_education.png");
+		background-position: 89px 118px;
+		background-size: 82%;
+	}
+	.education-list {
+		width: 80.39%;
+		background-color: $block_3_bg;
+		@include column(flex-start);
+		padding-bottom: 45px;
+	}
+	.education-item {
+		@include row(spase-between);
+	}
+	.course-block {
+		box-sizing: border-box;
+		@include column(flex-start);
+		width: 40%;
+		padding: 30px 10px 15px 8.85%;
+	}
+	.course-name,
+	.university-name {
+		@include font ("OpenSans", 45px, 400, none, none);
+		line-height: 69px;
+		padding: 33px 0 0 0;
+	}
+	.course-period {
+		color: $date_color;
+		@include font ("OpenSans", 30px, 300, none, none);
+		line-height: 60px;
+	}
+	.university-block {
+		box-sizing: border-box;
+		@include column(flex-start);
+		width: 60%;
+		padding: 30px 8% 15px 5%;
+	}
+	.university-description {
+		color: $description_color;
+		@include font ("OpenSans", 30px, 300, none, none);
+		line-height: 50px;
+	}
+}
+.skills {
+	overflow: hidden;
+	@include column(center);
+	align-items: center;
+	border-bottom: 2px solid $side_4_bg;
+	background-image: 
+	    linear-gradient(to right, $side_4_bg 50%, $block_2_bg 50%);
+	.container {
+		@include row(center);
+	}
+	.skills-title {
+		width: 19.61%;
+		@include side_title ($side_4_bg);
+		padding: 0 0 72px 3.7%;
+		background-image: url("../img/my_skills.png");
+		background-position: 89px 118px;
+		background-size: 82%;
+	}
+	.skills-list {
+		width: 80.39%;
+		background-color: $block_4_bg;
+		@include row(space-between);
+		flex-wrap: wrap;
+		padding: 48px 0 160px 0;
+	}
+	.skills-item {
+		width: 50%;
+		@include row(space-between);
+		align-items: center;
+		box-sizing: border-box;
+		padding: 5px 1% 11px 8.7%;
+	}
+	.skills-item:nth-of-type(even) {
+		flex-direction: row-reverse;
+		padding: 5px 8.7% 11px 1%;
+		.description-block {
+			align-items: flex-end;
+		}
+	}
+	.description-block {
+		@include column(flex-start);
+		width: 53%;
+	}
+	.description-block:nth-of-type(even) {
+		align-items: flex-end;
+
+	}
+	.skill-name{
+		@include font ("OpenSans", 45px, 300, none, none);
+		line-height: 69px;
+	}
+	.slill-mark {
+		@include font ("OpenSans-LightItalic", 28px, 300, none, none);
+		line-height: 40px;
+		font-style: italic;
+	}
+	.scale-block {
+		position: relative;
+		height: 46px;
+		width: 60%;
+		background-color: $skill_1_empty;
+		.scale-fill {
+			position: absolute;
 			height: 46px;
+			width: 100%;
+			background-color: $skill_1_full;
+		}
+	}
+	.skill-1 {
+		background-color: $skill_1_empty;
+		.scale-fill {
+			width: 100%;
+			background-color: $skill_1_full;
+		}
+	}
+	.skill-2 {
+		background-color: $skill_1_empty;
+		.scale-fill {
+			width: 100%;
+			background-color: $skill_1_full;
+		}
+	}
+	.skill-3 {
+		background-color: $skill_2_empty;
+		.scale-fill {
+			width: 80%;
+			background-color: $skill_2_full;
+		}
+	}
+	.skill-4 {
+		background-color: $skill_2_empty;
+		.scale-fill {
+			width: 90%;
+			background-color: $skill_2_full;
+		}
+	}
+	.skill-5 {
+		background-color: $skill_3_empty;
+		.scale-fill {
+			width: 60%;
+			background-color: $skill_3_full;
+		}
+	}
+	.skill-6 {
+		background-color: $skill_3_empty;
+		.scale-fill {
+			width: 60%;
+			background-color: $skill_3_full;
+		}
+	}
+	.skill-7 {
+		background-color: $skill_1_empty;
+		.scale-fill {
+			width: 100%;
+			background-color: $skill_1_full;
+		}
+	}
+	.skill-8 {
+		background-color: $skill_1_empty;
+		.scale-fill {
+			width: 90%;
+			background-color: $skill_1_full;
+		}
+	}
+	.skill-9 {
+		background-color: $skill_2_empty;
+		.scale-fill {
+			width: 80%;
+			background-color: $skill_2_full;
+		}
+	}
+	.skill-10 {
+		background-color: $skill_2_empty;
+		.scale-fill {
+			width: 60%;
+			background-color: $skill_2_full;
 		}
 	}
 }
-// Вроде победа, но не уверен в правильности применения флексов.
-// Жаль, что ниже 800рх по ширине начинает ломаться, зато чекбокс прикольный получился))))
+
+@media screen and (max-width: 1790px) {
+	.profile {
+		.main-title {
+			max-height: 146px;
+			height: 146/2050*100vw;
+			font-size: 40px;
+		}
+		.my-photo {
+			width: 220px;
+			padding-right: 35px;
+		}
+		.name {
+			font-size: 45px;
+		}
+		.first-name {
+			font-size: 45px;;
+		}
+		.position {
+			font-size: 35px;
+		}
+		.email,
+		.phone {
+			font-size: 25px;
+		}
+		.social-title {
+			font-size: 20px;
+		}
+		.social {
+			font-size: 20px;
+			padding-left: 50px;
+			&::before {
+				width: 50px;
+			    height: 50px;
+			    background-size: 1200%;
+			    left: 0;
+    			top: 20px;
+			}
+		}
+		// .fb::before {
+		// 	background-position: 0 0;
+		// }
+		// .vk::before {
+		// 	background-position: 0 0;
+		// }
+		// .li::before {
+		// 	background-position: 0 0;
+		// }
+	}
+	.experience {
+		.position-name,
+		.company-name {
+			font-size: 30px;
+			line-height: 50px;
+		}
+		.position-period {
+			font-size: 20px;
+			line-height: 30px;
+		}
+		.company-description {
+			font-size: 20px;
+			line-height: 30px;
+		}
+	}
+	.education {
+		.course-name,
+		.university-name {
+			font-size: 30px;
+			line-height: 50px;
+		}
+		.course-period {
+			font-size: 20px;
+			line-height: 30px;
+		}
+		.university-description {
+			font-size: 20px;
+			line-height: 30px;
+		}
+	}
+	.skills {
+
+		.skill-name {
+			font-size: 30px;
+			line-height: 49px;
+		}
+		.slill-mark {
+			font-size: 18px;
+			line-height: 29px;
+		}
+		.scale-block {
+			height: 26px;
+			.scale-fill {
+				height: 26px;
+			}
+		}
+	}
+}
+@media screen and (max-width: 1024px) {
+	// пропорционально уменьшить размкры шрифта
+}

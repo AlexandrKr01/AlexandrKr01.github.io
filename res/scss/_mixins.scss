@@ -1,0 +1,42 @@
+// Миксины
+@mixin row($justify-content) {
+	display: flex;
+	flex-direction: row;
+	justify-content: $justify-content;
+}
+@mixin column($justify-content) {
+	display: flex;
+	flex-direction: column;
+	justify-content: $justify-content;
+}
+@mixin font(
+	$font-family, 
+	$font-size, 
+	$font-weight, 
+	$text-transform,
+	$text-decoration) {
+		font-family: $font-family;
+		font-size: $font-size;
+		font-weight: $font-weight;
+		text-transform: $text-transform;
+		text-decoration: $text-decoration;
+}
+@mixin dark($base_color) {
+	background-color: darken($base_color, 10%);
+    transition: 0.2s all linear;
+}
+@mixin side_title ($bg_color) {
+	background-color: $bg_color;
+	color: $title_color;
+	@include font ("OpenSans", 50/2550*100vw, 300, none, none);
+	line-height: 1.94118vw;
+	@include column(flex-end);
+	box-sizing: border-box;
+	background-repeat: no-repeat;
+	.bold {
+		display: block;
+		font-size: 60/2550*100vw;
+		font-weight: 400;
+		line-height: 69/2550*100vw;
+	}
+}

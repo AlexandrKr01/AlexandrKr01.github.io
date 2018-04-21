@@ -1,33 +1,48 @@
 $path: "../fonts/";
 
 @font-face {
-	font-family: "Couture";
-	src: url($path + "Couture-Bold.woff");
-	src: url($path + "Couture-Bold.eot");
+	font-family: "OpenSans";
+	src: url($path + "OpenSans-Regular.woff");
+	// src: url($path + "OpenSans-Regular.eot");
+	// src: url($path + "OpenSans-Regular.woff2");
+	src: url($path + "OpenSans-Regular.ttf") format("truetype");
 	src: 
-		url($path + "Couture-Bold.eot?#iefix") format("embedded-opentype"),
-		url($path + "Couture-Bold.woff2") format("woff2"),
-		url($path + "Couture-Bold.woff") format("woff"),
-		url($path + "Couture-Bold.ttf") format("truetype"),
-		url($path + "Couture-Bold.svg#gothamblack") format("svg");
+		url($path + "OpenSans-Regular.eot"),
+		url($path + "OpenSans-Regular.woff2"),
+		url($path + "OpenSans-Regular.eot?#iefix") format("embedded-opentype"),
+		url($path + "OpenSans-Regular.svg#gothamblack") format("svg");
 }
 @font-face {
-	font-family: "PtSerif";
-	src: url($path + "pt_serif-web-regular-webfont.eot");   
+	font-family: "OpenSans-Light";
+	src: url($path + "OpenSans-Light.woff");
+	src: url($path + "OpenSans-Light.eot");
 	src: 
-		url($path + "pt_serif-web-regular-webfont.eot?#iefix") format("embedded-opentype"),         
-		url($path + "pt_serif-web-regular-webfont.woff2") format("woff2"),        
-		url($path + "pt_serif-web-regular-webfont.woff") format("woff"),        
-		url($path + "pt_serif-web-regular-webfont.ttf") format("truetype"),        
-		url($path + "pt_serif-web-regular-webfont.svg#open_sansregular") format("svg");
+		url($path + "OpenSans-Light.eot?#iefix") format("embedded-opentype"),
+		url($path + "OpenSans-Light.woff2") format("woff2"),
+		url($path + "OpenSans-Light.woff") format("woff"),
+		url($path + "OpenSans-Light.ttf") format("truetype"),
+		url($path + "OpenSans-Light.svg#gothamblack") format("svg");
 }
 @font-face {
-	font-family: "MontserratBold";
-	src: url($path + "montserrat-bold-webfont.eot");
+	font-family: "OpenSans-LightItalic";
+	src: url($path + "OpenSans-LightItalic.woff");
+	src: url($path + "OpenSans-LightItalic.eot");
 	src: 
-		url($path + "montserrat-bold-webfont.eot?#iefix") format("embedded-opentype"),
-		url($path + "montserrat-bold-webfont.woff2") format("woff2"),
-		url($path + "montserrat-bold-webfont.woff") format("woff"),
-		url($path + "montserrat-bold-webfont.ttf") format("truetype"),
-		url($path + "montserrat-bold-webfont.svg#latoregular") format("svg");
+		url($path + "OpenSans-LightItalic.eot?#iefix") format("embedded-opentype"),
+		url($path + "OpenSans-LightItalic.woff2") format("woff2"),
+		url($path + "OpenSans-LightItalic.woff") format("woff"),
+		url($path + "OpenSans-LightItalic.ttf") format("truetype"),
+		url($path + "OpenSans-LightItalic.svg#gothamblack") format("svg");
 }
+@font-face {
+	font-family: "OpenSans-SemiBold";
+	src: url($path + "OpenSans-SemiBold.woff");
+	src: url($path + "OpenSans-SemiBold.eot");
+	src: 
+		url($path + "OpenSans-SemiBold.eot?#iefix") format("embedded-opentype"),
+		url($path + "OpenSans-SemiBold.woff2") format("woff2"),
+		url($path + "OpenSans-SemiBold.woff") format("woff"),
+		url($path + "OpenSans-SemiBold.ttf") format("truetype"),
+		url($path + "OpenSans-SemiBold.svg#gothamblack") format("svg");
+}
+
