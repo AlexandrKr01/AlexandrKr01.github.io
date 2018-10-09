@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Duhoot</title>
+	<link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" href="img/logo_min.png" type="image/png">
+</head>
+<body>
+	<header class="page-header">
+		<div class="container">
+			<a href="#" class="header-logo-link">
+				<img src="img/logo.png" alt="Duhoot" class="header-logo-image" width="154" height="45">
+			</a>
+			<nav class="header-navigation">
+				<ul class="navigation-list">
+					<li class="navigation-item">
+						<a href="#" class="navigation-link">Reality</a>
+					</li>
+					<li class="navigation-item">
+						<a href="#" class="navigation-link">Living</a>
+					</li>
+					<li class="navigation-item">
+						<a href="#" class="navigation-link">Education</a>
+					</li>
+					<li class="navigation-item">
+						<a href="#" class="navigation-link">Entertainment</a>
+					</li>
+					<li class="navigation-item">
+						<a href="#" class="navigation-link">Mobility</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="btn-block">
+				<a href="#" class="search"><i class="icon-search loop"></i> Search</a>
+				<a href="" class="login start"><i class="icon-user log"></i>&nbsp;&nbsp;&nbsp;Login</a>
+				<a href="" class="login user hide"><i class="icon-user log"></i>&nbsp;&nbsp;&nbsp;Aleksandr</a>
+			</div>
+		</div>
+		<div class="pop-up-wrapper hide">
+			<form class="pop-up-block" method="post">
+				<span class="close">X</span>
+				<label for="user-email" class="email-label">Your email adress</label>
+				<input type="email" name="user-email" id="user-email" class="user-email" placeholder="Please enter Your email">
+				<label for="user-password" class="password-label">Your password</label>
+				<input type="password" name="user-password" id="user-password" class="user-password" placeholder="Please enter Your password">
+				<button type="submit" class="log-to">Log in</button>
+			</form>
+		</div>
+	</header>
+	<section class="search-intro">
+		<div class="container">
+			<h3 class="search-title">What are you looking for?</h3>
+			<form action="post" class="search-form">
+				<div class="selects">
+					<div class="select-block place">
+						<select class="place-list" name="place">
+							<option value="DB" class="list-item" selected>Dubai</option>
+							<option value="CA" class="list-item">California</option>
+							<option value="PR" class="list-item">Puerto Rico</option>
+							<option value="EG" class="list-item">Egypt</option>
+							<option value="TU" class="list-item">Turkey</option>
+						</select>
+						<div class="arrow-block">
+							<i class="icon-angle-down sel-arrow"></i>
+						</div>
+					</div>
+					<div class="select-block category">
+						<select class="category-list" name="category">
+							<option value="RLT" class="list-item">Realty</option>
+							<option value="LVN" class="list-item">Living</option>
+							<option value="EDU" class="list-item" selected>Education</option>
+							<option value="ENT" class="list-item">Entertainment</option>
+							<option value="MOB" class="list-item">Mobility</option>
+						</select>
+						<div class="arrow-block">
+							<i class="icon-angle-down sel-arrow"></i>
+						</div>
+					</div>
+				</div>
+				<input type="text" placeholder="Keyword, name, date, ..." class="search-row">
+				<button type="submit" class="submit-search">Search</button>
+			</form>
+		</div>
+	</section>
+	<section class="nav-panel">
+		<div class="container">
+			<h3 class="panel-title">Choose your service</h3>
+			<div class="link-group">
+				<a href="#" class="nav-panel-link active">Recommended</a>
+				<a href="#" class="nav-panel-link">latest</a>
+				<a href="#" class="nav-panel-link">Highlights</a>          
+			</div>
+			<div class="toggle-wrapper">
+				<div class="map-group">
+					<div class="select-block place-nav">
+						<select class="place-list" name="place">
+							<option value="DB" class="list-item" selected>Dubai</option>
+							<option value="CA" class="list-item">California</option>
+							<option value="PR" class="list-item">Puerto Rico</option>
+							<option value="EG" class="list-item">Egypt</option>
+							<option value="TU" class="list-item">Turkey</option>
+						</select>
+						<div class="arrow-block">
+							<i class="icon-angle-down sel-arrow"></i>
+						</div>
+					</div>
+				</div>
+				<div class="map-toggle">
+					<a href="#" class="map-link" target="blank">hide map <i class="icon-map-marker map-mark"></i></a>
+					
+				</div>
+			</div>
+			<div class="filter-group">
+				<p class="filter-name">Filter:</p>
+				<a href="#" class="category category-realty active" title="Realty">Realty</a>
+				<a href="#" class="category category-living" title="Living">Living</a>
+				<a href="#" class="category category-education" title="Education">Education</a>
+				<a href="#" class="category category-entertainment active" title="Entertainment">Entertainment</a>
+				<a href="#" class="category category-mobility active" title="Mobility">Mobility</a>
+			</div>
+		</div>
+	</section>
+	<section class="galery">
+		<div class="container">
+			<div class="galery-cards">
+				<!-- Группа 1 узкие -->
+				<div class="galery-card">
+					<div class="card-top home category-realty">
+						<div class="card-top-content">
+							<a href="#" class="btn-show"><i class="icon-search search"></i> Show more</a>
+							<div class="rate">
+								<div class="your-rating-container">
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<a href="#" class="comment">Comment <i class="icon-comments-alt comm"></i></a>
+							</div>
+						</div>
+						<div class="price">&#36;2,990</div>
+					</div>
+					<div class="card-bottom category-realty">
+						<p class="card-description">
+							2 bedroom house for rent in Dubai
+						</p>
+						<p class="partner">
+							Vision Agency
+						</p>
+						<div class="rate">
+							<div class="rating-container">
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty active"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+							</div>
+							<span class="counter">(365)</span>
+						</div>
+					</div>
+				</div>
+				<div class="galery-card">
+					<div class="card-top party category-entertainment">
+						<div class="card-top-content">
+							<a href="#" class="btn-show"><i class="icon-search search"></i> Show more</a>
+							<div class="rate">
+								<div class="your-rating-container">
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<a href="#" class="comment">Comment <i class="icon-comments-alt comm"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="card-bottom category-entertainment">
+						<p class="card-description">
+							Beach party festival 2014
+						</p>
+						<p class="partner">
+							Long beach
+						</p>
+						<div class="rate">
+							<div class="rating-container">
+								<span class="rating icon-star-empty active"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+							</div>
+							<span class="counter">(1165)</span>
+						</div>
+					</div>
+				</div>
+				<div class="galery-card">
+					<div class="card-top home category-mobility">
+						<div class="card-top-content active">
+							<a href="#" class="btn-show"><i class="icon-search search"></i> Show more</a>
+							<div class="rate">
+								<div class="your-rating-container">
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<a href="#" class="comment">Comment <i class="icon-comments-alt comm"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="card-bottom category-mobility">
+						<p class="card-description">
+							Aliquam quis pulvinar purus
+						</p>
+						<p class="partner">
+							Bus Trans
+						</p>
+						<div class="rate">
+							<div class="rating-container">
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty active"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+							</div>
+							<span class="counter">(365)</span>
+						</div>
+					</div>
+				</div>
+				<div class="galery-card">
+					<div class="card-top hotel category-realty">
+						<div class="card-top-content">
+							<a href="#" class="btn-show"><i class="icon-search search"></i> Show more</a>
+							<div class="rate">
+								<div class="your-rating-container">
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<a href="#" class="comment">Comment <i class="icon-comments-alt comm"></i></a>
+							</div>
+						</div>
+						<div class="price">&#36;2,990</div>
+					</div>
+					<div class="card-bottom category-realty">
+						<p class="card-description">
+							4 bedroom house for rent in Dubai
+						</p>
+						<p class="partner">
+							reality Agency
+						</p>
+						<div class="rate">
+							<div class="rating-container">
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty active"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+							</div>
+							<span class="counter">(165)</span>
+						</div>
+					</div>
+				</div>
+				<!-- Группа 2 широкие -->
+				<div class="galery-card-wide">
+					<div class="card-top room category-realty">
+						<div class="card-top-content">
+							<a href="#" class="btn-show"><i class="icon-search search"></i> Show more</a>
+							<div class="rate">
+								<div class="your-rating-container">
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<a href="#" class="comment">Comment <i class="icon-comments-alt comm"></i></a>
+							</div>
+						</div>
+						<div class="card-top-description">
+							<p class="partner">
+								Vision agency
+							</p>
+							<div class="rate">
+								<div class="rating-container">
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty active"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<span class="counter">(365)</span>
+							</div>
+						</div>
+					</div>
+					<div class="card-bottom category-realty">
+						<div class="last-comment">
+							<div class="user-photo-block">
+								<img src="img/lusy.jpg" alt="Lucy-P" class="user-photo">
+							</div>
+							<div class="connent-rate-block">
+								<div class="user-rating-container">
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty active"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<h3 class="user-name">
+									Lucy-P
+								</h3>
+								<p class="user-comment">
+									“Aliquam quis pulvinar purus. Etiam cursus ipsum quis enim faucibus, quis posuere orci ornare. Duis mattis sagittis fringilla.” <a href="#" class="comment-link">...read more</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="galery-card-wide">
+					<div class="card-top disco category-entertainment">
+						<div class="card-top-content">
+							<a href="#" class="btn-show"><i class="icon-search search"></i> Show more</a>
+							<div class="rate">
+								<div class="your-rating-container">
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<a href="#" class="comment">Comment <i class="icon-comments-alt comm"></i></a>
+							</div>
+						</div>
+						<div class="card-top-description">
+							<p class="partner">
+								Skybox club
+							</p>
+							<div class="rate">
+								<div class="rating-container">
+									<span class="rating icon-star-empty active"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<span class="counter">(1365)</span>
+							</div>
+						</div>
+					</div>
+					<div class="card-bottom category-entertainment">
+						<div class="last-comment">
+							<div class="user-photo-block">
+								<img src="img/peter.jpg" alt="Peter145" class="user-photo">
+							</div>
+							<div class="connent-rate-block">
+								<div class="user-rating-container">
+									<span class="rating icon-star-empty active"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<h3 class="user-name">
+									Peter145
+								</h3>
+								<p class="user-comment">
+									“Aliquam quis pulvinar purus. Etiam cursus ipsum quis enim faucibus, quis posuere orci ornare. Duis mattis sagittis fringilla.” <a href="#" class="comment-link">...read more</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Группа 3 узкие -->
+				<div class="galery-card">
+					<div class="card-top home category-realty">
+						<div class="card-top-content">
+							<a href="#" class="btn-show"><i class="icon-search search"></i> Show more</a>
+							<div class="rate">
+								<div class="your-rating-container">
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<a href="#" class="comment">Comment <i class="icon-comments-alt comm"></i></a>
+							</div>
+						</div>
+						<div class="price">&#36;2,990</div>
+					</div>
+					<div class="card-bottom category-realty">
+						<p class="card-description">
+							2 bedroom house for rent in Dubai
+						</p>
+						<p class="partner">
+							Vision Agency
+						</p>
+						<div class="rate">
+							<div class="rating-container">
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty active"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+							</div>
+							<span class="counter">(365)</span>
+						</div>
+					</div>
+				</div>
+				<div class="galery-card">
+					<div class="card-top party category-entertainment">
+						<div class="card-top-content">
+							<a href="#" class="btn-show"><i class="icon-search search"></i> Show more</a>
+							<div class="rate">
+								<div class="your-rating-container">
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<a href="#" class="comment">Comment <i class="icon-comments-alt comm"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="card-bottom category-entertainment">
+						<p class="card-description">
+							Beach party festival 2014
+						</p>
+						<p class="partner">
+							Long beach
+						</p>
+						<div class="rate">
+							<div class="rating-container">
+								<span class="rating icon-star-empty active"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+							</div>
+							<span class="counter">(1165)</span>
+						</div>
+					</div>
+				</div>
+				<div class="galery-card">
+					<div class="card-top home category-mobility">
+						<div class="card-top-content">
+							<a href="#" class="btn-show"><i class="icon-search search"></i> Show more</a>
+							<div class="rate">
+								<div class="your-rating-container">
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<a href="#" class="comment">Comment <i class="icon-comments-alt comm"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="card-bottom category-mobility">
+						<p class="card-description">
+							Aliquam quis pulvinar purus
+						</p>
+						<p class="partner">
+							Bus Trans
+						</p>
+						<div class="rate">
+							<div class="rating-container">
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty active"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+							</div>
+							<span class="counter">(365)</span>
+						</div>
+					</div>
+				</div>
+				<div class="galery-card">
+					<div class="card-top hotel category-realty">
+						<div class="card-top-content">
+							<a href="#" class="btn-show"><i class="icon-search search"></i> Show more</a>
+							<div class="rate">
+								<div class="your-rating-container">
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<a href="#" class="comment">Comment <i class="icon-comments-alt comm"></i></a>
+							</div>
+						</div>
+						<div class="price">&#36;2,990</div>
+					</div>
+					<div class="card-bottom category-realty">
+						<p class="card-description">
+							4 bedroom house for rent in Dubai
+						</p>
+						<p class="partner">
+							reality Agency
+						</p>
+						<div class="rate">
+							<div class="rating-container">
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty active"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+							</div>
+							<span class="counter">(165)</span>
+						</div>
+					</div>
+				</div>
+				<!-- Группа 4 микс -->
+				<div class="galery-card-wide">
+					<div class="card-top disco category-entertainment">
+						<div class="card-top-content">
+							<a href="#" class="btn-show"><i class="icon-search search"></i> Show more</a>
+							<div class="rate">
+								<div class="your-rating-container">
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<a href="#" class="comment">Comment <i class="icon-comments-alt comm"></i></a>
+							</div>
+						</div>
+						<div class="card-top-description">
+							<p class="partner">
+								Skybox club
+							</p>
+							<div class="rate">
+								<div class="rating-container">
+									<span class="rating icon-star-empty active"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<span class="counter">(1365)</span>
+							</div>
+						</div>
+					</div>
+					<div class="card-bottom category-entertainment">
+						<div class="last-comment">
+							<div class="user-photo-block">
+								<img src="img/peter.jpg" alt="Peter145" class="user-photo">
+							</div>
+							<div class="connent-rate-block">
+								<div class="user-rating-container">
+									<span class="rating icon-star-empty active"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<h3 class="user-name">
+									Peter145
+								</h3>
+								<p class="user-comment">
+									“Aliquam quis pulvinar purus. Etiam cursus ipsum quis enim faucibus, quis posuere orci ornare. Duis mattis sagittis fringilla.” <a href="#" class="comment-link">...read more</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="galery-card">
+					<div class="card-top home category-realty">
+						<div class="card-top-content">
+							<a href="#" class="btn-show"><i class="icon-search search"></i> Show more</a>
+							<div class="rate">
+								<div class="your-rating-container">
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<a href="#" class="comment">Comment <i class="icon-comments-alt comm"></i></a>
+							</div>
+						</div>
+						<div class="price">&#36;2,990</div>
+					</div>
+					<div class="card-bottom category-realty">
+						<p class="card-description">
+							2 bedroom house for rent in Dubai
+						</p>
+						<p class="partner">
+							Vision Agency
+						</p>
+						<div class="rate">
+							<div class="rating-container">
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty active"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+							</div>
+							<span class="counter">(365)</span>
+						</div>
+					</div>
+				</div>
+				<div class="galery-card">
+					<div class="card-top party category-entertainment">
+						<div class="card-top-content">
+							<a href="#" class="btn-show"><i class="icon-search search"></i> Show more</a>
+							<div class="rate">
+								<div class="your-rating-container">
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+									<span class="rating icon-star-empty"></span>
+								</div>
+								<a href="#" class="comment">Comment <i class="icon-comments-alt comm"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="card-bottom category-entertainment">
+						<p class="card-description">
+							Beach party festival 2014
+						</p>
+						<p class="partner">
+							Long beach
+						</p>
+						<div class="rate">
+							<div class="rating-container">
+								<span class="rating icon-star-empty active"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+								<span class="rating icon-star-empty"></span>
+							</div>
+							<span class="counter">(1165)</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Ссылка -->
+			<a href="#" class="learn-more">Load more <i class="icon-long-arrow-right learn-arrow"></i></a>
+		</div>
+	</section>
+	<section class="offers">
+		<div class="container">
+			<h3 class="offers-title">What can DuHoot offer to you?</h3>
+			<p class="offers-description">
+				Etiam cursus ipsum quis enim faucibus
+			</p>
+			<div class="toggle-block">
+				<label for="offer1" class="main-toggle category-realty active"></label>
+				<label for="offer2" class="main-toggle category-living"></label>
+				<label for="offer3" class="main-toggle category-education"></label>
+				<label for="offer4" class="main-toggle category-entertainment"></label>
+				<label for="offer5" class="main-toggle category-mobility"></label>
+			</div>
+			<input type="radio" name="offer" id="offer1" checked class="toggle_btn">
+			<div class="category-realty offer-block">
+				<h3 class="offer-title">Reality</h3>
+				<div class="offer-wrapper">
+					<div class="offer-icon-wrapper">
+						<i class="icon-bolt offer-icon"></i>
+					</div>
+					<p class="offer-description">
+						Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi gravida tellus in purus pharetra, vel dignissim mauris viverra. Maecenas vitae risus est. In hendrerit, massa at.
+					</p>
+					<div class="offer-icon-wrapper">
+						<i class="icon-leaf offer-icon"></i>
+					</div>
+					<p class="offer-description">
+						Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi gravida tellus in purus pharetra, vel dignissim mauris viverra. Maecenas vitae risus est. In hendrerit, massa at.
+					</p>
+				</div>
+			</div>
+			<input type="radio" name="offer" id="offer2" class="toggle_btn">
+			<div class="category-living offer-block">
+				<h3 class="offer-title">Living</h3>
+				<div class="offer-wrapper">
+					<div class="offer-icon-wrapper">
+						<i class="icon-bolt offer-icon"></i>
+					</div>
+					<p class="offer-description">
+						Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi gravida tellus in purus pharetra, vel dignissim mauris viverra. Maecenas vitae risus est. In hendrerit, massa at.
+					</p>
+					<div class="offer-icon-wrapper">
+						<i class="icon-leaf offer-icon"></i>
+					</div>
+					<p class="offer-description">
+						Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi gravida tellus in purus pharetra, vel dignissim mauris viverra. Maecenas vitae risus est. In hendrerit, massa at.
+					</p>
+				</div>
+			</div>
+			<input type="radio" name="offer" id="offer3" class="toggle_btn">
+			<div class="category-education offer-block">
+				<h3 class="offer-title">Education</h3>
+				<div class="offer-wrapper">
+					<div class="offer-icon-wrapper">
+						<i class="icon-bolt offer-icon"></i>
+					</div>
+					<p class="offer-description">
+						Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi gravida tellus in purus pharetra, vel dignissim mauris viverra. Maecenas vitae risus est. In hendrerit, massa at.
+					</p>
+					<div class="offer-icon-wrapper">
+						<i class="icon-leaf offer-icon"></i>
+					</div>
+					<p class="offer-description">
+						Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi gravida tellus in purus pharetra, vel dignissim mauris viverra. Maecenas vitae risus est. In hendrerit, massa at.
+					</p>
+				</div>
+			</div>
+			<input type="radio" name="offer" id="offer4" class="toggle_btn">
+			<div class="category-entertainment offer-block">
+				<h3 class="offer-title">Entertainment</h3>
+				<div class="offer-wrapper">
+					<div class="offer-icon-wrapper">
+						<i class="icon-bolt offer-icon"></i>
+					</div>
+					<p class="offer-description">
+						Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi gravida tellus in purus pharetra, vel dignissim mauris viverra. Maecenas vitae risus est. In hendrerit, massa at.
+					</p>
+					<div class="offer-icon-wrapper">
+						<i class="icon-leaf offer-icon"></i>
+					</div>
+					<p class="offer-description">
+						Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi gravida tellus in purus pharetra, vel dignissim mauris viverra. Maecenas vitae risus est. In hendrerit, massa at.
+					</p>
+				</div>
+			</div>
+			<input type="radio" name="offer" id="offer5" class="toggle_btn">
+			<div class="category-mobility offer-block">
+				<h3 class="offer-title">Mobility</h3>
+				<div class="offer-wrapper">
+					<div class="offer-icon-wrapper">
+						<i class="icon-bolt offer-icon"></i>
+					</div>
+					<p class="offer-description">
+						Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi gravida tellus in purus pharetra, vel dignissim mauris viverra. Maecenas vitae risus est. In hendrerit, massa at.
+					</p>
+					<div class="offer-icon-wrapper">
+						<i class="icon-leaf offer-icon"></i>
+					</div>
+					<p class="offer-description">
+						Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi gravida tellus in purus pharetra, vel dignissim mauris viverra. Maecenas vitae risus est. In hendrerit, massa at.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer class="page-footer">
+		<div class="container">
+			<div class="newsletter">
+				<h3 class="newsletter-title">Subscribe to our newsletter</h3>
+				<form action="post" class="newsletter-block">
+					<label for="email"><i class="icon-envelope-alt email-icon"></i><input type="email" id="email" name="email" placeholder="your@email.com" class="email"></label>
+					<button type="submit" class="subscribe">Subscribe</button>
+				</form>
+			</div>
+			<div class="footer-bottom">
+				<div class="footer-nav-block">
+					<h4 class="nav-title">Ipsum quis</h4>
+					<ul class="footer-nav-list">
+						<li class="footer-nav-item">
+							<a href="" class="footer-nav-link">Aliquam quis</a>
+						</li>
+						<li class="footer-nav-item">
+							<a href="" class="footer-nav-link">Pulvinar purus</a>
+						</li>
+						<li class="footer-nav-item">
+							<a href="" class="footer-nav-link">Etiam cursus</a>
+						</li>
+						<li class="footer-nav-item">
+							<a href="" class="footer-nav-link">Ipsum quis</a>
+						</li>
+						<li class="footer-nav-item">
+							<a href="" class="footer-nav-link">Enim faucibus</a>
+						</li>
+					</ul>
+				</div>
+				<div class="footer-nav-block">
+					<h4 class="nav-title">Ipsum quis</h4>
+					<ul class="footer-nav-list">
+						<li class="footer-nav-item">
+							<a href="" class="footer-nav-link">Aliquam quis</a>
+						</li>
+						<li class="footer-nav-item">
+							<a href="" class="footer-nav-link">Pulvinar purus</a>
+						</li>
+						<li class="footer-nav-item">
+							<a href="" class="footer-nav-link">Etiam cursus</a>
+						</li>
+						<li class="footer-nav-item">
+							<a href="" class="footer-nav-link">Ipsum quis</a>
+						</li>
+						<li class="footer-nav-item">
+							<a href="" class="footer-nav-link">Enim faucibus</a>
+						</li>
+					</ul>
+				</div>
+				<div class="follow-copy-block">
+					<div class="follow-block">
+						<h4 class="follow-title">Follow us</h4>
+						<ul class="social-list">
+							<li class="social-item">
+								<a href="#" class="social fb"><i class="icon-facebook"></i></a>
+							</li>
+							<li class="social-item">
+								<a href="#" class="social tw"><i class="icon-twitter"></i></a>
+							</li>
+							<li class="social-item">
+								<a href="#" class="social gp"><i class="icon-google-plus"></i></a>
+							</li>
+							<li class="social-item">
+								<a href="#" class="social yt"><i class="icon-youtube"></i></a>
+							</li>
+						</ul>
+					</div>
+					<div class="copy">Copyright &copy; All Rights reserved</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="js/toggle.js"></script>
+</body>
+</html>
