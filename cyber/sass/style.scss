@@ -43,7 +43,8 @@ header, section, article, footer {
 	padding-top: 30px;
 	font-family: "Roboto Slab", serif;
 	&__container {
-		max-width: (1170/1280)*100%;
+		width: (1170/1280)*100%;
+		max-width: 1872px;
 	}
 	&__wrapper {
 		display: flex;
@@ -226,10 +227,11 @@ header, section, article, footer {
 	background-color: $lightBG;
 	color: $darkText;
 	font-family: "Roboto Slab", serif;
-	&__container {
+	&__container  {
 		display: flex;
     	flex-direction: column;
-		max-width: (1170/1280)*100%;
+		width: (1170/1280)*100%;
+		max-width: 1872px;
 		font-size: inherit;
 	}
 	&__title {
@@ -245,6 +247,7 @@ header, section, article, footer {
 		padding-bottom: 15px;
 	}
 	&__list {
+		width: 100%;
 		padding: 0;
 		margin: 0;
 		counter-reset: list 0;
@@ -268,16 +271,7 @@ header, section, article, footer {
 		list-style-type: none;
 	}
 	&__item--unordered {
-		padding: 40px 0 40px 75px;
-		&::before {
-			content: "";
-			position: absolute;
-			top: 40px;
-    		left: 55px;
-			width: 30px;
-			height: 30px;
-			background-color: $darkText;
-		}
+		padding: 14px 0 14px 75px;
 	}
 	&__item-title {
 		font-weight: 700;
@@ -296,6 +290,18 @@ header, section, article, footer {
 		padding: 0;
 		padding-left: 95px;
 		padding: 25px 0 5px 95px;
+		&--unordered {
+			position: relative;
+			&::before {
+				content: "";
+				position: absolute;
+				top: 4px;
+    			left: -67px;
+				width: 30px;
+				height: 30px;
+				background-color: $darkText;
+			}
+		}
 	}
 	&__button {
 		margin: 70px 0 67px 0;
@@ -319,12 +325,14 @@ header, section, article, footer {
 		margin-left: 100px;
 		position: relative;
 		&::before {
-			content: url("../img/quote.png");
+    		content: "„";
 			position: absolute;
-			display: block;
-			font-weight: 700;
-			top: 0px;
-    		left: -98px;
+			font-size: 186px;
+		    color: $lightText;
+		    font-weight: 700;
+		    line-height: 0;
+		    top: -46px;
+		    left: -98px;
 		}
 	}
 	&__quote--unquoted {
@@ -352,16 +360,19 @@ header, section, article, footer {
 		}
 		&__item--unordered {
 			padding: 40px 10px 15px 10px;
-			&::before {
-				width: 15px;
-			    height: 15px;
-			    top: 15px;
-			    left: 50%;
-			    transform: rotate(45deg);
-			}
 		}
 		&__item-description {
 			padding: 10px;
+			&--unordered {
+				position: relative;
+				&::before {
+					width: 15px;
+				    height: 15px;
+				    top: -35px;
+				    left: 50%;
+				    transform: rotate(45deg);
+				}
+			}
 		}
 		&__button {
 			margin: 15px 0;
@@ -488,6 +499,7 @@ header, section, article, footer {
 	padding: 0 0 75px 0;
 	&__container {
 		width: (1170/1280)*100%;
+		max-width: 1872px;
 		display: flex;
     	flex-direction: column;
 	}
@@ -510,6 +522,7 @@ header, section, article, footer {
 		align-items: center;
 		background-image: url("../img/video-BG.jpg");
 		background-size: cover;
+		background-position: center center;
 		background-repeat: no-repeat;
 	}
 	&__link {
@@ -607,7 +620,8 @@ header, section, article, footer {
 .story {
 	padding: 25px 0 25px 0;
 	&__container {
-		max-width: (1170/1280)*100%;
+		width: (1170/1280)*100%;
+		max-width: 1872px;
 	}
 	&__title {
    		margin: 25px 0 20px 0;
@@ -623,6 +637,7 @@ header, section, article, footer {
 	}
 	&__image {
 		max-width: 50%;
+		min-width: 40%;
 		height: auto;
 	}
 	&__image--right-orianted {
@@ -687,7 +702,8 @@ header, section, article, footer {
 	&__container {
 		display: flex;
 		flex-direction: column;
-		max-width: (1170/1280)*100%;
+		width: (1170/1280)*100%;
+    	max-width: 1872px;
 	}
 	&__title {
 		font-size: 6rem;
@@ -724,6 +740,7 @@ header, section, article, footer {
 	padding: 30px 0 30px 0;
 	&__container {
 		width: (1170/1280)*100%;
+		max-width: 1872px;
 		display: flex;
 		justify-content: space-between;
 	}
@@ -831,26 +848,15 @@ header, section, article, footer {
 		display: block;
 		width: 35px;
 		height: 35px;
-		background-image: url("../img/social-sprite.png");
-		background-repeat: no-repeat;
-		&--fb {
-			background-position: 0 0;
-			&:hover {
-				background-position: 0 -39px;
-			}
-		}
-		&--tg {
-			background-position: -51px 0;
-			&:hover {
-				background-position: -51px -39px;
-			}
-		}
-		&--in {
-			background-position: -101px 0;
-			&:hover {
-				background-position: -101px -39px;
-			}
-		}
+	}
+	&__fb, &__tg, &__in {
+		fill: $lightText;
+	}
+	&__link:hover .social__fb,
+	&__link:hover .social__tg,
+	&__link:hover .social__in {
+		transition: all 0.3s linear;
+		fill: $darkText;;
 	}
 	@media screen and (max-width: 560px) {
 		display: flex;
