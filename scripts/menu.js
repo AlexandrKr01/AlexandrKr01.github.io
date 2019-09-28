@@ -1,8 +1,7 @@
 'use strict';
-let doc = document;
-let menuList = doc.querySelector('.menu__list');
-let menuBtnContainer = doc.querySelector('.button');
-let menuBtn = doc.querySelector('.button__menu');
+let menuList = document.querySelector('.menu__list');
+let menuBtnContainer = document.querySelector('.button');
+let menuBtn = document.querySelector('.button__menu');
 
 menuBtnContainer.addEventListener('click', openMenu);
 
