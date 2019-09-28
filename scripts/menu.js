@@ -1,5 +1,5 @@
 'use strict';
-// const doc = document;
+let doc = document;
 let menuList = doc.querySelector('.menu__list');
 let menuBtnContainer = doc.querySelector('.button');
 let menuBtn = doc.querySelector('.button__menu');

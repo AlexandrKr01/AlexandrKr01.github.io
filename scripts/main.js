@@ -1,5 +1,5 @@
 'use strict';
-const doc = document;
+let doc = document;
 
 let btnBack = doc.querySelector('.button__controll--back');
 let btnForward = doc.querySelector('.button__controll--forward');
