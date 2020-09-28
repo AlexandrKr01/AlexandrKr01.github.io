@@ -89,7 +89,7 @@ class Slider {
 
 	slideBySwipe() {
 		let moveStart = 0;
-		let delta = 10;
+		let delta = 40;
 		let moveEnd = 0;
 
 		this._parent.addEventListener('touchstart', (evt) => {
