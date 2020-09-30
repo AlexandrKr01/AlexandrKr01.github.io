@@ -29,9 +29,13 @@ class Slider {
 		this._btnNext = this._parent.querySelector(options.buttonNext);
 
 		this._index = 0;
-		this._transformPersent = options.transformPersent || 100;
 		this._rest = this._parent.querySelector(options.counterRest);
 		this._counterNumber = this._parent.querySelector(options.counterNumber);
+
+		this._paginatorsContainer = this._parent.querySelector(options.paginatorsContainer);
+		this._paginatorClass = options.paginatorClass;
+		this._paginatorActiveClass = options.paginatorActiveClass;
+		this._paginatorButtonClass = options.paginatorButtonClass;
 	}
 	
 
@@ -42,7 +46,7 @@ class Slider {
 		return
 	}
 
-	toggleCounter(evt) {
+	toggleCounter() {
 		let step = 1;
 		if(this._counterNumber && this._slides) {
 			this._counterNumber.textContent = Math.abs(this._index) + step;
@@ -65,6 +69,8 @@ class Slider {
 		}
 		else this._index++;
 		this.moveSlides();
+		this.paginatorHighlight();
+		this.toggleCounter();
 	}
 
 	moveBack() {
@@ -73,6 +79,16 @@ class Slider {
 		}
 		else this._index--;
 		this.moveSlides();
+		this.paginatorHighlight();
+		this.toggleCounter();
+	}
+
+	fixResize() {
+		window.addEventListener('resize', () => {
+			this._index = 0;
+			this.moveSlides();
+			this.toggleCounter();
+		})
 	}
 
 	slideByButtons(evt) {
@@ -85,13 +101,11 @@ class Slider {
 		}
 	}
 
-
-
 	slideBySwipe() {
 		let moveStart = 0;
 		let delta = 70;
 		let moveEnd = 0;
-
+		if(window.innerWidth > 540 && !this._btnPrev) return false;
 		this._parent.addEventListener('touchstart', (evt) => {
 			moveStart = evt.changedTouches[0].clientX;
 		});
@@ -99,32 +113,67 @@ class Slider {
 			moveEnd = evt.changedTouches[0].clientX;
 			if(moveStart - delta > moveEnd) {
 				this.moveForward();
-				this.toggleCounter(evt)
+				// this.toggleCounter(evt)
 			}
 			else if(moveStart + delta < moveEnd) {
 				this.moveBack();
-				this.toggleCounter(evt)
+				// this.toggleCounter(evt)
 			}
 			else return false;
 		})
+
 	}
 
+	dotSlice(expresion) {
+		expresion = expresion.replace('.', '');
+		return expresion;
+	}
 
+	paginatorsFill() {
+		this._paginatorClass = this.dotSlice(this._paginatorClass);
+		this._paginatorButtonClass = this.dotSlice(this._paginatorButtonClass);
+		for(let i = 0; i < this._slides.length; i++) {
+			let paginator = document.createElement('li');
+			paginator.classList.add(this._paginatorClass);
+			paginator.innerHTML = `<span class="${this._paginatorButtonClass}"></span>`;
+			paginator.dataset.slide = i;
+			this._paginatorsContainer.appendChild(paginator);
+		}
+	}
+
+	paginatorHighlight() {
+		let paginators = this._paginatorsContainer.children;
+		for(let i = 0; i < this._paginatorsContainer.children.length; i++) {
+			if(paginators[i].classList.contains(this.dotSlice(this._paginatorActiveClass))) {
+				paginators[i].classList.remove(this.dotSlice(this._paginatorActiveClass))
+			}
+		}
+		this._paginatorsContainer.children[this._index].classList.add(this.dotSlice(this._paginatorActiveClass))
+		
+	}
+
+	paginatorsInit() {
+		this.paginatorsFill();
+		this.paginatorHighlight();
+	}
 
 	init() {
+		this.paginatorsInit();
+		this.fillRest();
 		this._parent.addEventListener('click', (evt) => {
 			this.slideByButtons(evt);
-			this.toggleCounter(evt)
+			// this.toggleCounter();
 		});
-		this.slideBySwipe()
-		this.fillRest()
+		this.slideBySwipe();
+		this.fixResize();
 	}
 
 	static greateSlider(options) {
 		return new Slider(options);
 	}
 
-	static setDefaultOptions(itemsClass, buttonPrev, buttonNext, parentClass, counterRest, counterNumber, transformPersent) {
+	static setDefaultOptions(itemsClass, buttonPrev, buttonNext, parentClass, counterRest, 
+		counterNumber, paginatorsContainer, paginatorClass, paginatorActiveClass, paginatorButtonClass) {
 		return {
 			itemsClass, 
 			buttonPrev, 
@@ -132,7 +181,10 @@ class Slider {
 			parentClass, 
 			counterRest,
 			counterNumber,
-			transformPersent,
+			paginatorsContainer,
+			paginatorClass,
+			paginatorActiveClass,
+			paginatorButtonClass,
 		}
 	}
 
@@ -144,7 +196,10 @@ class Slider {
 			options.parentClass, 
 			options.counterRest, 
 			options.counterNumber, 
-			options.transformPersent,
+			options.paginatorsContainer,
+			options.paginatorClass,
+			options.paginatorActiveClass,
+			options.paginatorButtonClass,
 		)
 	}
 }
@@ -157,7 +212,10 @@ let options1 = Slider.setDefaultOptions(
 	'.carusele-1', 
 	'.counter__rest',
 	'.counter__number',
-	null 
+	'.paginators',
+	'.paginators__item',
+	'.paginators__item--active',
+	'.paginators__button',
 );
 
 let options2 = Slider.setOptions(options1)
