@@ -621,6 +621,7 @@ body > * {
 	.toggler__persons {
 		font-size: 1.4rem;
 		line-height: 1.487rem;
+		margin-bottom: calc(52/320*100vw);
 	}
 	
 }
@@ -2680,7 +2681,6 @@ body > * {
 		overflow: hidden;
 	    padding: 0;
 	    margin-top: calc(63/320*100vw);
-	    margin-bottom: calc(50/320*100vw);
 	}
 
 	.size__item {
@@ -2688,9 +2688,9 @@ body > * {
 	}
 
 	.size__paginators {
-		margin: 0 auto;
-	    margin-top: calc(-109/320*100vw);
-	    margin-bottom: calc(94/320*100vw);
+		position: absolute;
+	    top: calc(239/320*100vw);;
+	    margin: 0 auto;
 	    width: calc(49/320*100vw);
 	}
 
