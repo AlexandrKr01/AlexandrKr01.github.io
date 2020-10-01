@@ -84,7 +84,9 @@ class Slider {
 	}
 
 	fixResize() {
+		let currenSize = window.innerWidth;
 		window.addEventListener('resize', () => {
+			if(window.innerWidth === currenSize) return false
 			this._index = 0;
 			this.moveSlides();
 			this.toggleCounter();
@@ -113,11 +115,9 @@ class Slider {
 			moveEnd = evt.changedTouches[0].clientX;
 			if(moveStart - delta > moveEnd) {
 				this.moveForward();
-				// this.toggleCounter(evt)
 			}
 			else if(moveStart + delta < moveEnd) {
 				this.moveBack();
-				// this.toggleCounter(evt)
 			}
 			else return false;
 		})
@@ -162,7 +162,6 @@ class Slider {
 		this.fillRest();
 		this._parent.addEventListener('click', (evt) => {
 			this.slideByButtons(evt);
-			// this.toggleCounter();
 		});
 		this.slideBySwipe();
 		this.fixResize();
