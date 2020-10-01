@@ -83,13 +83,15 @@ class Slider {
 		this.toggleCounter();
 	}
 
-	fixResize() {
+	resizeFix() {
 		let currenSize = window.innerWidth;
 		window.addEventListener('resize', () => {
 			if(window.innerWidth === currenSize) return false
 			this._index = 0;
 			this.moveSlides();
 			this.toggleCounter();
+			this.paginatorHighlight();
+
 		})
 	}
 
@@ -103,15 +105,29 @@ class Slider {
 		}
 	}
 
+	_isSlideBySwipeNone() {
+		let modileWidth = 540;
+		return (window.innerWidth > modileWidth && !this._btnPrev);
+	}
+
+	_slideBySwipeInit(startListener, finishListener) {
+		this._parent.addEventListener('touchstart', startListener);
+		this._parent.addEventListener('touchend', finishListener);
+	}
+
+	_slideBySwipeCancel(startListener, finishListener) {
+		this._parent.removeEventListener('touchstart', startListener);
+		this._parent.removeEventListener('touchend', finishListener);
+	}
+
 	slideBySwipe() {
 		let moveStart = 0;
 		let delta = 70;
 		let moveEnd = 0;
-		if(window.innerWidth > 540 && !this._btnPrev) return false;
-		this._parent.addEventListener('touchstart', (evt) => {
+		let startInit = (evt) => {
 			moveStart = evt.changedTouches[0].clientX;
-		});
-		this._parent.addEventListener('touchend', (evt) => {
+		}
+		let finishInit = (evt) => {
 			moveEnd = evt.changedTouches[0].clientX;
 			if(moveStart - delta > moveEnd) {
 				this.moveForward();
@@ -120,8 +136,16 @@ class Slider {
 				this.moveBack();
 			}
 			else return false;
+		}
+		window.addEventListener('resize', () => {
+			if(this._isSlideBySwipeNone()) {
+				this._slideBySwipeCancel(startInit, finishInit);
+				return
+			}
+			this._slideBySwipeInit(startInit, finishInit);
 		})
-
+		if(this._isSlideBySwipeNone()) return false;
+		this._slideBySwipeInit(startInit, finishInit);
 	}
 
 	dotSlice(expresion) {
@@ -141,15 +165,18 @@ class Slider {
 		}
 	}
 
+	_paginatorsDefine() {
+		return this._paginatorsContainer.children;
+	}
+
 	paginatorHighlight() {
-		let paginators = this._paginatorsContainer.children;
-		for(let i = 0; i < this._paginatorsContainer.children.length; i++) {
+		let paginators = this._paginatorsDefine();
+		for(let i = 0; i < paginators.length; i++) {
 			if(paginators[i].classList.contains(this.dotSlice(this._paginatorActiveClass))) {
 				paginators[i].classList.remove(this.dotSlice(this._paginatorActiveClass))
 			}
 		}
-		this._paginatorsContainer.children[this._index].classList.add(this.dotSlice(this._paginatorActiveClass))
-		
+		paginators[this._index].classList.add(this.dotSlice(this._paginatorActiveClass))
 	}
 
 	paginatorsInit() {
@@ -157,14 +184,40 @@ class Slider {
 		this.paginatorHighlight();
 	}
 
-	init() {
+	slideByPaginator() {
+		let paginators = this._paginatorsDefine();
+		this._paginatorsContainer.addEventListener('click', (evt) => {
+			let target = evt.target.closest('li');
+			for(let i = 0; i < paginators.length; i++) {
+				if(target == paginators[i]) {
+					this._index = target.dataset.slide;
+					this.moveSlides();
+					this.paginatorHighlight();
+					this.toggleCounter();
+				}
+
+			}
+		})
+	}
+
+	init(slideByButtons, slideByPaginator, slideByToutch) {
 		this.paginatorsInit();
 		this.fillRest();
-		this._parent.addEventListener('click', (evt) => {
-			this.slideByButtons(evt);
-		});
-		this.slideBySwipe();
-		this.fixResize();
+		this.resizeFix();
+		
+		if(slideByButtons) {
+			this._parent.addEventListener('click', (evt) => {
+				this.slideByButtons(evt);
+			});
+		}
+
+		if(slideByPaginator) {
+			this.slideByPaginator();
+		}
+
+		if(slideByToutch) {
+			this.slideBySwipe();
+		}
 	}
 
 	static greateSlider(options) {
@@ -229,9 +282,13 @@ let options4 = Slider.setOptions(options1);
 options4.itemsClass = '.review';
 options4.buttonPrev = '.reviews__arrow--prev', 
 options4.buttonNext = '.reviews__arrow--next', 
-options4.parentClass = '.reviews__carusele',
+options4.parentClass = '.reviews__carusele';
 
-Slider.greateSlider(options1).init();
-Slider.greateSlider(options2).init();
-Slider.greateSlider(options3).init();
-Slider.greateSlider(options4).init();
+Slider.greateSlider(options1).init(true, true, true);
+let slider2 = Slider.greateSlider(options2);
+slider2.init(true, true, true);
+
+
+Slider.greateSlider(options3).init(true, true, true);
+Slider.greateSlider(options4).init(true, true, true);
+
