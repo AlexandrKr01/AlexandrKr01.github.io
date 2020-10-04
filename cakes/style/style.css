@@ -775,6 +775,11 @@ body > * {
 	background-color: #f50049;
 }
 
+.paginators__item--passive .paginators__button {
+	background-color: #cdcdcd;
+}
+
+
 
 @media screen and (max-width: 540px) {
 	.paginators {
@@ -791,10 +796,10 @@ body > * {
 		height: calc(8/320*100vw);
 	}
 
-	.paginators__item--last-seen .paginators__button,
-	.paginators__item--first-seen .paginators__button {
+	.paginators__item--passive .paginators__button {
 		width: calc(4/320*100vw);
 		height: calc(4/320*100vw);
+		pointer-events: none;
 	}
 }
 
@@ -2606,7 +2611,7 @@ body > * {
 	.ingredients__title, 
 	.size__title, 
 	.decor__title {
-		width: 100%;
+		width: 90%;
 		padding: calc(4/320*100vw) 0 0 0;
 	}
 

@@ -35,6 +35,7 @@ class Slider {
 		this._paginatorsContainer = this._parent.querySelector(options.paginatorsContainer);
 		this._paginatorClass = options.paginatorClass;
 		this._paginatorActiveClass = options.paginatorActiveClass;
+		this._paginatorPassiveClass = options.paginatorPassiveClass;
 		this._paginatorButtonClass = options.paginatorButtonClass;
 	}
 	
@@ -169,14 +170,57 @@ class Slider {
 		return this._paginatorsContainer.children;
 	}
 
+	_isLongPaginator(paginatorsMoveLength) {
+		return this._paginatorsDefine().length > paginatorsMoveLength;
+	}
+
+	paginatorsMove(index) {
+		let paginators = this._paginatorsDefine();
+		let moveIndex = 3;
+		let backIndex = 2;
+		let moveStep = 1;
+		let paginatorsMoveLength = 5;
+
+		if(this._isLongPaginator(paginatorsMoveLength)) {
+			for(let i = 0; i < paginators.length; i++) {
+				if(index > moveIndex && index < paginators.length - moveIndex) {				
+					paginators[i].style.transform = `translateX(${(index - moveIndex)*-100}%)`;
+					paginators[i].classList.remove(this.dotSlice(this._paginatorPassiveClass));
+					paginators[index-moveIndex].classList.add(this.dotSlice(this._paginatorPassiveClass));
+					paginators[index+moveStep].classList.add(this.dotSlice(this._paginatorPassiveClass));
+				}
+
+				else if(index === (paginators.length - moveIndex)) {
+					paginators[i].style.transform = `translateX(${(index - backIndex)*-100}%)`;
+					paginators[i].classList.remove(this.dotSlice(this._paginatorPassiveClass));
+					paginators[paginators.length - paginatorsMoveLength].classList.add(this.dotSlice(this._paginatorPassiveClass));
+				}
+
+				else if(index <= moveIndex) {
+					paginators[i].style.transform = `translateX(0)`;
+					paginators[i].classList.remove(this.dotSlice(this._paginatorPassiveClass));
+					paginators[paginatorsMoveLength - 1].classList.add(this.dotSlice(this._paginatorPassiveClass));
+				} 
+
+				else if(index === paginators.length - 1) {
+					paginators[i].style.transform = `translateX(${(index - moveIndex - 1)*-100}%)`;
+					paginators[index].classList.remove(this.dotSlice(this._paginatorPassiveClass));
+					paginators[index-(paginatorsMoveLength - 1)].classList.add(this.dotSlice(this._paginatorPassiveClass));
+				}
+			}	
+		}		
+	}
+
 	paginatorHighlight() {
 		let paginators = this._paginatorsDefine();
+
 		for(let i = 0; i < paginators.length; i++) {
 			if(paginators[i].classList.contains(this.dotSlice(this._paginatorActiveClass))) {
 				paginators[i].classList.remove(this.dotSlice(this._paginatorActiveClass))
 			}
 		}
 		paginators[this._index].classList.add(this.dotSlice(this._paginatorActiveClass))
+		this.paginatorsMove(this._index);
 	}
 
 	paginatorsInit() {
@@ -186,6 +230,8 @@ class Slider {
 
 	slideByPaginator() {
 		let paginators = this._paginatorsDefine();
+		let movablePaginatorLength = 5;
+		if(this._isLongPaginator(movablePaginatorLength)) return false;
 		this._paginatorsContainer.addEventListener('click', (evt) => {
 			let target = evt.target.closest('li');
 			for(let i = 0; i < paginators.length; i++) {
@@ -195,7 +241,6 @@ class Slider {
 					this.paginatorHighlight();
 					this.toggleCounter();
 				}
-
 			}
 		})
 	}
@@ -204,7 +249,7 @@ class Slider {
 		this.paginatorsInit();
 		this.fillRest();
 		this.resizeFix();
-		
+
 		if(slideByButtons) {
 			this._parent.addEventListener('click', (evt) => {
 				this.slideByButtons(evt);
@@ -225,7 +270,7 @@ class Slider {
 	}
 
 	static setDefaultOptions(itemsClass, buttonPrev, buttonNext, parentClass, counterRest, 
-		counterNumber, paginatorsContainer, paginatorClass, paginatorActiveClass, paginatorButtonClass) {
+		counterNumber, paginatorsContainer, paginatorClass, paginatorActiveClass, paginatorPassiveClass, paginatorButtonClass) {
 		return {
 			itemsClass, 
 			buttonPrev, 
@@ -236,6 +281,7 @@ class Slider {
 			paginatorsContainer,
 			paginatorClass,
 			paginatorActiveClass,
+			paginatorPassiveClass,
 			paginatorButtonClass,
 		}
 	}
@@ -251,11 +297,94 @@ class Slider {
 			options.paginatorsContainer,
 			options.paginatorClass,
 			options.paginatorActiveClass,
+			options.paginatorPassiveClass,
 			options.paginatorButtonClass,
 		)
 	}
 }
 
+class CommentSlider extends Slider {
+	constructor(options) {
+		super(options);
+		this._comment = this._parent.querySelector(options.commentClass);
+		this._expandClass = options.expandClass;
+		this._expendButtton = this._parent.querySelectorAll(options.expandClass);
+	}
+
+
+	expandComment() {
+		let standartHeight = this._comment.style.height;
+		let target = null;
+
+		this._slides.forEach((item, index) => {
+			item.addEventListener('click', (evt) => {
+				evt.preventDefault();
+				target = evt.target.closest(this._expandClass);
+				if(target !== this._expendButtton[index]) return false;
+					if(target.textContent === 'Развернуть') {
+						target.previousElementSibling.style.height = 'auto';
+						target.textContent = 'Свернуть';
+					}
+					else if(target.textContent === 'Свернуть') {
+						target.previousElementSibling.style.height = standartHeight;
+						target.textContent = 'Развернуть';
+					}   
+				
+				
+			})
+		})
+	}
+
+	commentInit(slideByButtons, slideByPaginator, slideByToutch) {
+		this.init(slideByButtons, slideByPaginator, slideByToutch);
+		this.expandComment();
+		
+	}
+
+	static greateSlider(options) {
+		return new CommentSlider(options);
+
+	}
+
+
+	static setDefaultOptions(itemsClass, buttonPrev, buttonNext, parentClass, counterRest, 
+		counterNumber, paginatorsContainer, paginatorClass, paginatorActiveClass, paginatorPassiveClass, paginatorButtonClass, expandClass, commentClass) {
+		return {
+			itemsClass, 
+			buttonPrev, 
+			buttonNext, 
+			parentClass, 
+			counterRest,
+			counterNumber,
+			paginatorsContainer,
+			paginatorClass,
+			paginatorActiveClass,
+			paginatorPassiveClass,
+			paginatorButtonClass,
+			expandClass,
+			commentClass,
+		}
+	}
+
+	static setOptions(options) {
+		return this.setDefaultOptions(
+			options.itemsClass, 
+			options.buttonPrev, 
+			options.buttonNext, 
+			options.parentClass, 
+			options.counterRest, 
+			options.counterNumber, 
+			options.paginatorsContainer,
+			options.paginatorClass,
+			options.paginatorActiveClass,
+			options.paginatorPassiveClass,
+			options.paginatorButtonClass,
+			options.expandClass,
+			options.commentClass,
+		)
+	}
+
+}
 
 let options1 = Slider.setDefaultOptions(
 	'.carusele__item',
@@ -267,6 +396,7 @@ let options1 = Slider.setDefaultOptions(
 	'.paginators',
 	'.paginators__item',
 	'.paginators__item--active',
+	'.paginators__item--passive',
 	'.paginators__button',
 );
 
@@ -280,9 +410,11 @@ options3.transformPersent = 114;
 
 let options4 = Slider.setOptions(options1);
 options4.itemsClass = '.review';
-options4.buttonPrev = '.reviews__arrow--prev', 
-options4.buttonNext = '.reviews__arrow--next', 
+options4.buttonPrev = '.reviews__arrow--prev';
+options4.buttonNext = '.reviews__arrow--next';
 options4.parentClass = '.reviews__carusele';
+options4.expandClass = '.review__link';
+options4.commentClass = '.review__content';
 
 Slider.greateSlider(options1).init(true, true, true);
 let slider2 = Slider.greateSlider(options2);
@@ -290,5 +422,13 @@ slider2.init(true, true, true);
 
 
 Slider.greateSlider(options3).init(true, true, true);
-Slider.greateSlider(options4).init(true, true, true);
+CommentSlider.greateSlider(options4).commentInit(true, true, true);
 
+// let url = '/server/comments.js';
+// fetch(url)
+// 	.then((response) => {
+// 	    return response.text();
+// 	  })
+// 	.then((data) => {
+// 		console.log(data);
+// 	});
