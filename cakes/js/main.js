@@ -47,6 +47,11 @@ class Slider {
 		return
 	}
 
+	makeEvent(elem) {
+		let slide = new Event('slide');
+		elem.dispatchEvent(slide);
+	}
+
 	toggleCounter() {
 		let step = 1;
 		if(this._counterNumber && this._slides) {
@@ -72,6 +77,7 @@ class Slider {
 		this.moveSlides();
 		this.paginatorHighlight();
 		this.toggleCounter();
+		this.makeEvent(this._parent);
 	}
 
 	moveBack() {
@@ -82,6 +88,7 @@ class Slider {
 		this.moveSlides();
 		this.paginatorHighlight();
 		this.toggleCounter();
+		this.makeEvent(this._parent);
 	}
 
 	resizeFix() {
@@ -114,11 +121,14 @@ class Slider {
 	_slideBySwipeInit(startListener, finishListener) {
 		this._parent.addEventListener('touchstart', startListener);
 		this._parent.addEventListener('touchend', finishListener);
+
+		
 	}
 
 	_slideBySwipeCancel(startListener, finishListener) {
 		this._parent.removeEventListener('touchstart', startListener);
 		this._parent.removeEventListener('touchend', finishListener);
+
 	}
 
 	slideBySwipe() {
@@ -147,6 +157,9 @@ class Slider {
 		})
 		if(this._isSlideBySwipeNone()) return false;
 		this._slideBySwipeInit(startInit, finishInit);
+
+
+
 	}
 
 	dotSlice(expresion) {
@@ -321,17 +334,22 @@ class CommentSlider extends Slider {
 				evt.preventDefault();
 				target = evt.target.closest(this._expandClass);
 				if(target !== this._expendButtton[index]) return false;
-					if(target.textContent === 'Развернуть') {
-						target.previousElementSibling.style.height = 'auto';
-						target.textContent = 'Свернуть';
-					}
-					else if(target.textContent === 'Свернуть') {
-						target.previousElementSibling.style.height = standartHeight;
-						target.textContent = 'Развернуть';
-					}   
-				
-				
+				if(target.textContent === 'Развернуть') {
+					target.previousElementSibling.style.height = 'auto';
+					target.textContent = 'Свернуть';
+				}
+				else if(target.textContent === 'Свернуть') {
+					target.previousElementSibling.style.height = standartHeight;
+					target.textContent = 'Развернуть';
+				}
+
+				this._parent.addEventListener('slide', () => {
+				target.previousElementSibling.style.height = standartHeight;
+				target.textContent = 'Развернуть';
 			})
+			})
+			
+			
 		})
 	}
 
@@ -424,11 +442,11 @@ slider2.init(true, true, true);
 Slider.greateSlider(options3).init(true, true, true);
 CommentSlider.greateSlider(options4).commentInit(true, true, true);
 
-// let url = '/server/comments.js';
-// fetch(url)
-// 	.then((response) => {
-// 	    return response.text();
-// 	  })
-// 	.then((data) => {
-// 		console.log(data);
-// 	});
+let url = '/server/comments.js';
+fetch(url)
+	.then((response) => {
+	    return response.text();
+	  })
+	.then((data) => {
+		console.log(data);
+	});
