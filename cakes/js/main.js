@@ -442,7 +442,7 @@ slider2.init(true, true, true);
 Slider.greateSlider(options3).init(true, true, true);
 CommentSlider.greateSlider(options4).commentInit(true, true, true);
 
-let url = '/server/comments.js';
+let url = '../backand/comments.js';
 fetch(url)
 	.then((response) => {
 	    return response.text();
