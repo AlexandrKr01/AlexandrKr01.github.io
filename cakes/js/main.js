@@ -272,7 +272,7 @@ class Slider {
 
 	renderConnents(comments, options) {
 		let comment = document.createElement('li');
-		comment.classList = `carusele__item reviews__item ${dotSlice(options.itemsClass)}`;
+		comment.classList = `carusele__item reviews__item ${this.dotSlice(options.itemsClass)}`;
 		comment.innerHTML = `
 			<div class="review__image-wrapper">
 				<img src="img/user_1.jpg" alt="user" width="300" height="300" class="review__image">
@@ -293,8 +293,8 @@ class Slider {
 		
 	}
 
-	init(url, options, slideByButtons, slideByPaginator, slideByToutch) {
-		this.renderConnents('comments', options)
+	init(lideByButtons, slideByPaginator, slideByToutch) {
+		// this.renderConnents(this._slides, options)
 		this.paginatorsInit();
 		this.fillRest();
 		this.resizeFix();
@@ -470,13 +470,13 @@ options4.parentClass = '.reviews__carusele';
 options4.expandClass = '.review__link';
 options4.commentClass = '.review__content';
 
-Slider.greateSlider(options1).init('', options1, true, true, true);
+Slider.greateSlider(options1).init(true, true, true);
 let slider2 = Slider.greateSlider(options2);
-slider2.init('', options2, true, true, true);
+slider2.init(true, true, true);
 
 
-Slider.greateSlider(options3).init('', options3, true, true, true);
-CommentSlider.greateSlider(options4).commentInit('', options4, true, true, true);
+Slider.greateSlider(options3).init(true, true, true);
+CommentSlider.greateSlider(options4).commentInit(true, true, true);
 
 let url = 'backand/comments.js';
 fetch(url)
