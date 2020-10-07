@@ -272,8 +272,25 @@ class Slider {
 
 	renderConnents(comments, options) {
 		let comment = document.createElement('li');
-		comment.classList = `carusele__item reviews__item ${options.itemsClass}`;
-		console.log(comment);
+		comment.classList = `carusele__item reviews__item ${dotSlice(options.itemsClass)}`;
+		comment.innerHTML = `
+			<div class="review__image-wrapper">
+				<img src="img/user_1.jpg" alt="user" width="300" height="300" class="review__image">
+			</div>
+			<div class="review__wrapper">
+				<h4 class="review__name">Мария</h4>
+				<p class="review__details">юрист, 33 года</p>
+				<p class="review__content">Заказывала торт брауни на юбилей мужа. Гости были в восторге! Отдельное спасибо за своевременную доставку! Теперь будем заказывать торты только у вас для наших семейных праздников:)</p>
+				<a href="#" class="review__link">Развернуть</a>
+			</div>
+		`
+		comments.forEach(item => {
+			this._parent.appendChild(comment)
+		})
+		
+		let commentImageWrapper = document.createElement('div');
+		commentImageWrapper
+		
 	}
 
 	init(url, options, slideByButtons, slideByPaginator, slideByToutch) {
