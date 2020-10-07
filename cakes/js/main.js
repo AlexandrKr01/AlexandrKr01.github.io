@@ -293,7 +293,7 @@ class Slider {
 		
 	}
 
-	init(lideByButtons, slideByPaginator, slideByToutch) {
+	init(slideByButtons, slideByPaginator, slideByToutch) {
 		// this.renderConnents(this._slides, options)
 		this.paginatorsInit();
 		this.fillRest();
