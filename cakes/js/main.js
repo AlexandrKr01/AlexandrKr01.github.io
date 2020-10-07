@@ -258,7 +258,26 @@ class Slider {
 		})
 	}
 
+	// <li class="carusele__item reviews__item review"> itemsClass
+	// 	<div class="review__image-wrapper">
+	// 		<img src="img/user_1.jpg" alt="user" width="300" height="300" class="review__image">
+	// 	</div>
+	// 	<div class="review__wrapper">
+	// 		<h4 class="review__name">Мария</h4>
+	// 		<p class="review__details">юрист, 33 года</p>
+	// 		<p class="review__content">Заказывала торт брауни на юбилей мужа. Гости были в восторге! Отдельное спасибо за своевременную доставку! Теперь будем заказывать торты только у вас для наших семейных праздников:)</p>
+	// 		<a href="#" class="review__link">Развернуть</a>
+	// 	</div>
+	// </li>
+
+	renderConnents(comments) {
+		let comment = document.createElement('li');
+		comment.classList = `carusele__item reviews__item ${this.options.itemsClass}`;
+		console.log(comment);
+	}
+
 	init(slideByButtons, slideByPaginator, slideByToutch) {
+		this.renderConnents('comments')
 		this.paginatorsInit();
 		this.fillRest();
 		this.resizeFix();
@@ -442,7 +461,7 @@ slider2.init(true, true, true);
 Slider.greateSlider(options3).init(true, true, true);
 CommentSlider.greateSlider(options4).commentInit(true, true, true);
 
-let url = '../backand/comments.js';
+let url = 'backand/comments.js';
 fetch(url)
 	.then((response) => {
 	    return response.text();
