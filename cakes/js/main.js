@@ -23,22 +23,33 @@ toggleMenu('.menu--main', '.menu__toggler', 'menu--active');
 
 class Slider {
 	constructor(options) {
-		this._parent = document.querySelector(options.parentClass);
-		this._slides = this._parent.querySelectorAll(options.itemsClass);
-		this._btnPrev = this._parent.querySelector(options.buttonPrev);
-		this._btnNext = this._parent.querySelector(options.buttonNext);
+		this._parentClass = options.parentClass;
+		this._itemsClass = options.itemsClass;
+		this._buttonPrevClass = options.buttonPrev;
+		this._buttonNextClass = options.buttonNext;
+		this._caruseleClass = options.caruseleClass;
 
-		this._index = 0;
-		this._rest = this._parent.querySelector(options.counterRest);
-		this._counterNumber = this._parent.querySelector(options.counterNumber);
+		this._counterRestClass = options.counterRest;
+		this._counterNumberClass = options.counterNumber;
 
-		this._paginatorsContainer = this._parent.querySelector(options.paginatorsContainer);
+		this._paginatorsContainerClass = options.paginatorsContainer;
 		this._paginatorClass = options.paginatorClass;
 		this._paginatorActiveClass = options.paginatorActiveClass;
 		this._paginatorPassiveClass = options.paginatorPassiveClass;
 		this._paginatorButtonClass = options.paginatorButtonClass;
+
+		this._parent = document.querySelector(this._parentClass);
+		this._carusele = this._parent.querySelector(this._caruseleClass);
+		this._slides = this._parent.querySelectorAll(this._itemsClass);
+		this._btnPrev = this._parent.querySelector(this._buttonPrevClass);
+		this._btnNext = this._parent.querySelector(this._buttonNextClass);
+
+		this._index = 0;
+		this._rest = this._parent.querySelector(this._counterRestClass);
+		this._counterNumber = this._parent.querySelector(this._counterNumberClass);
+
+		this._paginatorsContainer = this._parent.querySelector(this._paginatorsContainerClass);
 	}
-	
 
 	fillRest() {
 		if(this._rest && this._slides) {
@@ -120,15 +131,12 @@ class Slider {
 
 	_slideBySwipeInit(startListener, finishListener) {
 		this._parent.addEventListener('touchstart', startListener);
-		this._parent.addEventListener('touchend', finishListener);
-
-		
+		this._parent.addEventListener('touchend', finishListener);		
 	}
 
 	_slideBySwipeCancel(startListener, finishListener) {
 		this._parent.removeEventListener('touchstart', startListener);
 		this._parent.removeEventListener('touchend', finishListener);
-
 	}
 
 	slideBySwipe() {
@@ -157,9 +165,6 @@ class Slider {
 		})
 		if(this._isSlideBySwipeNone()) return false;
 		this._slideBySwipeInit(startInit, finishInit);
-
-
-
 	}
 
 	dotSlice(expresion) {
@@ -258,36 +263,185 @@ class Slider {
 		})
 	}
 
-	init(slideByButtons, slideByPaginator, slideByToutch) {
-		this.paginatorsInit();
-		this.fillRest();
-		this.resizeFix();
-
-		if(slideByButtons) {
-			this._parent.addEventListener('click', (evt) => {
-				this.slideByButtons(evt);
-			});
+	_makeTag(element, className, text) {
+		if(element) {
+			let node = document.createElement(element);
+			if(className) {
+				node.classList = className;
+			}
+			if(text) {
+				node.textContent = text
+			}
+			return node;
 		}
+	}
 
-		if(slideByPaginator) {
-			this.slideByPaginator();
-		}
+	renderCard(data) {
+		
+		let list = this._carusele;
+		data.forEach((item, i) => {
+			let li = this._makeTag(data[i].itemElement.itemTag, `${data[i].itemElement.itemClass} ${this.dotSlice(this._itemsClass)}`)
 
-		if(slideByToutch) {
-			this.slideBySwipe();
-		}
+			let picture;
+			let source;
+
+			let image = this._makeTag(data[i].imageElement.imageTag, data[i].imageElement.imgClass);
+			image.src = data[i].imageElement.imageSrc;
+			image.alt = data[i].imageElement.imgAlt;
+			let wrapper = this._makeTag(data[i].contentContainer.containerTag, data[i].contentContainer.containerClass);
+
+			let title = this._makeTag(data[i].contentTitle.titleTag, data[i].contentTitle.titleClass, data[i].contentTitle.titleContent);
+			title.dataset.ingredient_title = data[i].contentTitle.titleData;
+
+			let content;
+
+			let price = this._makeTag(data[i].contentPrice.priceTag, data[i].contentPrice.priceClass, data[i].contentPrice.priceText);
+
+			let button = this._makeTag(data[i].button.buttonTag, data[i].button.buttonClass, data[i].button.buttonValue);
+			button.href = data[i].button.buttonHref;
+			button.dataset.ingredient_value = data[i].button.buttonData;
+
+
+			wrapper.append(title);
+			if(data[i].contentDescription) {
+				content = this._makeTag(data[i].contentDescription.descriptionTag, data[i].contentDescription.descriptionClass, data[i].contentDescription.descriptionText);
+				wrapper.append(content);
+			} 
+			wrapper.append(price);
+			wrapper.append(button);
+
+			if(data[i].pictureElement && data[i].sourceElement) {
+
+				picture = this._makeTag(data[i].pictureElement.pictureTag, data[i].pictureElement.pictureClass);
+				source = this._makeTag(data[i].sourceElement.sourceTag);
+				source.srcset = data[i].sourceElement.sourceSrc;
+				source.media = data[i].sourceElement.sourceMedia;
+
+				picture.append(source);
+				picture.append(image);
+
+				li.append(picture);
+			}
+			else {
+				li.append(image);
+			}
+			
+			li.append(wrapper);
+
+			list.append(li);	
+		})
+		return new Promise(function(resolve, reject) {
+			resolve();
+		})		
+	}
+
+	renderToggler(data) {
+		let list = this._carusele;
+
+		data.forEach((item, i) => {
+			let li = this._makeTag(data[i].itemElement.itemTag, `${data[i].itemElement.itemClass} ${this.dotSlice(this._itemsClass)}`)
+
+			let input = this._makeTag(data[i].inputElement.imageTag, data[i].inputElement.inputClass);
+			input.type = data[i].inputElement.inputType;
+			input.name = data[i].inputElement.inputName;
+			input.id = data[i].inputElement.inputId;
+
+			let label = this._makeTag(data[i].inputLabel.labelTag, data[i].inputLabel.labelClass, data[i].inputLabel.labelContent);
+			label.for = data[i].inputLabel.labelFor;
+			label.dataset.size_title = data[i].inputLabel.labelData;
+
+			let description = this._makeTag(data[i].contentDescription.descriptionTag, data[i].contentDescription.descriptionClass, data[i].contentDescription.descriptionText);
+			let persons = this._makeTag(data[i].contentPersone.personeTag, data[i].contentPersone.personeClass, data[i].contentPersone.personeText);
+
+			let button = this._makeTag(data[i].button.buttonTag, data[i].button.buttonClass, data[i].button.buttonValue);
+			button.href = data[i].button.buttonHref;
+			button.dataset.size_value = data[i].inputLabel.buttonData;
+
+			console.log(data[i].contentPersone, data[i].contentPersone.personeTag, data[i].contentPersone.personeClass, data[i].contentPersone.personeText)
+
+			li.append(input);
+			li.append(label);
+			li.append(description);
+			li.append(persons);
+			li.append(button);
+
+			list.append(li);
+		})
+
+		console.log('toggler', data)
+		return new Promise(function(resolve, reject) {
+			resolve();
+		})
+	}
+
+	init(url, slideByButtons, slideByPaginator, slideByToutch) {
+		fetch(url)
+			.then((response) => {
+			    return response.json();
+			})
+			.then((data) => {
+				if(url.includes('size')) {
+					this.renderToggler(data)
+				}
+				else {
+					this.renderCard(data)
+				}
+			})
+			.then( () => {
+				this._slides = this._parent.querySelectorAll(this._itemsClass);
+				this.paginatorsInit()
+				this.fillRest()
+				this.resizeFix()
+
+				if(slideByButtons) {
+					this._parent.addEventListener('click', (evt) => {
+						this.slideByButtons(evt);
+					});
+				}
+
+				if(slideByPaginator) {
+					this.slideByPaginator();
+				}
+
+				if(slideByToutch) {
+					this.slideBySwipe();
+				}
+			}
+		)
+			.catch( (err) => {
+				alert(err);
+				console.log(err)
+				this.paginatorsInit()
+				this.fillRest()
+				this.resizeFix()
+
+				if(slideByButtons) {
+					this._parent.addEventListener('click', (evt) => {
+						this.slideByButtons(evt);
+					});
+				}
+
+				if(slideByPaginator) {
+					this.slideByPaginator();
+				}
+
+				if(slideByToutch) {
+					this.slideBySwipe();
+				}
+			})
 	}
 
 	static greateSlider(options) {
 		return new Slider(options);
 	}
 
-	static setDefaultOptions(itemsClass, buttonPrev, buttonNext, parentClass, counterRest, 
+	static setDefaultOptions(itemsClass, buttonPrev, buttonNext, caruseleClass, parentClass, counterRest, 
 		counterNumber, paginatorsContainer, paginatorClass, paginatorActiveClass, paginatorPassiveClass, paginatorButtonClass) {
 		return {
 			itemsClass, 
 			buttonPrev, 
-			buttonNext, 
+			buttonNext,
+			caruseleClass,
 			parentClass, 
 			counterRest,
 			counterNumber,
@@ -303,7 +457,8 @@ class Slider {
 		return this.setDefaultOptions(
 			options.itemsClass, 
 			options.buttonPrev, 
-			options.buttonNext, 
+			options.buttonNext,
+			options.caruseleClass,
 			options.parentClass, 
 			options.counterRest, 
 			options.counterNumber, 
@@ -365,12 +520,13 @@ class CommentSlider extends Slider {
 	}
 
 
-	static setDefaultOptions(itemsClass, buttonPrev, buttonNext, parentClass, counterRest, 
+	static setDefaultOptions(itemsClass, buttonPrev, buttonNext, caruseleClass, parentClass, counterRest, 
 		counterNumber, paginatorsContainer, paginatorClass, paginatorActiveClass, paginatorPassiveClass, paginatorButtonClass, expandClass, commentClass) {
 		return {
 			itemsClass, 
 			buttonPrev, 
 			buttonNext, 
+			caruseleClass,
 			parentClass, 
 			counterRest,
 			counterNumber,
@@ -388,7 +544,8 @@ class CommentSlider extends Slider {
 		return this.setDefaultOptions(
 			options.itemsClass, 
 			options.buttonPrev, 
-			options.buttonNext, 
+			options.buttonNext,
+			options.caruseleClass, 
 			options.parentClass, 
 			options.counterRest, 
 			options.counterNumber, 
@@ -407,7 +564,8 @@ class CommentSlider extends Slider {
 let options1 = Slider.setDefaultOptions(
 	'.carusele__item',
 	'.card__arrow--prev',
-	'.card__arrow--next', 
+	'.card__arrow--next',
+	'.carusele__list',
 	'.carusele-1', 
 	'.counter__rest',
 	'.counter__number',
@@ -421,6 +579,7 @@ let options1 = Slider.setDefaultOptions(
 let options2 = Slider.setOptions(options1)
 options2.parentClass = '.carusele-2';
 options2.itemsClass = '.toggler';
+options2.caruseleClass = '.size__list';
 
 let options3 = Slider.setOptions(options1);
 options3.parentClass = '.carusele-3';
@@ -434,19 +593,19 @@ options4.parentClass = '.reviews__carusele';
 options4.expandClass = '.review__link';
 options4.commentClass = '.review__content';
 
-Slider.greateSlider(options1).init(true, true, true);
+Slider.greateSlider(options1).init('backand/ingredients.json', true, true, true);
 let slider2 = Slider.greateSlider(options2);
-slider2.init(true, true, true);
+slider2.init('backand/size.json', true, true, true);
 
 
-Slider.greateSlider(options3).init(true, true, true);
-CommentSlider.greateSlider(options4).commentInit(true, true, true);
+Slider.greateSlider(options3).init('backand/decor.json', true, true, true);
+CommentSlider.greateSlider(options4)//commentInit('', true, true, true);
 
-let url = 'backand/comments.js';
-fetch(url)
-	.then((response) => {
-	    return response.text();
-	  })
-	.then((data) => {
-		console.log(data);
-	});
+// let url = 'backand/comments.json';
+// fetch(url)
+// 	.then((response) => {
+// 	    return response.json();
+// 	  })
+// 	.then((data) => {
+// 		console.log(data);
+// 	});

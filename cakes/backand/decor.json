@@ -1,0 +1,266 @@
+[
+   {
+      "id":31,
+      "itemElement":{
+         "itemTag":"li",
+         "itemClass":"carusele__item--nerrow card card--nerrow"
+      },
+      "pictureElement":{
+         "pictureTag":"picture",
+         "pictureClass":"product__image"
+      },
+      "sourceElement":{
+         "sourceTag":"source",
+         "sourceSrc":"img/mid/decor_1.jpg",
+         "sourceMedia":"(max-width: 1024px)"
+      },
+      "imageElement":{
+         "imageTag":"img",
+         "imageSrc":"img/decor_1.png",
+         "imgAlt":"berry",
+         "imgClass":"card__image"
+      },
+      "contentContainer":{
+         "containerTag":"div",
+         "containerClass":"card__wrapper"
+      },
+      "contentTitle":{
+         "titleTag":"h4",
+         "titleClass":"card__title",
+         "titleContent":"Ягодное ассорти",
+         "titleData":"berry"
+      },
+      "contentPrice":{
+         "priceTag":"p",
+         "priceClass":"card__price",
+         "priceText":"700 руб/кг"
+      },
+      "button":{
+         "buttonTag":"a",
+         "buttonHref":"#",
+         "buttonClass":"card__button button button--nerrow button--nerrow-md button--minres-shown",
+         "buttonData":"berry",
+         "buttonValue":"Выбрать"
+      }
+   },
+   {
+      "id":32,
+      "itemElement":{
+         "itemTag":"li",
+         "itemClass":"carusele__item--nerrow card card--nerrow"
+      },
+      "pictureElement":{
+         "pictureTag":"picture",
+         "pictureClass":"product__image"
+      },
+      "sourceElement":{
+         "sourceTag":"source",
+         "sourceSrc":"img/mid/decor_2.jpg",
+         "sourceMedia":"(max-width: 1024px)"
+      },
+      "imageElement":{
+         "imageTag":"img",
+         "imageSrc":"img/decor_2.png",
+         "imgAlt":"marshmellow",
+         "imgClass":"card__image"
+      },
+      "contentContainer":{
+         "containerTag":"div",
+         "containerClass":"card__wrapper"
+      },
+      "contentTitle":{
+         "titleTag":"h4",
+         "titleClass":"card__title",
+         "titleContent":"Маршмэллоу",
+         "titleData":"marshmellow"
+      },
+      "contentPrice":{
+         "priceTag":"p",
+         "priceClass":"card__price",
+         "priceText":"600 руб/кг"
+      },
+      "button":{
+         "buttonTag":"a",
+         "buttonHref":"#",
+         "buttonClass":"card__button button button--nerrow button--nerrow-md button--minres-shown",
+         "buttonData":"marshmellow",
+         "buttonValue":"Выбрать"
+      }
+   },
+   {
+      "id":33,
+      "itemElement":{
+         "itemTag":"li",
+         "itemClass":"carusele__item--nerrow card card--nerrow"
+      },
+      "pictureElement":{
+         "pictureTag":"picture",
+         "pictureClass":"product__image"
+      },
+      "sourceElement":{
+         "sourceTag":"source",
+         "sourceSrc":"img/mid/decor_2.jpg",
+         "sourceMedia":"(max-width: 1024px)"
+      },
+      "imageElement":{
+         "imageTag":"img",
+         "imageSrc":"img/decor_2.png",
+         "imgAlt":"marshmellow",
+         "imgClass":"card__image"
+      },
+      "contentContainer":{
+         "containerTag":"div",
+         "containerClass":"card__wrapper"
+      },
+      "contentTitle":{
+         "titleTag":"h4",
+         "titleClass":"card__title",
+         "titleContent":"Маршмэллоу",
+         "titleData":"marshmellow"
+      },
+      "contentPrice":{
+         "priceTag":"p",
+         "priceClass":"card__price",
+         "priceText":"600 руб/кг"
+      },
+      "button":{
+         "buttonTag":"a",
+         "buttonHref":"#",
+         "buttonClass":"card__button button button--nerrow button--nerrow-md button--minres-shown",
+         "buttonData":"marshmellow",
+         "buttonValue":"Выбрать"
+      }
+   },
+   {
+      "id":34,
+      "itemElement":{
+         "itemTag":"li",
+         "itemClass":"carusele__item--nerrow card card--nerrow"
+      },
+      "pictureElement":{
+         "pictureTag":"picture",
+         "pictureClass":"product__image"
+      },
+      "sourceElement":{
+         "sourceTag":"source",
+         "sourceSrc":"img/mid/decor_1.jpg",
+         "sourceMedia":"(max-width: 1024px)"
+      },
+      "imageElement":{
+         "imageTag":"img",
+         "imageSrc":"img/decor_1.png",
+         "imgAlt":"berry",
+         "imgClass":"card__image"
+      },
+      "contentContainer":{
+         "containerTag":"div",
+         "containerClass":"card__wrapper"
+      },
+      "contentTitle":{
+         "titleTag":"h4",
+         "titleClass":"card__title",
+         "titleContent":"Ягодное ассорти",
+         "titleData":"berry"
+      },
+      "contentPrice":{
+         "priceTag":"p",
+         "priceClass":"card__price",
+         "priceText":"700 руб/кг"
+      },
+      "button":{
+         "buttonTag":"a",
+         "buttonHref":"#",
+         "buttonClass":"card__button button button--nerrow button--nerrow-md button--minres-shown",
+         "buttonData":"berry",
+         "buttonValue":"Выбрать"
+      }
+   },
+   {
+      "id":35,
+      "itemElement":{
+         "itemTag":"li",
+         "itemClass":"carusele__item--nerrow card card--nerrow"
+      },
+      "pictureElement":{
+         "pictureTag":"picture",
+         "pictureClass":"product__image"
+      },
+      "sourceElement":{
+         "sourceTag":"source",
+         "sourceSrc":"img/mid/decor_2.jpg",
+         "sourceMedia":"(max-width: 1024px)"
+      },
+      "imageElement":{
+         "imageTag":"img",
+         "imageSrc":"img/decor_2.png",
+         "imgAlt":"marshmellow",
+         "imgClass":"card__image"
+      },
+      "contentContainer":{
+         "containerTag":"div",
+         "containerClass":"card__wrapper"
+      },
+      "contentTitle":{
+         "titleTag":"h4",
+         "titleClass":"card__title",
+         "titleContent":"Маршмэллоу",
+         "titleData":"marshmellow"
+      },
+      "contentPrice":{
+         "priceTag":"p",
+         "priceClass":"card__price",
+         "priceText":"600 руб/кг"
+      },
+      "button":{
+         "buttonTag":"a",
+         "buttonHref":"#",
+         "buttonClass":"card__button button button--nerrow button--nerrow-md button--minres-shown",
+         "buttonData":"marshmellow",
+         "buttonValue":"Выбрать"
+      }
+   },
+   {
+      "id":36,
+      "itemElement":{
+         "itemTag":"li",
+         "itemClass":"carusele__item--nerrow card card--nerrow"
+      },
+      "pictureElement":{
+         "pictureTag":"picture",
+         "pictureClass":"product__image"
+      },
+      "sourceElement":{
+         "sourceTag":"source",
+         "sourceSrc":"img/mid/decor_2.jpg",
+         "sourceMedia":"(max-width: 1024px)"
+      },
+      "imageElement":{
+         "imageTag":"img",
+         "imageSrc":"img/decor_2.png",
+         "imgAlt":"marshmellow",
+         "imgClass":"card__image"
+      },
+      "contentContainer":{
+         "containerTag":"div",
+         "containerClass":"card__wrapper"
+      },
+      "contentTitle":{
+         "titleTag":"h4",
+         "titleClass":"card__title",
+         "titleContent":"Маршмэллоу",
+         "titleData":"marshmellow"
+      },
+      "contentPrice":{
+         "priceTag":"p",
+         "priceClass":"card__price",
+         "priceText":"600 руб/кг"
+      },
+      "button":{
+         "buttonTag":"a",
+         "buttonHref":"#",
+         "buttonClass":"card__button button button--nerrow button--nerrow-md button--minres-shown",
+         "buttonData":"marshmellow",
+         "buttonValue":"Выбрать"
+      }
+   }
+]

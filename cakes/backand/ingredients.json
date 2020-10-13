@@ -1,0 +1,232 @@
+[
+   {
+      "id":11,
+      "itemElement":{
+         "itemTag":"li",
+         "itemClass":"card"
+      },
+      "imageElement":{
+         "imageTag":"img",
+         "imageSrc":"img/ingredient-1.png",
+         "imgAlt":"chocolate",
+         "imgClass":"card__image card__image--nerrow"
+      },
+      "contentContainer":{
+         "containerTag":"div",
+         "containerClass":"card__wrapper"
+      },
+      "contentTitle":{
+         "titleTag":"h4",
+         "titleClass":"card__title",
+         "titleContent":"Шоколадный ганаш",
+         "titleData":"Chocko"
+      },
+      "contentDescription":{
+         "descriptionTag":"p",
+         "descriptionClass":"card__content",
+         "descriptionText":"Ароматный шоколадный бисквит, густой шоколадный крем – самый шоколадный из всех возможных десертов!"
+      },
+      "contentPrice":{
+         "priceTag":"p",
+         "priceClass":"card__price",
+         "priceText":"1000 руб/кг"
+      },
+      "button":{
+         "buttonTag":"a",
+         "buttonHref":"#",
+         "buttonClass":"card__button button button--nerrow button--nerrow-md",
+         "buttonData":"Chocko",
+         "buttonValue":"Выбрать"
+      }
+   },
+   {
+      "id":12,
+      "itemElement":{
+         "itemTag":"li",
+         "itemClass":"card"
+      },
+      "imageElement":{
+         "imageTag":"img",
+         "imageSrc":"img/product_2.jpg",
+         "imgAlt":"chocolate",
+         "imgClass":"card__image card__image--nerrow"
+      },
+      "contentContainer":{
+         "containerTag":"div",
+         "containerClass":"card__wrapper"
+      },
+      "contentTitle":{
+         "titleTag":"h4",
+         "titleClass":"card__title",
+         "titleContent":"Шоколадный ганаш"
+      },
+      "contentDescription":{
+         "descriptionTag":"p",
+         "descriptionClass":"card__content",
+         "descriptionText":"Ароматный шоколадный бисквит, густой шоколадный крем – самый шоколадный из всех возможных десертов!"
+      },
+      "contentPrice":{
+         "priceTag":"p",
+         "priceClass":"card__price",
+         "priceText":"2000 руб/кг"
+      },
+      "button":{
+         "buttonTag":"a",
+         "buttonHref":"#",
+         "buttonClass":"card__button button button--nerrow button--nerrow-md",
+         "buttonValue":"Выбрать"
+      }
+   },
+   {
+      "id":13,
+      "itemElement":{
+         "itemTag":"li",
+         "itemClass":"card"
+      },
+      "imageElement":{
+         "imageTag":"img",
+         "imageSrc":"img/product_2.jpg",
+         "imgAlt":"chocolate",
+         "imgClass":"card__image card__image--nerrow"
+      },
+      "contentContainer":{
+         "containerTag":"div",
+         "containerClass":"card__wrapper"
+      },
+      "contentTitle":{
+         "titleTag":"h4",
+         "titleClass":"card__title",
+         "titleContent":"Шоколадный ганаш"
+      },
+      "contentDescription":{
+         "descriptionTag":"p",
+         "descriptionClass":"card__content",
+         "descriptionText":"Ароматный шоколадный бисквит, густой шоколадный крем – самый шоколадный из всех возможных десертов!"
+      },
+      "contentPrice":{
+         "priceTag":"p",
+         "priceClass":"card__price",
+         "priceText":"3000 руб/кг"
+      },
+      "button":{
+         "buttonTag":"a",
+         "buttonHref":"#",
+         "buttonClass":"card__button button button--nerrow button--nerrow-md",
+         "buttonValue":"Выбрать"
+      }
+   },
+   {
+      "id":14,
+      "itemElement":{
+         "itemTag":"li",
+         "itemClass":"card"
+      },
+      "imageElement":{
+         "imageTag":"img",
+         "imageSrc":"img/product_2.jpg",
+         "imgAlt":"chocolate",
+         "imgClass":"card__image card__image--nerrow"
+      },
+      "contentContainer":{
+         "containerTag":"div",
+         "containerClass":"card__wrapper"
+      },
+      "contentTitle":{
+         "titleTag":"h4",
+         "titleClass":"card__title",
+         "titleContent":"Шоколадный ганаш"
+      },
+      "contentDescription":{
+         "descriptionTag":"p",
+         "descriptionClass":"card__content",
+         "descriptionText":"Ароматный шоколадный бисквит, густой шоколадный крем – самый шоколадный из всех возможных десертов!"
+      },
+      "contentPrice":{
+         "priceTag":"p",
+         "priceClass":"card__price",
+         "priceText":"4000 руб/кг"
+      },
+      "button":{
+         "buttonTag":"a",
+         "buttonHref":"#",
+         "buttonClass":"card__button button button--nerrow button--nerrow-md",
+         "buttonValue":"Выбрать"
+      }
+   },
+   {
+      "id":15,
+      "itemElement":{
+         "itemTag":"li",
+         "itemClass":"card"
+      },
+      "imageElement":{
+         "imageTag":"img",
+         "imageSrc":"img/product_2.jpg",
+         "imgAlt":"chocolate",
+         "imgClass":"card__image card__image--nerrow"
+      },
+      "contentContainer":{
+         "containerTag":"div",
+         "containerClass":"card__wrapper"
+      },
+      "contentTitle":{
+         "titleTag":"h4",
+         "titleClass":"card__title",
+         "titleContent":"Шоколадный ганаш"
+      },
+      "contentDescription":{
+         "descriptionTag":"p",
+         "descriptionClass":"card__content",
+         "descriptionText":"Ароматный шоколадный бисквит, густой шоколадный крем – самый шоколадный из всех возможных десертов!"
+      },
+      "contentPrice":{
+         "priceTag":"p",
+         "priceClass":"card__price",
+         "priceText":"5000 руб/кг"
+      },
+      "button":{
+         "buttonTag":"a",
+         "buttonHref":"#",
+         "buttonClass":"card__button button button--nerrow button--nerrow-md",
+         "buttonValue":"Выбрать"
+      }
+   },
+   {
+      "id":16,
+      "itemElement":{
+         "itemTag":"li",
+         "itemClass":"card"
+      },
+      "imageElement":{
+         "imageTag":"img",
+         "imageSrc":"img/product_2.jpg",
+         "imgAlt":"chocolate",
+         "imgClass":"card__image card__image--nerrow"
+      },
+      "contentContainer":{
+         "containerTag":"div",
+         "containerClass":"card__wrapper"
+      },
+      "contentTitle":{
+         "titleTag":"h4",
+         "titleClass":"card__title",
+         "titleContent":"Шоколадный ганаш"
+      },
+      "contentDescription":{
+         "descriptionTag":"p",
+         "descriptionClass":"card__content",
+         "descriptionText":"Ароматный шоколадный бисквит, густой шоколадный крем – самый шоколадный из всех возможных десертов!"
+      },
+      "contentPrice":{
+         "priceTag":"p",
+         "priceClass":"card__price",
+         "priceText":"6000 руб/кг"
+      },
+      "button":{
+         "buttonTag":"a",
+         "buttonHref":"#",
+         "buttonClass":"card__button button button--nerrow button--nerrow-md",
+         "buttonValue":"Выбрать"
+      }
+   }
+]

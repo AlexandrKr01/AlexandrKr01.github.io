@@ -1,0 +1,154 @@
+[
+   {
+      "id":21,
+      "itemElement":{
+         "itemTag":"li",
+         "itemClass":"size__item"
+      },
+      "inputElement":{
+         "imageTag":"input",
+         "inputType":"radio",
+         "inputClass":"size__button toggler__button",
+         "inputName":"size-toggler",
+         "inputId":"weight-1-toggler"
+      },
+      "inputLabel":{
+         "labelTag":"label",
+         "labelClass":"toggler__label toggler__label--small",
+         "labelFor":"weight-1-toggler",
+         "labelData":"1 kilo",
+         "labelContent":"1 кг"
+      },
+      "contentDescription":{
+         "descriptionTag":"p",
+         "descriptionClass":"toggler__description",
+         "descriptionText":"17-18 см"
+      },
+      "contentPersone":{
+         "personeTag":"p",
+         "personeClass":"toggler__persons",
+         "personeText":"(1 кг–6 персон)"
+      },
+      "button":{
+         "buttonTag":"a",
+         "buttonHref":"#",
+         "buttonData":"1 kilo",
+         "buttonClass":"card__button button button--nerrow button--nerrow-md button--minres-shown",
+         "buttonValue":"Выбрать"
+      }
+   },
+   {
+      "id":22,
+      "itemElement":{
+         "itemTag":"li",
+         "itemClass":"size__item"
+      },
+      "inputElement":{
+         "imageTag":"input",
+         "inputType":"radio",
+         "inputClass":"size__button toggler__button",
+         "inputName":"size-toggler",
+         "inputId":"weight-2-toggler"
+      },
+      "inputLabel":{
+         "labelTag":"label",
+         "labelClass":"toggler__label toggler__label--medium",
+         "labelFor":"weight-2-toggler",
+         "labelData":"2 kilo",
+         "labelContent":"2 кг"
+      },
+      "contentDescription":{
+         "descriptionTag":"p",
+         "descriptionClass":"toggler__description",
+         "descriptionText":"23-24 см"
+      },
+      "contentPersone":{
+         "personeTag":"p",
+         "personeClass":"toggler__persons",
+         "personeText":"(10–12 персон)"
+      },
+      "button":{
+         "buttonTag":"a",
+         "buttonHref":"#",
+         "buttonData":"2 kilo",
+         "buttonClass":"card__button button button--nerrow button--nerrow-md button--minres-shown",
+         "buttonValue":"Выбрать"
+      }
+   },
+   {
+      "id":25,
+      "itemElement":{
+         "itemTag":"li",
+         "itemClass":"size__item"
+      },
+      "inputElement":{
+         "imageTag":"input",
+         "inputType":"radio",
+         "inputClass":"size__button toggler__button",
+         "inputName":"size-toggler",
+         "inputId":"weight-5-toggler"
+      },
+      "inputLabel":{
+         "labelTag":"label",
+         "labelClass":"toggler__label toggler__label--large",
+         "labelFor":"weight-5-toggler",
+         "labelData":"5 kilo",
+         "labelContent":"5 кг"
+      },
+      "contentDescription":{
+         "descriptionTag":"p",
+         "descriptionClass":"toggler__description",
+         "descriptionText":"Два яруса 25 и 20 см"
+      },
+      "contentPersone":{
+         "personeTag":"p",
+         "personeClass":"toggler__persons",
+         "personeText":"(15–20 персон)"
+      },
+      "button":{
+         "buttonTag":"a",
+         "buttonHref":"#",
+         "buttonData":"5 kilo",
+         "buttonClass":"card__button button button--nerrow button--nerrow-md button--minres-shown",
+         "buttonValue":"Выбрать"
+      }
+   },
+   {
+      "id":28,
+      "itemElement":{
+         "itemTag":"li",
+         "itemClass":"size__item"
+      },
+      "inputElement":{
+         "imageTag":"input",
+         "inputType":"radio",
+         "inputClass":"size__button toggler__button",
+         "inputName":"size-toggler",
+         "inputId":"weight-8-toggler"
+      },
+      "inputLabel":{
+         "labelTag":"label",
+         "labelClass":"toggler__label toggler__label--largest",
+         "labelFor":"weight-8-toggler",
+         "labelData":"8 kilo",
+         "labelContent":"8 кг"
+      },
+      "contentDescription":{
+         "descriptionTag":"p",
+         "descriptionClass":"toggler__description",
+         "descriptionText":"Три яруса 30,25 и 18 см"
+      },
+      "contentPersone":{
+         "personeTag":"p",
+         "personeClass":"toggler__persons",
+         "personeText":"(25–30 персон)"
+      },
+      "button":{
+         "buttonTag":"a",
+         "buttonHref":"#",
+         "buttonData":"8 kilo",
+         "buttonClass":"card__button button button--nerrow button--nerrow-md button--minres-shown",
+         "buttonValue":"Выбрать"
+      }
+   }
+]
