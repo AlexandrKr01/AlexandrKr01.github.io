@@ -355,9 +355,7 @@ class Slider {
 
 			let button = this._makeTag(data[i].button.buttonTag, data[i].button.buttonClass, data[i].button.buttonValue);
 			button.href = data[i].button.buttonHref;
-			button.dataset.size_value = data[i].inputLabel.buttonData;
-
-			console.log(data[i].contentPersone, data[i].contentPersone.personeTag, data[i].contentPersone.personeClass, data[i].contentPersone.personeText)
+			button.dataset.size_value = data[i].button.buttonData;
 
 			li.append(input);
 			li.append(label);
@@ -368,10 +366,30 @@ class Slider {
 			list.append(li);
 		})
 
-		console.log('toggler', data)
 		return new Promise(function(resolve, reject) {
 			resolve();
 		})
+	}
+
+	_makeEngine(slideByButtons, slideByPaginator, slideByToutch) {
+		this._slides = this._parent.querySelectorAll(this._itemsClass);
+		this.paginatorsInit()
+		this.fillRest()
+		this.resizeFix()
+
+		if(slideByButtons) {
+			this._parent.addEventListener('click', (evt) => {
+				this.slideByButtons(evt);
+			});
+		}
+
+		if(slideByPaginator) {
+			this.slideByPaginator();
+		}
+
+		if(slideByToutch) {
+			this.slideBySwipe();
+		}
 	}
 
 	init(url, slideByButtons, slideByPaginator, slideByToutch) {
@@ -388,46 +406,12 @@ class Slider {
 				}
 			})
 			.then( () => {
-				this._slides = this._parent.querySelectorAll(this._itemsClass);
-				this.paginatorsInit()
-				this.fillRest()
-				this.resizeFix()
-
-				if(slideByButtons) {
-					this._parent.addEventListener('click', (evt) => {
-						this.slideByButtons(evt);
-					});
-				}
-
-				if(slideByPaginator) {
-					this.slideByPaginator();
-				}
-
-				if(slideByToutch) {
-					this.slideBySwipe();
-				}
+				this._makeEngine(slideByButtons, slideByPaginator, slideByToutch);
 			}
 		)
 			.catch( (err) => {
 				alert(err);
 				console.log(err)
-				this.paginatorsInit()
-				this.fillRest()
-				this.resizeFix()
-
-				if(slideByButtons) {
-					this._parent.addEventListener('click', (evt) => {
-						this.slideByButtons(evt);
-					});
-				}
-
-				if(slideByPaginator) {
-					this.slideByPaginator();
-				}
-
-				if(slideByToutch) {
-					this.slideBySwipe();
-				}
 			})
 	}
 
@@ -499,17 +483,72 @@ class CommentSlider extends Slider {
 				}
 
 				this._parent.addEventListener('slide', () => {
-				target.previousElementSibling.style.height = standartHeight;
-				target.textContent = 'Развернуть';
+					target.previousElementSibling.style.height = standartHeight;
+					target.textContent = 'Развернуть';
+				})
 			})
-			})
-			
 			
 		})
 	}
 
-	commentInit(slideByButtons, slideByPaginator, slideByToutch) {
-		this.init(slideByButtons, slideByPaginator, slideByToutch);
+	renderComments(data) {
+		let list = this._carusele;
+
+		data.forEach((item, i) => {
+			let li = this._makeTag(data[i].itemElement.itemTag, `${data[i].itemElement.itemClass} ${this.dotSlice(this._itemsClass)}`)
+
+			let imageWrapper = this._makeTag(data[i].imageContainer.containerTag, data[i].imageContainer.containerClass);
+			let image = this._makeTag(data[i].imageElement.imageTag, data[i].imageElement.imgClass);
+			image.src = data[i].imageElement.imageSrc;
+			image.alt = data[i].imageElement.imgAlt;
+
+			imageWrapper.append(image);
+
+			let commentWrapper = this._makeTag(data[i].contentContainer.containerTag, data[i].contentContainer.containerClass);
+			let title = this._makeTag(data[i].contentTitle.titleTag, data[i].contentTitle.titleClass, data[i].contentTitle.titleContent);
+			let details = this._makeTag(data[i].contentDetails.detailsTag, data[i].contentDetails.detailsClass, data[i].contentDetails.detailsText);
+			let content = this._makeTag(data[i].contentDescription.descriptionTag, data[i].contentDescription.descriptionClass, data[i].contentDescription.descriptionText);
+			let expandBtn = this._makeTag(data[i].rewiewButton.buttonTag, data[i].rewiewButton.buttonClass, data[i].rewiewButton.buttonValue);
+			expandBtn.href = data[i].rewiewButton.buttonHref;
+
+			commentWrapper.append(title);
+			commentWrapper.append(details);
+			commentWrapper.append(content);
+			commentWrapper.append(expandBtn);
+
+			li.append(imageWrapper);
+			li.append(commentWrapper);
+
+			list.append(li);
+		})
+
+		return new Promise(function(resolve, reject) {
+			resolve();
+		})
+	}
+
+
+
+	init(url, slideByButtons, slideByPaginator, slideByToutch) {
+		fetch(url)
+			.then((response) => {
+			    return response.json();
+			})
+			.then((data) => {
+				this.renderComments(data)
+			})
+			.then( () => {
+				this._makeEngine(slideByButtons, slideByPaginator, slideByToutch);
+			}
+		)
+			.catch( (err) => {
+				alert(err);
+				console.log(err);
+			})
+	}
+
+	commentInit(url, slideByButtons, slideByPaginator, slideByToutch) {
+		this.init(url, slideByButtons, slideByPaginator, slideByToutch);
 		this.expandComment();
 		
 	}
@@ -599,7 +638,7 @@ slider2.init('backand/size.json', true, true, true);
 
 
 Slider.greateSlider(options3).init('backand/decor.json', true, true, true);
-CommentSlider.greateSlider(options4)//commentInit('', true, true, true);
+CommentSlider.greateSlider(options4).commentInit('backand/comments.json', true, true, true);
 
 // let url = 'backand/comments.json';
 // fetch(url)
