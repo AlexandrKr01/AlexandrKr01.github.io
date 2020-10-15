@@ -545,6 +545,7 @@ class CommentSlider extends Slider {
 				alert(err);
 				console.log(err);
 			})
+			
 	}
 
 	commentInit(url, slideByButtons, slideByPaginator, slideByToutch) {
