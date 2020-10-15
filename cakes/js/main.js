@@ -640,11 +640,33 @@ slider2.init('backand/size.json', true, true, true);
 Slider.greateSlider(options3).init('backand/decor.json', true, true, true);
 CommentSlider.greateSlider(options4).commentInit('backand/comments.json', true, true, true);
 
-// let url = 'backand/comments.json';
-// fetch(url)
-// 	.then((response) => {
-// 	    return response.json();
-// 	  })
-// 	.then((data) => {
-// 		console.log(data);
-// 	});
+(function fillOrder() {
+	let order = {
+		ingredients: null,
+		size: null,
+		decor: null,
+	}
+
+	let odrerParams = document.querySelectorAll('.order__item');
+	let result = document.querySelectorAll('.result__value');
+
+	odrerParams.forEach((item, i) => {
+		item.addEventListener('click', (evt) => {
+			if(evt.target.classList.contains('card__button') || evt.target.classList.contains('toggler__label') ||  evt.target.closest('li').classList.contains('card--nerrow')) {
+				if(evt.target.parentElement.querySelector('.card__title')) {
+					order[item.dataset['order']] = evt.target.parentElement.querySelector('.card__title').textContent;
+				} 
+				if(evt.target.parentElement.querySelector('.toggler__label')) {
+					order[item.dataset['order']] = evt.target.parentElement.querySelector('.toggler__label').textContent;
+				}
+			}
+			if(result[i].dataset['order'] === item.dataset['order']) {
+				result[i].value = order[item.dataset['order']] ;
+			}
+				// result[i].dataset[key].value = order[key];
+			})
+		// 
+	})
+
+	console.log(order);
+})();

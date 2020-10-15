@@ -71,7 +71,7 @@
       "contentTitle":{
          "titleTag":"h4",
          "titleClass":"card__title",
-         "titleContent":"Маршмэллоу",
+         "titleContent":"Маршмэллоу1",
          "titleData":"marshmellow"
       },
       "contentPrice":{
@@ -115,7 +115,7 @@
       "contentTitle":{
          "titleTag":"h4",
          "titleClass":"card__title",
-         "titleContent":"Маршмэллоу",
+         "titleContent":"Маршмэллоу2",
          "titleData":"marshmellow"
       },
       "contentPrice":{
@@ -159,7 +159,7 @@
       "contentTitle":{
          "titleTag":"h4",
          "titleClass":"card__title",
-         "titleContent":"Ягодное ассорти",
+         "titleContent":"Ягодное ассорти3",
          "titleData":"berry"
       },
       "contentPrice":{
@@ -203,7 +203,7 @@
       "contentTitle":{
          "titleTag":"h4",
          "titleClass":"card__title",
-         "titleContent":"Маршмэллоу",
+         "titleContent":"Маршмэллоу4",
          "titleData":"marshmellow"
       },
       "contentPrice":{
@@ -247,7 +247,7 @@
       "contentTitle":{
          "titleTag":"h4",
          "titleClass":"card__title",
-         "titleContent":"Маршмэллоу",
+         "titleContent":"Маршмэллоу5",
          "titleData":"marshmellow"
       },
       "contentPrice":{

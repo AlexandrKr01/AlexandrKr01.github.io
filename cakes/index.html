@@ -12,10 +12,6 @@
 	<meta name="msapplication-TileImage" content="img/icons/icon72.jpg">
 	<meta name="msapplication-TileColor" content="#f50049">
 	<meta name="theme-color" content="#f50049">
-<!-- 
-	<meta name="msapplication-TileImage" content="img/icon.png">
-	<meta name="msapplication-TileColor" content="rgba(0,0,0,0.8)">
-	<meta name="theme-color" content="rgba(0,0,0,0.8)"> -->
 </head>
 <body>
 	<header class="header">
@@ -126,49 +122,13 @@
 			<h2 class="order__title title title--centered">Индивидуальный заказ</h2>
 			<h3 class="order__subtitle subtitle subtitle--centered subtitle--low">Соберите торт в 3 шага</h3>
 			<ul class="order__list">
-				<li class="order__item ingredients carusele carusele-1">
+				<li class="order__item ingredients carusele carusele-1" data-order="ingredients">
 					<h3 class="title title--listed ingredients__title">
 						<span class="title__number">01</span>
 						<br> Выберите начинку
 					</h3>
 					<span class="card__arrow card__arrow--prev" tabindex="0"></span>
 					<ul class="carusele__list">
-						<!-- <li class="carusele__item card">
-							<img src="img/ingredient-1.png" alt="chocolate" width="343" height="343" class="card__image card__image--nerrow">
-							<div class="card__wrapper">
-								<h4 class="card__title">Шоколадный ганаш</h4>
-								<p class="card__content">Ароматный шоколадный бисквит, густой шоколадный крем – самый шоколадный из всех возможных десертов!</p>
-								<p class="card__price">1000 руб/кг</p>
-								<a href="#" class="card__button button button--nerrow button--nerrow-md ">Выбрать</a>
-							</div>
-						</li>
-						<li class="carusele__item card">
-							<img src="img/product_2.jpg" alt="chocolate" width="343" height="343" class="card__image card__image--nerrow">
-							<div class="card__wrapper">
-								<h4 class="card__title">Шоколадный ганаш</h4>
-								<p class="card__content">Ароматный шоколадный бисквит, густой шоколадный крем – самый шоколадный из всех возможных десертов!</p>
-								<p class="card__price">2000 руб/кг</p>
-								<a href="#" class="card__button button button--nerrow button--nerrow-md">Выбрать</a>
-							</div>
-						</li>
-						<li class="carusele__item card">
-							<img src="img/ingredient-1.png" alt="chocolate" width="343" height="343" class="card__image card__image--nerrow">
-							<div class="card__wrapper">
-								<h4 class="card__title">Шоколадный ганаш</h4>
-								<p class="card__content">Ароматный шоколадный бисквит, густой шоколадный крем – самый шоколадный из всех возможных десертов!</p>
-								<p class="card__price">3000 руб/кг</p>
-								<a href="#" class="card__button button button--nerrow button--nerrow-md">Выбрать</a>
-							</div>
-						</li>
-						<li class="carusele__item card">
-							<img src="img/ingredient-1.png" alt="chocolate" width="343" height="343" class="card__image card__image--nerrow">
-							<div class="card__wrapper">
-								<h4 class="card__title">Шоколадный ганаш</h4>
-								<p class="card__content">Ароматный шоколадный бисквит, густой шоколадный крем – самый шоколадный из всех возможных десертов!</p>
-								<p class="card__price">4000 руб/кг</p>
-								<a href="#" class="card__button button button--nerrow button--nerrow-md">Выбрать</a>
-							</div>
-						</li> -->
 					</ul>
 					<ul class="card__paginators paginators ingredients__paginators">
 					</ul>
@@ -177,45 +137,17 @@
 						<span class="counter__number">1</span>/<span class="counter__rest">12</span>
 					</p>
 				</li>
-				<li class="order__item  size carusele carusele-2">
+				<li class="order__item  size carusele carusele-2" data-order="size">
 					<h3 class="title title--listed size__title">
 						<span class="title__number">02</span>
 						<br> Размер
 					</h3>
 					<ul class="size__list">
-<!-- 						<li class="size__item toggler">
-							<input type="radio" class="size__button toggler__button" name="size-toggler" id="weight-1-toggler">
-							<label class="toggler__label toggler__label--small" for="weight-1-toggler">1 кг</label>
-							<p class="toggler__description">17-18 см</p>
-							<p class="toggler__persons">(1 кг–6 персон)</p>
-							<a href="#" class="card__button button button--nerrow button--nerrow-md button--minres-shown">Выбрать</a>
-						</li>
-						<li class="size__item toggler">
-							<input type="radio" class="size__button toggler__button" name="size-toggler" id="weight-2-toggler">
-							<label class="toggler__label toggler__label--medium" for="weight-2-toggler">2 кг</label>
-							<p class="toggler__description">23-24 см</p>
-							<p class="toggler__persons">(10–12 персон)</p>
-							<a href="#" class="card__button button button--nerrow button--nerrow-md button--minres-shown">Выбрать</a>
-						</li>
-						<li class="size__item toggler">
-							<input type="radio" class="size__button toggler__button" name="size-toggler" id="weight-5-toggler">
-							<label class="toggler__label toggler__label--large" for="weight-5-toggler">5 кг</label>
-							<p class="toggler__description">Два яруса 25 и 20 см</p>
-							<p class="toggler__persons">(15–20 персон)</p>
-							<a href="#" class="card__button button button--nerrow button--nerrow-md button--minres-shown">Выбрать</a>
-						</li>
-						<li class="size__item toggler">
-							<input type="radio" class="size__button toggler__button" name="size-toggler" id="weight-8-toggler">
-							<label class="toggler__label toggler__label--largest" for="weight-8-toggler">8 кг</label>
-							<p class="toggler__description">Три яруса 30,25 и 18 см</p>
-							<p class="toggler__persons">(25–30 персон)</p>
-							<a href="#" class="card__button button button--nerrow button--nerrow-md button--minres-shown">Выбрать</a>
-						</li> -->
 					</ul>
 					<ul class="card__paginators paginators size__paginators">
 					</ul>
 				</li>
-				<li class="order__item decor carusele carusele-3">
+				<li class="order__item decor carusele carusele-3" data-order="decor">
 					<h3 class="title title--listed decor__title">
 						<span class="title__number">03</span>
 						<br> Оформление
@@ -288,13 +220,13 @@
 						<h4 class="result__title">Ваш выбор</h4>
 						<form action="post" class="result__form">
 							<label class="result__descriptor">Начинка
-								<input type="text" class="result__value" value="Шоколадный ганаш" disabled>
+								<input type="text" class="result__value" value="Шоколадный ганаш" disabled data-order="ingredients">
 							</label>
 							<label class="result__descriptor result__descriptor--small">Размер
-								<input type="text" class="result__value" value="2 кг" disabled>
+								<input type="text" class="result__value" value="2 кг" disabled data-order="size">
 							</label>
 							<label class="result__descriptor">Оформление
-								<input type="text" class="result__value" value="Маршмэллоу" disabled>
+								<input type="text" class="result__value" value="Маршмэллоу" disabled data-order="decor">
 							</label>
 							<button type="button" class="result__button button button--wide button--wide-md">заказать торт</button>
 						</form>
@@ -310,72 +242,6 @@
 			<div class="reviews__block carusele carusele--centered reviews__carusele">
 				<span class="carusele__arrow carusele__arrow--prev reviews__arrow--prev"></span>
 				<ul class="carusele__list reviews__list">
-					<li class="carusele__item reviews__item review">
-						<div class="review__image-wrapper">
-							<img src="img/user_1.jpg" alt="user" width="300" height="300" class="review__image">
-						</div>
-						<div class="review__wrapper">
-							<h4 class="review__name">Мария</h4>
-							<p class="review__details">юрист, 33 года</p>
-							<p class="review__content">Заказывала торт брауни на юбилей мужа. Гости были в восторге! Отдельное спасибо за своевременную доставку! Теперь будем заказывать торты только у вас для наших семейных праздников:)</p>
-							<a href="#" class="review__link">Развернуть</a>
-						</div>
-					</li>
-					<li class="carusele__item reviews__item review">
-						<div class="review__image-wrapper">
-							<img src="img/user_1.jpg" alt="user" width="300" height="300" class="review__image">
-						</div>
-						<div class="review__wrapper">
-							<h4 class="review__name">Мария</h4>
-							<p class="review__details">юрист, 34 года</p>
-							<p class="review__content">Заказывала торт брауни на юбилей мужа. Гости были в восторге! Отдельное спасибо за своевременную доставку! Теперь будем заказывать торты только у вас для наших семейных праздников:)</p>
-							<a href="#" class="review__link">Развернуть</a>
-						</div>
-					</li>
-					<li class="carusele__item reviews__item review">
-						<div class="review__image-wrapper">
-							<img src="img/user_1.jpg" alt="user" width="300" height="300" class="review__image">
-						</div>
-						<div class="review__wrapper">
-							<h4 class="review__name">Мария</h4>
-							<p class="review__details">юрист, 35 года</p>
-							<p class="review__content">Заказывала торт брауни на юбилей мужа. Гости были в восторге! Отдельное спасибо за своевременную доставку! Теперь будем заказывать торты только у вас для наших семейных праздников:)</p>
-							<a href="#" class="review__link">Развернуть</a>
-						</div>
-					</li>
-					<li class="carusele__item reviews__item review">
-						<div class="review__image-wrapper">
-							<img src="img/user_1.jpg" alt="user" width="300" height="300" class="review__image">
-						</div>
-						<div class="review__wrapper">
-							<h4 class="review__name">Мария</h4>
-							<p class="review__details">юрист, 36 года</p>
-							<p class="review__content">Заказывала торт брауни на юбилей мужа. Гости были в восторге! Отдельное спасибо за своевременную доставку! Теперь будем заказывать торты только у вас для наших семейных праздников:)</p>
-							<a href="#" class="review__link">Развернуть</a>
-						</div>
-					</li>
-					<li class="carusele__item reviews__item review">
-						<div class="review__image-wrapper">
-							<img src="img/user_1.jpg" alt="user" width="300" height="300" class="review__image">
-						</div>
-						<div class="review__wrapper">
-							<h4 class="review__name">Мария</h4>
-							<p class="review__details">юрист, 37 года</p>
-							<p class="review__content">Заказывала торт брауни на юбилей мужа. Гости были в восторге! Отдельное спасибо за своевременную доставку! Теперь будем заказывать торты только у вас для наших семейных праздников:)</p>
-							<a href="#" class="review__link">Развернуть</a>
-						</div>
-					</li>
-					<li class="carusele__item reviews__item review">
-						<div class="review__image-wrapper">
-							<img src="img/user_1.jpg" alt="user" width="300" height="300" class="review__image">
-						</div>
-						<div class="review__wrapper">
-							<h4 class="review__name">Мария</h4>
-							<p class="review__details">юрист, 38 года</p>
-							<p class="review__content">Заказывала торт брауни на юбилей мужа. Гости были в восторге! Отдельное спасибо за своевременную доставку! Теперь будем заказывать торты только у вас для наших семейных праздников:)</p>
-							<a href="#" class="review__link">Развернуть</a>
-						</div>
-					</li>
 				</ul>
 				<ul class="card__paginators paginators reviews__paginators">
 				</ul>
