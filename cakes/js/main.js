@@ -643,27 +643,88 @@ CommentSlider.greateSlider(options4).commentInit('backand/comments.json', true, 
 		ingredients: null,
 		size: null,
 		decor: null,
+		toString() {
+			return `Начинка: ${this.ingredients}, вес: ${this.size}, украшение: ${this.decor}<br> Заказ оформлен успешно:)`
+		}
 	}
 
 	let odrerParams = document.querySelectorAll('.order__item');
 	let result = document.querySelectorAll('.result__value');
 
+	let orderButton = document.querySelector('.result__button');
+
 	odrerParams.forEach((item, i) => {
 		item.addEventListener('click', (evt) => {
-			if(evt.target.classList.contains('card__button') || evt.target.classList.contains('toggler__label') ||  evt.target.closest('li').classList.contains('card--nerrow')) {
-				if(evt.target.parentElement.querySelector('.card__title')) {
-					order[item.dataset['order']] = evt.target.parentElement.querySelector('.card__title').textContent;
-				} 
-				if(evt.target.parentElement.querySelector('.toggler__label')) {
-					order[item.dataset['order']] = evt.target.parentElement.querySelector('.toggler__label').textContent;
-				}
+			evt.preventDefault();
+			if(!(evt.target.classList.contains('card__button') || evt.target.classList.contains('toggler__label') ||  evt.target.closest('li').classList.contains('card--nerrow'))) {
+				return false;
+			};
+			if(evt.target.parentElement.querySelector('.card__title')) {
+				order[item.dataset['order']] = evt.target.parentElement.querySelector('.card__title').textContent;
+			};
+			if(evt.target.querySelector('.card__title'))  {
+				order[item.dataset['order']] = evt.target.querySelector('.card__title').textContent;
+			};
+			if(evt.target.parentElement.querySelector('.toggler__label')) {
+				order[item.dataset['order']] = evt.target.parentElement.querySelector('.toggler__label').textContent;
+				
 			}
 			if(result[i].dataset['order'] === item.dataset['order']) {
+				result[i].classList.remove('result__value--error');
 				result[i].value = order[item.dataset['order']] ;
 			}
-			})
-		// 
+		})
 	})
 
-	console.log(order);   ///////////////////////
-})();
+	function fillOrderMistakes() {
+		result.forEach((iten, i) => {
+			result[i].classList.remove('result__value--error');
+			if(!(result[i].value) || result[i].value === '--') {
+				result[i].classList.add('result__value--error');
+			}
+		})
+	}
+
+	function isValidOrder(obj) {
+		for(let key in obj) {
+			if(!obj[key]) {
+				return false
+			}
+		}
+		return true
+	}
+
+	function setModal(modalClass, order, timer) {
+		let modal = document.createElement('div');
+		modal.classList.add(modalClass);
+
+		modal.innerHTML = order;
+		document.body.append(modal)
+		setTimeout(() => {modal.remove()}, timer)
+	}
+
+	function setErrorModal(order, timer) {
+		let modal = document.createElement('div');
+		modal.classList.add('modalSuccess');
+
+		modal.textContent = order;
+		document.body.append(modal)
+		setTimeout(() => {modal.remove()}, timer)
+	}
+
+	orderButton.addEventListener('click', (evt) => {
+		evt.preventDefault();
+		fillOrderMistakes();
+		if(isValidOrder(order)) {
+			fetch('backand/orders.json', {
+			  method: 'POST',
+			  headers: {
+			    'Content-Type': 'application/json;charset=utf-8'
+			  },
+			  body: JSON.stringify(order)
+			})
+			.then(() => {setModal('modalSuccess', order, 5000)});
+		}
+	})
+
+	   })();
