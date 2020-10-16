@@ -460,7 +460,7 @@ class CommentSlider extends Slider {
 		super(options);
 		this._commentClass = options.commentClass;
 		this._expandClass = options.expandClass;
-		this._expendButtton = this._parent.querySelectorAll(options.expandClass);
+		// this._expendButtton = this._parent.querySelectorAll(options.expandClass);
 	}
 
 
@@ -469,13 +469,15 @@ class CommentSlider extends Slider {
 		let standartHeight = comment.style.height;
 		let target = null;
 
+		let expendButtton = this._parent.querySelectorAll(this._expandClass);
+
 		
 
 		this._slides.forEach((item, index) => {
 			item.addEventListener('click', (evt) => {
 				evt.preventDefault();
 				target = evt.target.closest(this._expandClass);
-				if(target !== this._expendButtton[index]) return false;
+				if(target !==  expendButtton[index]) return false;
 				if(target.textContent === 'Развернуть') {
 					target.previousElementSibling.style.height = 'auto';
 					target.textContent = 'Свернуть';
@@ -530,27 +532,6 @@ class CommentSlider extends Slider {
 		})
 	}
 
-
-
-	// init(url, slideByButtons, slideByPaginator, slideByToutch) {
-	// 	fetch(url)
-	// 		.then((response) => {
-	// 		    return response.json();
-	// 		})
-	// 		.then((data) => {
-	// 			this.renderComments(data)
-	// 		})
-	// 		.then( () => {
-	// 			this._makeEngine(slideByButtons, slideByPaginator, slideByToutch);
-	// 		}
-	// 	)
-	// 		.catch( (err) => {
-	// 			alert(err);
-	// 			console.log(err);
-	// 		})
-			
-	// }
-
 	commentInit(url, slideByButtons, slideByPaginator, slideByToutch) {
 		fetch(url)
 			.then((response) => {
@@ -567,10 +548,7 @@ class CommentSlider extends Slider {
 			.catch( (err) => {
 				alert(err);
 				console.log(err);
-			})
-		// this.init(url, slideByButtons, slideByPaginator, slideByToutch);
-		
-		
+			})	
 	}
 
 	static greateSlider(options) {
@@ -683,10 +661,9 @@ CommentSlider.greateSlider(options4).commentInit('backand/comments.json', true, 
 			if(result[i].dataset['order'] === item.dataset['order']) {
 				result[i].value = order[item.dataset['order']] ;
 			}
-				// result[i].dataset[key].value = order[key];
 			})
 		// 
 	})
 
-	console.log(order);
+	console.log(order);   ///////////////////////
 })();
