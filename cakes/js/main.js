@@ -458,15 +458,18 @@ class Slider {
 class CommentSlider extends Slider {
 	constructor(options) {
 		super(options);
-		this._comment = this._parent.querySelector(options.commentClass);
+		this._commentClass = options.commentClass;
 		this._expandClass = options.expandClass;
 		this._expendButtton = this._parent.querySelectorAll(options.expandClass);
 	}
 
 
 	expandComment() {
-		let standartHeight = this._comment.style.height;
+		let comment = this._parent.querySelector(this._commentClass);
+		let standartHeight = comment.style.height;
 		let target = null;
+
+		
 
 		this._slides.forEach((item, index) => {
 			item.addEventListener('click', (evt) => {
@@ -529,7 +532,26 @@ class CommentSlider extends Slider {
 
 
 
-	init(url, slideByButtons, slideByPaginator, slideByToutch) {
+	// init(url, slideByButtons, slideByPaginator, slideByToutch) {
+	// 	fetch(url)
+	// 		.then((response) => {
+	// 		    return response.json();
+	// 		})
+	// 		.then((data) => {
+	// 			this.renderComments(data)
+	// 		})
+	// 		.then( () => {
+	// 			this._makeEngine(slideByButtons, slideByPaginator, slideByToutch);
+	// 		}
+	// 	)
+	// 		.catch( (err) => {
+	// 			alert(err);
+	// 			console.log(err);
+	// 		})
+			
+	// }
+
+	commentInit(url, slideByButtons, slideByPaginator, slideByToutch) {
 		fetch(url)
 			.then((response) => {
 			    return response.json();
@@ -539,18 +561,15 @@ class CommentSlider extends Slider {
 			})
 			.then( () => {
 				this._makeEngine(slideByButtons, slideByPaginator, slideByToutch);
+				this.expandComment();
 			}
 		)
 			.catch( (err) => {
 				alert(err);
 				console.log(err);
 			})
-			
-	}
-
-	commentInit(url, slideByButtons, slideByPaginator, slideByToutch) {
-		this.init(url, slideByButtons, slideByPaginator, slideByToutch);
-		this.expandComment();
+		// this.init(url, slideByButtons, slideByPaginator, slideByToutch);
+		
 		
 	}
 
