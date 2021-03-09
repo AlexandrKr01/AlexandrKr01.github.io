@@ -18,6 +18,16 @@ function toggleMenu(menuClass, togglerClass, activeClass, closeClass) {
 
 toggleMenu('.menu__list', '.menu__button', 'menu__list--active', 'menu__button--close');
 
+// block empty links 
+
+;(function blockLinks() {
+	let links =document.querySelectorAll('a[href="#"]');
+	links.forEach((item) => {
+		item.addEventListener('click', (evt) => {
+			evt.preventDefault()
+		})
+	})
+})();
 
 // dymamic skills 
 
