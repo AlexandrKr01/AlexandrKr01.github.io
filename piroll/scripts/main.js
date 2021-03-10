@@ -50,28 +50,22 @@ document.addEventListener('scroll', (evt) => {
 	(offset >= offsetGap) ? header.classList.add('header--white') : header.classList.remove('header--white')
 })
 
-// Слайдер
-
-let slideIndex = 0;
-function toggleSlider(options) {
-	
-	
-	let slides = document.querySelectorAll(`.${options.slidesClass}`);
-	slideIndex >= slides.length-1 ? slideIndex = 0 : ++slideIndex;
-	console.log(slides.length)
-	slides.forEach((item, i) => {
-		item.style.transform = `translateX(${-100*slideIndex}%)`
-	})
+let sliderOptions = {
+  sliderListClass: 'slider__list',
+  slideClass: 'slider__slide',
+  controllsContainerClass: 'slider__controlls',
+  controllElemrnt: 'li',
+  controllClass: 'slider__controll',
+  controllActiveClass: 'slider__controll--active',
 }
 
-let sliderOptions1 = {
-	slidesClass: 'slider__slide',
-	toggles: true,
-	togglesElement: 'li',
-	togglesClass: 'slider__controll',
-	toutchSlide: true,
+let slider = new Slider(sliderOptions);
+slider.init().moveByTime(5000, 'moveForward');
+
+let caruseleOptions = {
+  sliderListClass: 'partners__list',
+  slideClass: 'partners__item',
 }
 
-setInterval(function() {
-	toggleSlider(sliderOptions1)
-}, 2000)
+let carusele = new Slider(caruseleOptions);
+carusele.init().moveByTime(5000, 'infinity');
