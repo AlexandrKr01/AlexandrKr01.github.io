@@ -65,7 +65,8 @@ li {
 }
 
 
-section {
+section,
+#contacts {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -1148,12 +1149,15 @@ section {
 		width: 50%;
     	padding: calc(11/#{$orientalWidth}*100vw) calc(20/#{$orientalWidth}*100vw);
 	}
+	&__wrapper {
+		width: 60%;
+	}
 	&__form {
 		display: flex;
 		flex-wrap: wrap;
 		-ms-flex-wrap: wrap;
 		justify-content: space-between;
-		width: 60%;
+		width: 100%;
 		padding: calc(9/#{$orientalWidth}*100vw) 0;
 		margin-left: calc(-15/#{$orientalWidth}*100vw);
 		margin-right: calc(-15/#{$orientalWidth}*100vw);
@@ -1200,7 +1204,7 @@ section {
 	font-family: inherit;
 	font-size: 1.8rem; 
 	&--half {
-		width: 46%;
+		width: 45%;
 	}
 	&--textarea {
 		min-height: calc(169/#{$orientalWidth}*100vw);
@@ -1548,5 +1552,19 @@ section {
 			}
 		}
 	}
+}
 
+.communication {
+	background-color: $subBgColor;
+	padding: 77px 0 0 0;
+
+	&__wrapper {
+		display: flex;
+	}
+
+
+
+	&__form {
+		padding: 0;
+	}
 }
