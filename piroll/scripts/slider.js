@@ -33,6 +33,7 @@ class Slider {
         length--;
       }
     }
+    return
   }
 
   getTogglers() {
@@ -109,7 +110,10 @@ class Slider {
   }
 
   infinitMoveInit() {
-    this._slides[this._index].remove();
+    if(this._slides[this._index]) {
+      this._slides[this._index].remove();
+    }
+    else return
     this._sliderContainer.append(this._slides[this._index]);
     this.checkForward();
     this.togglerSetActive();

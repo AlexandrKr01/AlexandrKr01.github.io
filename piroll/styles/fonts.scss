@@ -1,0 +1,15 @@
+@font-face {
+	font-family: 'Montserrat';
+	src: local('Montserrat'), local('Montserrat-Medium'),
+		url('../fonts/Montserrat-Medium.woff2') format('woff2'),
+		url('../fonts/Montserrat-Medium.woff') format('woff');
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Nunito';
+	src: local('Nunito'), local('calibri'),
+		url('../fonts/NunitoSans-Regular.woff') format('woff'),
+		url('../fonts/NunitoSans-Regular.woff2') format('woff2');
+	font-weight: bold;
+}
