@@ -53,8 +53,8 @@
 				<form action="#" class="promo__form form">
 					<h3 class="form__title title title--block">Оставьте заявку</h3>
 					<p class="form__description content content--centered">После заполнения формы мы Вам перезвоним</p>
-					<input type="text" class="form__input input" placeholder="Ваше имя" title="Введите Ваше имя">
-					<input type="phone" class="form__input input" placeholder="Номер телефона" title="Введите Ваш номер телефона">
+					<input type="text" class="form__input input" placeholder="Ваше имя" title="Введите Ваше имя" required>
+					<input type="tel" class="form__input input" placeholder="Номер телефона" title="Введите Ваш номер телефона" required>
 					<button class="form__button button">Перезвоните мне</button>
 					<span class="form__description content content--centered">или позвоните нам</span>
 					<a href="tel:+380668887202" class="form__phone content content--number content--centered content--large">+ 38 (066) 888 72 02</a>
@@ -90,9 +90,9 @@
 			</ul>
  		</div>
  	</section>
- 	<section class="services" id="services">
+ 	<section class="services">
  		<div class="container">
- 			<h2 class="services__title title title--section">Услуги</h2>
+ 			<h2 class="services__title title title--section"  id="services">Услуги</h2>
 			<ul class="services__list">
 				<li class="services__item service">
 					<h3 class="service__title title title--block">Теплоизоляция кровель монолитным пенобетоном, устройство разуклонки</h3>
@@ -462,8 +462,8 @@
  				<form action="#" class="contacts__form form form--wide">
 					<h3 class="form__title title title--block">Оставьте заявку</h3>
 					<p class="form__description content content--centered">После заполнения формы мы Вам перезвоним</p>
-					<input type="text" class="form__input input" placeholder="Ваше имя" title="Введите Ваше имя">
-					<input type="phone" class="form__input input" placeholder="Номер телефона" title="Введите Ваш номер телефона">
+					<input type="text" class="form__input input" placeholder="Ваше имя" title="Введите Ваше имя" required>
+					<input type="tel" class="form__input input" placeholder="Номер телефона" title="Введите Ваш номер телефона" required>
 					<button class="form__button button">Перезвоните мне</button>
 				</form>
  			</div>
@@ -479,8 +479,8 @@
  			<form action="#" class="popup__form form">
  				<h3 class="form__title title title--block popup__title">Оставьте заявку</h3>
 				<p class="form__description content content--centered popup__content ">Наш консультант свяжется с Вами и ответин на все вопросы</p>
-				<input type="text" name="name" class="form__input input popup__input" placeholder="Ваше имя" title="Введите Ваше имя">
-				<input type="phone" name="phone" class="form__input input popup__input" placeholder="Номер телефона" title="Номер телефона">
+				<input type="text" name="name" class="form__input input popup__input" placeholder="Ваше имя" title="Введите Ваше имя" required>
+				<input type="tel" name="tel" class="form__input input popup__input" placeholder="Номер телефона" title="Номер телефона" required>
 				<textarea name="question" cols="30" rows="10" placeholder="Задайте Ваш вопрос" class="form__textarea textarea popup__textarea"></textarea>
 				<button class="form__button button popup__button">Отправить</button>
  			</form>
@@ -491,6 +491,8 @@
 			</botton>	
  		</div>
  	</div>
+ 	<script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+	<script src="https://unpkg.com/imask"></script>
  	<script src="scripts/main.js"></script>
  </body>
  </html> 

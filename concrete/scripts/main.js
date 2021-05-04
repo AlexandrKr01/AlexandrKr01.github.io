@@ -39,3 +39,24 @@ document.addEventListener('click', (evt) => {
 	}
 	
 })
+
+// gallery
+
+let gallery = document.querySelector('.gallery');
+let srcs = [];
+let image = gallery.querySelector('.gallery__image');
+
+console.log(gallery)
+
+
+// phone mask
+
+let tels = document.querySelectorAll('input[type="tel"]');
+
+tels.forEach((tel) => {
+	let phoneMask = IMask(tel, {
+	  mask: '+{38}(000)000-00-00',
+	  lazy: false,  // make placeholder always visible
+	  placeholderChar: '_'     // defaults to '_'
+	});
+})
