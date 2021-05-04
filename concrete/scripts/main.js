@@ -56,7 +56,44 @@ let tels = document.querySelectorAll('input[type="tel"]');
 tels.forEach((tel) => {
 	let phoneMask = IMask(tel, {
 	  mask: '+{38}(000)000-00-00',
-	  lazy: false,  // make placeholder always visible
-	  placeholderChar: '_'     // defaults to '_'
+	  lazy: true,
 	});
 })
+
+
+function validateForms(selector, rules) {
+	new window.JustValidate(selector, {
+		rules: {
+			name: {required: true, minLength: 3}, 
+			phone: {required: true, minLength: 17},
+			
+		},
+		messages: {
+	      name: {
+	        minLength: 'Имя должно быть не меньше 3-ч символов',
+	        required: 'Поле ввода обязательно'
+	      },
+	      phone: {
+	        minLength: 'Введите полный номер телефона',
+	        required: 'Поле ввода обязательно'
+	      }
+	    },
+		submitHandler: function(form, values, ajax) {
+			
+			let formData = new FormData(form);
+
+			fetch('mail.php', {
+				method: 'POST',
+				body: formData
+			})
+			.then(function(data) {
+				form.reset();
+			})
+		}
+	});
+}
+
+
+validateForms('.form-1');
+validateForms('.form-2');
+validateForms('.form-3');
