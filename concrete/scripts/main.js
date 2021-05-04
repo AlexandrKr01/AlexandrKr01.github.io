@@ -21,4 +21,21 @@ function toggleMenu(menuClass, togglerClass, activeClass, togglerAddClass) {
 }
 
 toggleMenu('.menu__collapse', '.menu__button', 'menu__collapse--open', 'menu__button--close');
- 
+
+// popup 
+
+document.addEventListener('click', (evt) => {
+	let openButton = document.querySelectorAll('.button--service');
+	let popup = document.querySelector('.popup');
+	let closeButton = document.querySelector('.popup__close');
+	let wrapper = document.querySelector('.popup__wrapper')
+	openButton.forEach((item) => {
+		if(evt.target === item) {
+			popup.classList.add('popup--open')
+		}
+	})
+	if(evt.target === closeButton || evt.target === wrapper) {
+		popup.classList.remove('popup--open')
+	}
+	
+})

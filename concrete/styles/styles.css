@@ -182,7 +182,8 @@
   padding: 1.6rem 0px;
 }
 
-.input {
+.input,
+.textarea {
   color: #000000;
   padding: 0.5rem;
   font-size: 1.6rem;
@@ -206,29 +207,35 @@
   cursor: text;
 }
 
-.input--centered {
+.input--centered,
+.textarea--centered {
   text-align: center;
 }
 
-.input--large {
+.input--large,
+.textarea--large {
   font-size: 2.5rem;
   line-height: 2.5rem;
 }
 
-.input--contrast {
+.input--contrast,
+.textarea--contrast {
   color: #ffffff;
 }
 
-.input--bolder {
+.input--bolder,
+.textarea--bolder {
   font-weight: 500;
 }
 
-.input--number {
+.input--number,
+.textarea--number {
   font-weight: 400;
   font-feature-settings: 'pnum' on, 'lnum' on;
 }
 
-.input:before {
+.input:before,
+.textarea:before {
   content: '';
   position: absolute;
   top: 50%;
@@ -244,18 +251,24 @@
   transition: 0.4s all linear;
 }
 
-.input:hover.input:before {
+.input:hover.input:before,
+.input:hover.textarea:before,
+.textarea:hover.input:before,
+.textarea:hover.textarea:before {
   -webkit-clip-path: circle(100% at 50% 50%);
           clip-path: circle(100% at 50% 50%);
   box-shadow: 0 0 0 0 #000000;
 }
 
-.input:focus {
+.input:focus,
+.textarea:focus {
   box-shadow: 0.1rem 0.1rem 0 0.1rem #000000, -0.1rem -0.1rem 0 0.1rem #000000, -0.1rem 0.1rem 0 0.1rem #000000, 0.1rem -0.1rem 0 0.1rem #000000;
 }
 
 .input--arrow-prew,
-.input--arrow-next {
+.textarea--arrow-prew,
+.input--arrow-next,
+.textarea--arrow-next {
   width: 2.8rem;
   height: 2.6rem;
   padding: 0;
@@ -266,27 +279,39 @@
   background-repeat: no-repeat;
 }
 
-.input--arrow-next {
+.input--arrow-next,
+.textarea--arrow-next {
   transform: rotate(180deg);
 }
 
-.input--transparent {
+.input--transparent,
+.textarea--transparent {
   border: 1px solid #000000;
   background: transparent;
   padding: 1.6rem 0px;
 }
 
-.input:before {
+.input:before,
+.textarea:before {
   content: none;
 }
 
-.input:placeholder {
+.input:placeholder,
+.textarea:placeholder {
   color: #7a7a7a;
 }
 
-.input:focus {
+.input:focus,
+.textarea:focus {
   box-shadow: none;
   border: 0.1rem solid #fbd542;
+}
+
+.textarea {
+  border-radius: 2.2rem;
+  font-family: inherit;
+  line-height: inherit;
+  font-size: inherit;
 }
 
 .menu {
@@ -356,6 +381,7 @@
   border-radius: 3rem;
   text-align: center;
   padding: 4.3rem 3.5rem 3.2rem;
+  font-size: 1.6rem;
 }
 
 .form__title {
@@ -651,6 +677,84 @@
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.popup {
+  display: none;
+}
+
+.popup__wrapper {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup__form {
+  width: 57.4rem;
+  padding-top: 2.2rem;
+}
+
+.popup__title {
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+}
+
+.popup__content {
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.popup__input {
+  width: 36rem;
+  padding: 1.5rem 2.8rem;
+}
+
+.popup__textarea {
+  width: 36rem;
+  min-height: 18rem;
+  margin-top: 0.9rem;
+  padding: 2rem 0 0 2.8rem;
+  resize: none;
+}
+
+.popup__button {
+  width: 36rem;
+  padding: 1.6rem 0;
+  color: #ffffff;
+  font-size: 2.5rem;
+}
+
+.popup__close {
+  position: absolute;
+  top: 4rem;
+  right: 5rem;
+  color: #ffffff;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup__close:focuse {
+  outline: 1px #ffffff;
+}
+
+.popup__close > * {
+  pointer-events: none;
+}
+
+.popup--open {
+  display: block;
 }
 
 html {
@@ -1513,6 +1617,10 @@ a {
     box-shadow: 0 0 0 0.6rem #ffffff;
   }
 
+  .popup__form {
+    width: 96.35416667%;
+  }
+
   html {
     font-size: 1.30208333vw;
   }
@@ -1801,11 +1909,13 @@ a {
     line-height: 2rem;
   }
 
-  .input {
+  .input,
+  .textarea {
     line-height: 1.8rem;
   }
 
-  .input--large {
+  .input--large,
+  .textarea--large {
     font-size: 2rem;
     line-height: 2rem;
   }
@@ -1919,6 +2029,28 @@ a {
     border-radius: 1rem;
     margin-left: 0.3rem;
     margin-right: 0.3rem;
+  }
+
+  .popup__form {
+    width: 93.33333333%;
+  }
+
+  .popup__input {
+    width: 28rem;
+  }
+
+  .popup__textarea {
+    width: 28rem;
+    min-height: 10rem;
+  }
+
+  .popup__button {
+    width: 28rem;
+  }
+
+  .popup__close {
+    top: 15px;
+    right: 15px;
   }
 
   html {
