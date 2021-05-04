@@ -42,11 +42,99 @@ document.addEventListener('click', (evt) => {
 
 // gallery
 
-let gallery = document.querySelector('.gallery');
-let srcs = [];
-let image = gallery.querySelector('.gallery__image');
+let gallery = document.querySelectorAll('.gallery');
 
-console.log(gallery)
+function toggleInit(gallery) {
+	let btnPrev = gallery.querySelector('.gallery__button--prew');
+	let btnNext = gallery.querySelector('.gallery__button--next');
+
+	btnNext.addEventListener('click', (evt) => {
+		toggleByButtons('next', gallery);
+	})
+
+	btnPrev.addEventListener('click', (evt) => {
+		toggleByButtons('prev', gallery);
+	})
+
+	function toggleByButtons(flag, gallery) {
+		let miniatureContainer = gallery.querySelector('.gallery__miniatures');
+
+		let targetSlide;
+		if(flag === 'prev') {
+			targetSlide = miniatureContainer.children[miniatureContainer.children.length - 1];
+		}
+		else if(flag === 'next') {
+			targetSlide = miniatureContainer.children[0];
+		}
+		else {
+			console.log('No flag "prev" or "next"');
+			return
+		};
+		
+		let targetImage = targetSlide.querySelector('img');
+
+		let outputSlide = gallery.querySelector('.gallery__output');
+		let outputImage = outputSlide.querySelector('img');
+
+		targetSlide.remove();
+
+		targetSlide.innerHTML = `
+			<picture>
+				<source type="image/webp" srcset="${outputImage.src.replace('.jpg', '.webp')}" class="gallery__miniature">
+				<img src="${outputImage.src}" alt="work-1" class="gallery__miniature">
+			</picture>
+		`
+		outputSlide.innerHTML = `
+			<picture>
+				<source type="image/webp" srcset="${targetImage.src.replace('.jpg', '.webp')}" class="gallery__image">
+				<img src="${targetImage.src}" alt="work-1" class="gallery__image">
+			</picture>
+		`
+
+		if(flag === 'prev') {
+			miniatureContainer.prepend(targetSlide);
+		}
+		else if(flag === 'next') {
+			miniatureContainer.append(targetSlide);
+		}
+		else console.log('No flag "prev" or "next"');	
+	}
+}
+
+
+function galleryInit(gallery) {
+
+	let miniatures = gallery.querySelectorAll('.gallery__miniature-wrap');
+
+	miniatures.forEach((item)=> {
+		toggleMiniatures(gallery, item);
+	})
+}
+
+function toggleMiniatures(gallery, miniature) {
+	miniature.addEventListener('click', (evt) => {
+		let output = gallery.querySelector('.gallery__output');
+		let outputSwap = output.querySelector('img').src;
+		output.innerHTML = `
+			<picture>
+				<source type="image/webp" srcset="${evt.target.src.replace('.jpg', '.webp')}" class="gallery__image">
+				<img src="${evt.target.src}" alt="work-1" class="gallery__image">
+			</picture>
+		`
+		evt.target.closest('.gallery__miniature-wrap').innerHTML = `
+			<picture>
+				<source type="image/webp" srcset="${outputSwap.replace('.jpg', '.webp')}" class="gallery__miniature">
+				<img src="${outputSwap}" alt="work-1" class="gallery__miniature">
+			</picture>
+		`;
+	})
+}
+
+gallery.forEach((item) => {
+	galleryInit(item);
+	toggleInit(item);
+});
+
 
 
 // phone mask
