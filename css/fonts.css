@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Bebas';
+  src: local("Bebas"), local("Bebas-Neue-Cyrillic-Regular"), url("../fonts/Bebas-Neue-Cyrillic-Regular.woff2") format("woff2"), url("../fonts/Bebas-Neue-Cyrillic-Regular.woff") format("woff");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: local("Manrope"), local("Manrope-VariableFont_wght"), url("../fonts/Manrope-VariableFont_wght.woff") format("woff"), url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Ruda';
+  src: local("Ruda"), local("Ruda-VariableFont_wght"), url("../fonts/Ruda-VariableFont_wght.woff") format("woff"), url("../fonts/Ruda-VariableFont_wght.woff2") format("woff2");
+  font-weight: 400;
+}
