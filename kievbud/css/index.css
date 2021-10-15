@@ -290,6 +290,11 @@ body > * {
   flex-basis: fill;
 }
 
+.header__title {
+  position: relative;
+  z-index: 2;
+}
+
 .header__title--accent {
   display: block;
   text-align: right;
@@ -315,6 +320,7 @@ body > * {
 .header__button {
   margin-top: 4.1rem;
   text-align: center;
+  margin-left: 0.2rem;
 }
 
 .header__image {
@@ -334,7 +340,7 @@ body > * {
 }
 
 .about__container {
-  width: 50%;
+  width: 51%;
   display: grid;
   grid-template-areas: 'title -' 'content content' 'left-items right-items';
 }
@@ -391,11 +397,16 @@ body > * {
   counter-reset: workflow-counter;
   padding: 0;
   margin: 0;
+  border-bottom: 0.1rem solid #bababa;
+  border-top: 0.1rem solid #bababa;
 }
 
 .workflow__item {
   width: 25%;
   padding: 2.6rem 2rem 2rem 2rem;
+  border-bottom: 0.1px solid #bababa;
+  margin-top: -0.1rem;
+  margin-bottom: -0.1rem;
 }
 
 .workflow__list-title {
@@ -414,11 +425,16 @@ body > * {
 
 .services {
   margin-top: 5.5rem;
-  margin-bottom: 5.8rem;
+  margin-bottom: 8.5rem;
 }
 
 .services__title {
   width: 25%;
+}
+
+.tabs {
+  border-left: 0.1rem solid #bababa;
+  border-right: 0.1rem solid #bababa;
 }
 
 .tabs__togglers {
@@ -434,7 +450,7 @@ body > * {
 
 .tabs__body {
   padding-top: 3.4rem;
-  padding-bottom: 2.7rem;
+  background: #ffffff;
   grid-area: body;
 }
 
@@ -614,6 +630,8 @@ body > * {
 .portfolio__item {
   width: calc(50% - 13px);
   margin-bottom: 8rem;
+  position: relative;
+  z-index: 2;
 }
 
 .portfolio__button {
@@ -651,6 +669,7 @@ body > * {
   height: 11.4rem;
   margin-top: 0.8rem;
   margin-right: 0.6rem;
+  cursor: pointer;
 }
 
 .work__title {
@@ -744,6 +763,8 @@ body > * {
   background-color: #1136C7;
   padding: 3.1rem 0;
   margin-bottom: 4.6rem;
+  position: relative;
+  z-index: 2;
 }
 
 .feedback__wrapper {
@@ -815,6 +836,7 @@ body > * {
 .pop-up {
   display: none;
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
   height: 100%;
@@ -928,6 +950,35 @@ body > * {
   padding-bottom: 1.4rem;
 }
 
+.grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.grid .container {
+  height: 100%;
+}
+
+.grid__overlay {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.grid__item {
+  border-left: 0.1rem solid #bababa;
+  width: 25%;
+}
+
+.grid__item:last-child {
+  border-right: 0.1rem solid #bababa;
+}
+
 @media screen and (max-width: 992px) {
   .menu__list {
     display: none;
@@ -977,6 +1028,7 @@ body > * {
 
   .about__container {
     width: 100%;
+    grid-template-columns: 50% 50%;
     grid-template-areas: 'title -' 'content content' 'left-items right-items' 'image image';
   }
 
@@ -1192,6 +1244,14 @@ body > * {
   .pop-up__close {
     margin-top: 1.5rem;
   }
+
+  .grid__item {
+    width: 50%;
+  }
+
+  .grid__item--laptop-hide {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -1347,6 +1407,11 @@ body > * {
   .services__title {
     width: 100%;
     margin-bottom: 0.9rem;
+  }
+
+  .tabs {
+    border-left: none;
+    border-right: none;
   }
 
   .tabs__togglers {
@@ -1536,5 +1601,13 @@ body > * {
 
   .pop-up__button {
     width: 100%;
+  }
+
+  .grid__item {
+    width: 0;
+  }
+
+  .grid__item--mobile-hide {
+    display: none;
   }
 }
