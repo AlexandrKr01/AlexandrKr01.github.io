@@ -301,6 +301,7 @@ body > * {
 
 .header__button {
   margin-top: 4.1rem;
+  text-align: center;
 }
 
 .header__image {
