@@ -852,7 +852,7 @@ body > * {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.pop-up__content {
+.pop-up__form {
   background-color: #ffffff;
   border-radius: 3rem;
   width: 87.3rem;
@@ -900,6 +900,17 @@ body > * {
 
 .pop-up__input:focus {
   border-bottom-color: #FFDD55;
+}
+
+.pop-up .js-validate-error-field {
+  border: none !important;
+  border-bottom: 0.2rem solid #ff4907 !important;
+  color: #ff4907 !important;
+}
+
+.pop-up .js-validate-error-label {
+  font-size: 1.8rem;
+  color: #ff4907 !important;
 }
 
 .pop-up__button {
@@ -1219,7 +1230,7 @@ body > * {
     padding-bottom: 1.8rem;
   }
 
-  .pop-up__content {
+  .pop-up__form {
     width: 50rem;
     padding: 1.5rem 2.5rem 1rem;
   }
@@ -1591,7 +1602,7 @@ body > * {
     width: 4.5rem;
   }
 
-  .pop-up__content {
+  .pop-up__form {
     width: 90%;
   }
 

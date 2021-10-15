@@ -116,3 +116,52 @@ let commentsSlider = new Swiper('.reviews__content', {
 	  swiper: commentsPhotoSlider,
 	},
 });
+
+// phone mask
+
+
+
+let tels = document.querySelectorAll('input[type="tel"]');
+
+tels.forEach((tel) => {
+	let phoneMask = IMask(tel, {
+	  mask: '+{38}(000)000-00-00',
+	  lazy: true,
+	});
+})
+
+
+function validateForms(selector, rules) {
+	new window.JustValidate(selector, {
+		rules: {
+			name: {required: true, minLength: 3}, 
+			phone: {required: true, minLength: 17},
+			
+		},
+		messages: {
+	      name: {
+	        minLength: 'Имя должно быть не меньше 3-x символов',
+	        required: 'Поле ввода обязательно'
+	      },
+	      phone: {
+	        minLength: 'Введите полный номер телефона',
+	        required: 'Поле ввода обязательно'
+	      }
+	    },
+		submitHandler: function(form, values, ajax) {
+			
+			let formData = new FormData(form);
+
+			fetch('mail.php', {
+				method: 'POST',
+				body: formData
+			})
+			.then(function(data) {
+				form.reset();
+			})
+		}
+	});
+}
+
+
+validateForms('.pop-up__form');

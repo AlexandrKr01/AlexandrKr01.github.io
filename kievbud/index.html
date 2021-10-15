@@ -775,11 +775,11 @@
 
 	<div class="pop-up">
 		<div class="pop-up__wrapper">
-			<form action="#" class="pop-up__content">
+			<form action="#" class="pop-up__form">
 				<h2 class="pop-up__title title title--large">оставьте заявку</h2>
 				<p class="pop-up__subtitle content content--large">Мы Вам перезвоним для уточнения всех деталей и поможем просчитать стоимость услуг</p>
-				<input type="text" class="pop-up__input pop-up__input--name" name="userName" placeholder="Ваше имя">
-				<input type="text" class="pop-up__input pop-up__input--phone" name="userPhone" placeholder="Ваш номер телефона">
+				<input type="text" class="pop-up__input pop-up__input--name" name="userName" data-validate-field="name" placeholder="Ваше имя">
+				<input type="tel" class="pop-up__input pop-up__input--phone" name="userPhone" data-validate-field="phone" placeholder="Ваш номер телефона">
 				<button class="pop-up__button title title--small">Жду звонка!</button>
 				<button class="pop-up__close content">Закрыть</button>
 			</form>
@@ -796,6 +796,8 @@
 		</div>
 	</div>
 	<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+	<script src="libs/just-validate.min.js"></script>
+	<script src="https://unpkg.com/imask"></script>
 	<script src="scripts/main.js"></script>
 </body>
 </html>				
