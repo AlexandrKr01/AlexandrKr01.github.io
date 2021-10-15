@@ -446,11 +446,15 @@ body > * {
 .tabs__toggler {
   width: 100%;
   height: 30rem;
+  position: relative;
+  z-index: 2;
 }
 
 .tabs__body {
   padding-top: 3.4rem;
   background: #ffffff;
+  position: relative;
+  z-index: 2;
   grid-area: body;
 }
 
