@@ -456,6 +456,7 @@ body > * {
   position: relative;
   z-index: 2;
   grid-area: body;
+  border-bottom: 0.1rem solid #bababa;
 }
 
 .tabs__container {
@@ -1441,6 +1442,7 @@ body > * {
 
   .tabs__body {
     padding-top: 1.1rem;
+    border-bottom: none;
   }
 
   .tabs__content {
