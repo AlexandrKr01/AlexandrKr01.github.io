@@ -179,6 +179,11 @@
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
+  transition: 0.3s background-color linear;
+}
+
+.button:hover {
+  background-color: #4e6ff0;
 }
 
 .button--accent {
@@ -186,9 +191,17 @@
   color: #ffffff;
 }
 
+.button--accent:hover {
+  background-color: #b49801;
+}
+
 .button--light {
   border-color: #ffffff;
   color: #ffffff;
+}
+
+.button--light:hover {
+  background-color: #b49801;
 }
 
 .section-title {
