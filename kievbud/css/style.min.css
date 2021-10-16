@@ -54,7 +54,9 @@
   color: #FEDB1D;
 }
 
-.content {
+.content,
+.menu__link,
+.menu .menu-item a {
   font-family: "Ruda";
   font-weight: 400;
   font-size: 1.8rem;
@@ -62,12 +64,16 @@
   color: #363636;
 }
 
-.content sup {
+.content sup,
+.menu__link sup,
+.menu .menu-item a sup {
   font-size: 1.5rem;
   line-height: 1.5rem;
 }
 
-.content--large {
+.content--large,
+.menu__link,
+.menu .menu-item a {
   font-size: 2.4rem;
   line-height: 3rem;
 }
@@ -91,7 +97,9 @@
   color: #1136C7;
 }
 
-.content--light {
+.content--light,
+.menu__link,
+.menu .menu-item a {
   color: #ffffff;
 }
 
@@ -118,14 +126,16 @@
   width: 100%;
 }
 
-.menu__item {
+.menu__item,
+.menu .menu-item {
   min-width: 25%;
   padding-top: 2rem;
   padding-bottom: 2rem;
   text-align: right;
 }
 
-.menu__link {
+.menu__link,
+.menu .menu-item a {
   text-decoration: none;
 }
 
@@ -148,17 +158,20 @@
   align-items: flex-end;
 }
 
-.menu--open .menu__item {
+.menu--open .menu__item,
+.menu--open .menu-item {
   width: 100%;
   border-bottom: 0.2rem solid rgba(184, 184, 184, 0.64);
   padding: 0;
 }
 
-.menu--open .menu__item:hover {
+.menu--open .menu__item:hover,
+.menu--open .menu-item:hover {
   background-color: #000000;
 }
 
-.menu--open .menu__link {
+.menu--open .menu__link,
+.menu--open .menu-item a {
   display: block;
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -1292,12 +1305,16 @@ body > * {
     line-height: 18rem;
   }
 
-  .content {
+  .content,
+  .menu__link,
+  .menu .menu-item a {
     font-size: 1.4rem;
     line-height: 2.1rem;
   }
 
-  .content--large {
+  .content--large,
+  .menu__link,
+  .menu .menu-item a {
     font-size: 1.8rem;
     line-height: 2rem;
   }
