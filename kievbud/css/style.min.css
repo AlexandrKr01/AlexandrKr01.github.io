@@ -446,6 +446,15 @@ body > * {
   width: 25%;
 }
 
+.services__button-download {
+  display: block;
+  width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  text-align: center;
+}
+
 .tabs {
   border-left: 0.1rem solid #bababa;
   border-right: 0.1rem solid #bababa;
@@ -847,7 +856,8 @@ body > * {
   margin-right: 1.2rem;
 }
 
-.contact__link--social svg {
+.contact__link--social svg,
+.contact__link--social img {
   width: 3.9rem;
   height: 100%;
 }
@@ -940,6 +950,8 @@ body > * {
   padding-bottom: 1.8rem;
   margin-top: 0.9rem;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 
 .pop-up__button:hover {
@@ -950,7 +962,7 @@ body > * {
   border: none;
   background-color: transparent;
   cursor: pointer;
-  margin-top: 7rem;
+  margin-top: 4.6rem;
 }
 
 .pop-up--open {
@@ -1272,7 +1284,7 @@ body > * {
   }
 
   .pop-up__close {
-    margin-top: 1.5rem;
+    margin-top: 0rem;
   }
 
   .grid__item {
