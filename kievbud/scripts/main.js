@@ -71,28 +71,29 @@ document.addEventListener('click', (evt) => {
 
 
 
-let buttonSliders = document.querySelectorAll('.work');
+// let buttonSliders = document.querySelectorAll('.work');
 
-function toggleSlider(slider) {
-	let view = slider.querySelector('.work__view img');
-	let thumbs = slider.querySelectorAll('.work__thamb img');
+// function toggleSlider(slider) {
+// 	let view = slider.querySelector('.work__view img');
+// 	let thumbs = slider.querySelectorAll('.work__thamb img');
 
-	slider.addEventListener('click', (evt) => {
-		thumbs.forEach((item) => {
-			let swap = null;
-			if(evt.target == item) {
-				swap = view.src;
-				view.src = evt.target.src;
-				evt.target.src = swap;
-			}
+// 	slider.addEventListener('click', (evt) => {
+// 		thumbs.forEach((item) => {
+// 			let swap = null;
+// 			if(evt.target == item) {
+// 				swap = view.src;
+// 				view.src = evt.target.src;
+// 				evt.target.src = swap;
+// 			}
 			
-		})
-	})
-};
+// 		})
+// 	})
+// };
 
-buttonSliders.forEach((item) => {
-	toggleSlider(item);
-});
+// buttonSliders.forEach((item) => {
+// 	toggleSlider(item);
+// });
+
 
 let commentsPhotoSlider = new Swiper('.reviews__images', {
 	slidesPerView: 1,
@@ -131,37 +132,43 @@ tels.forEach((tel) => {
 })
 
 
-function validateForms(selector, rules) {
-	new window.JustValidate(selector, {
-		rules: {
-			name: {required: true, minLength: 3}, 
-			phone: {required: true, minLength: 17},
+
+// function validateForms(selector, rules) {
+// 	let name = document.querySelector('input[name="userName"]');
+// 	name.dataset.validateField = 'name';
+// 	let phone = document.querySelector('input[name="userPhone"]');
+// 	phone.dataset.validateField = 'phone';
+// 	new window.JustValidate(selector, {
+// 		rules: {
+// 			name: {required: true, minLength: 3}, 
+// 			phone: {required: true, minLength: 17},
 			
-		},
-		messages: {
-	      name: {
-	        minLength: 'Имя должно быть не меньше 3-x символов',
-	        required: 'Поле ввода обязательно'
-	      },
-	      phone: {
-	        minLength: 'Введите полный номер телефона',
-	        required: 'Поле ввода обязательно'
-	      }
-	    },
-		submitHandler: function(form, values, ajax) {
+// 		},
+// 		messages: {
+// 	      name: {
+// 	        minLength: 'Имя должно быть не меньше 3-x символов',
+// 	        required: 'Поле ввода обязательно'
+// 	      },
+// 	      phone: {
+// 	        minLength: 'Введите полный номер телефона',
+// 	        required: 'Поле ввода обязательно'
+// 	      }
+// 	    },
+// 		// submitHandler: function(form, values, ajax) {
 			
-			let formData = new FormData(form);
+// 		// 	let formData = new FormData(form);
 
-			fetch('mail.php', {
-				method: 'POST',
-				body: formData
-			})
-			.then(function(data) {
-				form.reset();
-			})
-		}
-	});
-}
+// 		// 	fetch('mail.php', {
+// 		// 		method: 'POST',
+// 		// 		body: formData
+// 		// 	})
+// 		// 	.then(function(data) {
+// 		// 		form.reset();
+// 		// 	})
+// 		// }
+// 	});
+// }
 
 
-validateForms('.pop-up__form');
+// validateForms('.pop-up__form form');
+
