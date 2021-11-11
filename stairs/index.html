@@ -51,7 +51,7 @@
 						<div class="promo__content-container">
 							<h1 class="promo__title title title--large title--light">Создание бетонных лестниц</h1>
 							<p class="promo__subtitle content content--large content--light">Качество. Профессионализм. Гарантия.</p>
-							<button class="promo__button button button--light">Бесплатная консультация</button>
+							<button class="promo__button button button--light button--popup">Бесплатная консультация</button>
 						</div>
 					</div>
 				</div>
@@ -149,7 +149,7 @@
 					</div>
 					<h3 class="card__title">Винтовая лестница</h3>
 					<p class="card__content">от 20 000 грн.</p>
-					<button class="card__button button">Оставить заявку</button>
+					<button class="card__button button button--popup">Оставить заявку</button>
 				</div>
 				<div class="servises__card card">
 					<div class="card__image-wrapper">
@@ -157,7 +157,7 @@
 					</div>
 					<h3 class="card__title">Прямая лестница</h3>
 					<p class="card__content">от 10 000 грн.</p>
-					<button class="card__button button">Оставить заявку</button>
+					<button class="card__button button button--popup">Оставить заявку</button>
 				</div>
 				<div class="servises__card card">
 					<div class="card__image-wrapper">
@@ -165,7 +165,7 @@
 					</div>
 					<h3 class="card__title">Криволинейная лестница</h3>
 					<p class="card__content">от 14 000 грн.</p>
-					<button class="card__button button">Оставить заявку</button>
+					<button class="card__button button button--popup">Оставить заявку</button>
 				</div>
 				<div class="servises__card card">
 					<div class="card__image-wrapper">
@@ -173,7 +173,7 @@
 					</div>
 					<h3 class="card__title">П-образная лестница</h3>
 					<p class="card__content">от 12 000 грн.</p>
-					<button class="card__button button">Оставить заявку</button>
+					<button class="card__button button button--popup">Оставить заявку</button>
 				</div>
 				<div class="servises__card card">
 					<div class="card__image-wrapper">
@@ -181,7 +181,7 @@
 					</div>
 					<h3 class="card__title">Г-образная лестница</h3>
 					<p class="card__content">от 12 000 грн.</p>
-					<button class="card__button button">Оставить заявку</button>
+					<button class="card__button button button--popup">Оставить заявку</button>
 				</div>
 				<div class="servises__card card">
 					<div class="card__image-wrapper">
@@ -189,7 +189,7 @@
 					</div>
 					<h3 class="card__title">Т-образная лестница</h3>
 					<p class="card__content">от 20 000 грн.</p>
-					<button class="card__button button">Оставить заявку</button>
+					<button class="card__button button button--popup">Оставить заявку</button>
 				</div>
 			</div>
 		</div>
@@ -365,7 +365,7 @@
 						подходящий Вам</p>
 					<form action="#" class="feedback__form">
 						<input type="text" class="feedback__input" name="userName" placeholder="Ваше имя">
-						<input type="text" class="feedback__input" name="userPhone" placeholder="Ваш номер телефона">
+						<input type="tel" class="feedback__input" name="userPhone" placeholder="Ваш номер телефона">
 						<button class="feedback__button">Отправить заявку</button>
 					</form>
 				</div>
@@ -422,6 +422,27 @@
 
 	</footer>
 
-<script src="./js/vendors-node_modules_baguettebox_js_dist_baguetteBox_min_js-node_modules_html-loader_dist_run-de5574.js"></script><script src="./js/main.js"></script></body>
+	<div class="pop-up">
+		<div class="pop-up__wrapper">
+			<div class="pop-up__form">
+				<h2 class="pop-up__title title title--large">Оставьте заявку</h2>
+				<p class="pop-up__subtitle content content--large">Наши специалисты ответят на Ваши вопрсы и помогут подобрать
+					вид лестницы подходящий Вам</p>
+				<form action="#" class="pop-up__form-cb">
+					<input type="text" class="pop-up__input pop-up__input--name" name="userName" data-validate-field="name" placeholder="Ваше имя">
+					<input type="tel" class="pop-up__input pop-up__input--phone" name="userPhone" data-validate-field="phone" placeholder="Ваш номер телефона">
+					<button class="pop-up__button title title--small">Отправить заявку</button>
+				</form>
+				<button class="pop-up__close content">Закрыть</button>
+				<svg class="icon pop-up__star spin">
+					<use xlink:href="#star"></use>
+				</svg>
+			</div>
+
+		</div>
+
+	</div>
+
+<script src="./js/vendors-node_modules_baguettebox_js_dist_baguetteBox_min_js-node_modules_html-loader_dist_run-f57b8e.js"></script><script src="./js/main.js"></script></body>
 
 </html>

@@ -963,14 +963,14 @@ body > * {
   src: local("ProximaNova-Regular"), url(../fonts/ProximaNova-Regular.woff), url(../fonts/ProximaNova-Regular.woff2);
   font-weight: 400; }
 
-.title, .card-header__top, .about__title, .servises__title, .servises__discount-value, .card__content, .advantages__title, .advantages__item-title, .gallery__title, .workflow__title, .workflow__item::before, .reviews__title, .reviews__author, .feedback__title, .footer__title {
+.title, .promo__subtitle--404, .card-header__top, .about__title, .servises__title, .servises__discount-value, .card__content, .advantages__title, .advantages__item-title, .gallery__title, .workflow__title, .workflow__item::before, .reviews__title, .reviews__author, .feedback__title, .footer__title, .pop-up__title {
   font-family: "Exo";
   color: #000000; }
   .title--large {
     font-size: 6.4rem;
     line-height: 7.36rem;
     font-weight: 600; }
-  .title--medium, .about__title, .servises__title, .advantages__title, .gallery__title, .workflow__title, .reviews__title, .feedback__title, .footer__title {
+  .title--medium, .promo__subtitle--404, .about__title, .servises__title, .advantages__title, .gallery__title, .workflow__title, .reviews__title, .feedback__title, .footer__title, .pop-up__title {
     font-size: 5rem;
     line-height: 5.75rem;
     font-weight: 500; }
@@ -978,7 +978,7 @@ body > * {
     font-size: 3.2rem;
     line-height: 4.56rem;
     font-weight: 400; }
-  .title--light, .card-header__top, .servises__title, .servises__discount-value, .card__content, .advantages__title, .advantages__item-title, .workflow__title, .reviews__title, .reviews__author, .footer__title {
+  .title--light, .promo__subtitle--404, .card-header__top, .servises__title, .servises__discount-value, .card__content, .advantages__title, .advantages__item-title, .workflow__title, .reviews__title, .reviews__author, .footer__title, .pop-up__title {
     color: #ffffff; }
   .title--404 {
     font-size: 40rem;
@@ -988,37 +988,37 @@ body > * {
     .title--large {
       font-size: 3.6rem;
       line-height: 4.3rem; }
-    .title--medium, .about__title, .servises__title, .advantages__title, .gallery__title, .workflow__title, .reviews__title, .feedback__title, .footer__title {
+    .title--medium, .promo__subtitle--404, .about__title, .servises__title, .advantages__title, .gallery__title, .workflow__title, .reviews__title, .feedback__title, .footer__title, .pop-up__title {
       font-size: 3.2rem;
       line-height: 3.68rem; }
     .title--small, .card-header__top, .servises__discount-value, .card__content, .advantages__item-title, .reviews__author {
       font-size: 2.4rem;
       line-height: 2.5rem; } }
 
-.content, .menu__link, .header__logo, .card-header__bottom, .about__text, .about__card-text, .servises__content, .servises__discount, .card__title, .advantages__content, .workflow__item, .reviews__text, .feedback__subtitle, .feedback__input, .footer__link, .footer__text, .footer__bottom-content, .footer__bottom-link {
+.content, .menu__link, .header__logo, .promo__text--404, .card-header__bottom, .about__text, .about__card-text, .servises__content, .servises__discount, .card__title, .advantages__content, .workflow__item, .reviews__text, .feedback__subtitle, .feedback__input, .footer__link, .footer__text, .footer__bottom-content, .footer__bottom-link, .pop-up__subtitle, .pop-up__input, .pop-up__close {
   font-family: "Proxima";
   font-weight: 400;
   font-size: 1.8rem;
   line-height: 2.43rem;
   color: #000000;
   text-decoration: none; }
-  .content--large, .header__logo, .card-header__bottom, .card__title, .feedback__input, .footer__link, .footer__text {
+  .content--large, .header__logo, .promo__text--404, .card-header__bottom, .card__title, .feedback__input, .footer__link, .footer__text, .pop-up__input {
     font-size: 2.4rem;
     line-height: 3.42rem; }
   .content--small, .servises__discount {
     font-size: 1.8rem;
     line-height: 2.7rem; }
-  .content--light, .menu__link, .card-header__bottom, .servises__content, .servises__discount, .card__title, .advantages__content, .workflow__item, .reviews__text, .footer__link, .footer__text, .footer__bottom-content, .footer__bottom-link {
+  .content--light, .menu__link, .promo__text--404, .card-header__bottom, .servises__content, .servises__discount, .card__title, .advantages__content, .workflow__item, .reviews__text, .footer__link, .footer__text, .footer__bottom-content, .footer__bottom-link, .pop-up__subtitle, .pop-up__input, .pop-up__close {
     color: #ffffff; }
   @media screen and (max-width: 576px) {
-    .content, .menu__link, .header__logo, .card-header__bottom, .about__text, .about__card-text, .servises__content, .servises__discount, .card__title, .advantages__content, .workflow__item, .reviews__text, .feedback__subtitle, .feedback__input, .footer__link, .footer__text, .footer__bottom-content, .footer__bottom-link {
+    .content, .menu__link, .header__logo, .promo__text--404, .card-header__bottom, .about__text, .about__card-text, .servises__content, .servises__discount, .card__title, .advantages__content, .workflow__item, .reviews__text, .feedback__subtitle, .feedback__input, .footer__link, .footer__text, .footer__bottom-content, .footer__bottom-link, .pop-up__subtitle, .pop-up__input, .pop-up__close {
       font-size: 1.4rem;
       line-height: 1.7rem; }
-      .content--large, .header__logo, .card-header__bottom, .card__title, .feedback__input, .footer__link, .footer__text {
+      .content--large, .header__logo, .promo__text--404, .card-header__bottom, .card__title, .feedback__input, .footer__link, .footer__text, .pop-up__input {
         font-size: 2rem;
         line-height: 2.5rem; } }
 
-.button, .feedback__button {
+.button, .feedback__button, .pop-up__button {
   position: relative;
   padding: 1.2rem 2.5rem 1.3rem;
   font-family: "Exo";
@@ -1032,7 +1032,7 @@ body > * {
   background-color: transparent;
   transition: 0.3s all linear;
   text-decoration: none; }
-  .button::before, .feedback__button::before {
+  .button::before, .feedback__button::before, .pop-up__button::before {
     content: "";
     display: block;
     position: absolute;
@@ -1045,15 +1045,15 @@ body > * {
     filter: blur(4.2rem);
     z-index: -1;
     opacity: 0; }
-  .button:hover, .feedback__button:hover {
+  .button:hover, .feedback__button:hover, .pop-up__button:hover {
     background-color: #ffffff;
     color: #000000; }
-    .button:hover::before, .feedback__button:hover::before {
+    .button:hover::before, .feedback__button:hover::before, .pop-up__button:hover::before {
       opacity: 1; }
-  .button--light {
+  .button--light, .pop-up__button {
     background-color: #ffffff;
     color: #000000; }
-    .button--light:hover {
+    .button--light:hover, .pop-up__button:hover {
       color: #ffffff;
       background-color: #202020; }
   .button--dark, .feedback__button {
@@ -1066,7 +1066,7 @@ body > * {
       .button--dark:hover::before, .feedback__button:hover::before {
         opacity: 0; }
   @media screen and (max-width: 576px) {
-    .button, .feedback__button {
+    .button, .feedback__button, .pop-up__button {
       padding-top: 1rem;
       padding-bottom: 1rem; } }
 
@@ -1142,7 +1142,7 @@ body > * {
   100% {
     transform: rotate(360deg); } }
 
-.spin, .advantages__item::before, .workflow__item--star::after {
+.spin, .advantages__item::before, .workflow__item--star::after, .pop-up__form::before, .pop-up__form::after {
   animation-name: rotate;
   animation-duration: 6s;
   animation-timing-function: linear;
@@ -1176,6 +1176,8 @@ body > * {
   position: relative;
   overflow: hidden;
   padding-bottom: 7.5rem; }
+  .promo--404 {
+    height: 100vh; }
   .promo__content-wrapper {
     border-right: 0.3rem solid #ffffff; }
   .promo__content {
@@ -1194,13 +1196,30 @@ body > * {
     .promo__content::after {
       border-top: none;
       height: 10rem; }
+    .promo__content--404 {
+      width: 84%;
+      margin-left: 18.8rem; }
+    .promo__content--404::after {
+      height: 5.7rem; }
   .promo__content-container {
     transform: translateX(-19.4rem);
     width: 58.5rem;
     padding-top: 2.1rem;
     padding-bottom: 5.1rem; }
+    .promo__content-container--404 {
+      display: flex;
+      align-items: center;
+      transform: translateX(-18%);
+      width: 122%; }
+  .promo__subcontent--404 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12rem; }
   .promo__title {
     padding-bottom: 2.1rem; }
+    .promo__title--404 {
+      font-size: 25rem;
+      line-height: 28.75rem; }
   .promo__subtitle {
     padding-bottom: 2rem;
     letter-spacing: 0.02rem; }
@@ -2121,6 +2140,110 @@ body > * {
         .footer__bottom-content--centered {
           order: 0;
           padding-top: 0; } }
+
+.pop-up {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0; }
+  .pop-up--open {
+    display: block; }
+  .pop-up__wrapper {
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .pop-up__form {
+    position: relative;
+    width: 87.3rem;
+    background-color: #202020;
+    background-image: url(../img/form-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    padding-top: 6.8rem;
+    padding-bottom: 2.6rem; }
+    .pop-up__form::before, .pop-up__form::after {
+      content: "";
+      display: block;
+      width: 3rem;
+      height: 3rem;
+      background-image: url(../img/star.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      position: absolute; }
+    .pop-up__form::before {
+      top: 5.5rem;
+      left: 9.3rem; }
+    .pop-up__form::after {
+      top: 10rem;
+      left: 6.5rem; }
+  .pop-up__title {
+    padding-bottom: 2.1rem; }
+  .pop-up__subtitle {
+    width: 70%;
+    padding-bottom: 3.5rem; }
+  .pop-up__form-cb {
+    display: flex;
+    flex-direction: column;
+    width: 50%; }
+  .pop-up__input {
+    width: 100%;
+    border: none;
+    border-bottom: 0.1rem solid #ffffff;
+    outline: none;
+    padding-top: 1.3rem;
+    padding-bottom: 0.9rem;
+    margin-bottom: 2.2rem;
+    background-color: transparent; }
+    .pop-up__input::placeholder {
+      color: #ffffff; }
+    .pop-up__input:focus {
+      border-bottom-color: #0029ff; }
+  .pop-up__button {
+    width: 100%;
+    margin-top: 1.7rem; }
+  .pop-up__close {
+    border: none;
+    background: none;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 5.5rem; }
+  .pop-up__star {
+    position: absolute;
+    color: #ffffff;
+    bottom: 8rem;
+    right: 6rem;
+    width: 9rem;
+    height: 9rem; }
+  @media screen and (max-width: 992px) {
+    .pop-up__form {
+      width: 90%;
+      padding-top: 2.8rem; }
+    .pop-up__form-cb {
+      width: 90%; }
+    .pop-up__title {
+      font-size: 3.2rem;
+      padding-bottom: 1rem; }
+    .pop-up__subtitle {
+      width: 70%;
+      font-size: 1.6rem;
+      padding-bottom: 0.5rem; }
+    .pop-up__input {
+      margin-bottom: 0.5rem;
+      font-size: 1.6rem; }
+    .pop-up__close {
+      margin-top: 1.5rem; } }
 
 
 /*# sourceMappingURL=main.css.map*/
