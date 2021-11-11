@@ -995,7 +995,8 @@ body > * {
       font-size: 2.4rem;
       line-height: 2.5rem; } }
 
-.content, .menu__link, .header__logo, .promo__text--404, .card-header__bottom, .about__text, .about__card-text, .servises__content, .servises__discount, .card__title, .advantages__content, .workflow__item, .reviews__text, .feedback__subtitle, .feedback__input, .footer__link, .footer__text, .footer__bottom-content, .footer__bottom-link, .pop-up__subtitle, .pop-up__input, .pop-up__close {
+.content, .menu__link,
+.menu .menu-item > a, .header__logo, .promo__text--404, .card-header__bottom, .about__text-wrapper, .about__text, .about__card-text, .servises__content, .servises__discount, .card__title, .advantages__content, .workflow__item, .reviews__text, .feedback__subtitle, .feedback__input, .footer__link, .footer__text, .footer__bottom-content, .footer__bottom-link, .pop-up__subtitle, .pop-up__input, .pop-up__close {
   font-family: "Proxima";
   font-weight: 400;
   font-size: 1.8rem;
@@ -1008,10 +1009,12 @@ body > * {
   .content--small, .servises__discount {
     font-size: 1.8rem;
     line-height: 2.7rem; }
-  .content--light, .menu__link, .promo__text--404, .card-header__bottom, .servises__content, .servises__discount, .card__title, .advantages__content, .workflow__item, .reviews__text, .footer__link, .footer__text, .footer__bottom-content, .footer__bottom-link, .pop-up__subtitle, .pop-up__input, .pop-up__close {
+  .content--light, .menu__link,
+  .menu .menu-item > a, .promo__text--404, .card-header__bottom, .servises__content, .servises__discount, .card__title, .advantages__content, .workflow__item, .reviews__text, .footer__link, .footer__text, .footer__bottom-content, .footer__bottom-link, .pop-up__subtitle, .pop-up__input, .pop-up__close {
     color: #ffffff; }
   @media screen and (max-width: 576px) {
-    .content, .menu__link, .header__logo, .promo__text--404, .card-header__bottom, .about__text, .about__card-text, .servises__content, .servises__discount, .card__title, .advantages__content, .workflow__item, .reviews__text, .feedback__subtitle, .feedback__input, .footer__link, .footer__text, .footer__bottom-content, .footer__bottom-link, .pop-up__subtitle, .pop-up__input, .pop-up__close {
+    .content, .menu__link,
+    .menu .menu-item > a, .header__logo, .promo__text--404, .card-header__bottom, .about__text-wrapper, .about__text, .about__card-text, .servises__content, .servises__discount, .card__title, .advantages__content, .workflow__item, .reviews__text, .feedback__subtitle, .feedback__input, .footer__link, .footer__text, .footer__bottom-content, .footer__bottom-link, .pop-up__subtitle, .pop-up__input, .pop-up__close {
       font-size: 1.4rem;
       line-height: 1.7rem; }
       .content--large, .header__logo, .promo__text--404, .card-header__bottom, .card__title, .feedback__input, .footer__link, .footer__text, .pop-up__input {
@@ -1076,9 +1079,11 @@ body > * {
     display: flex;
     list-style: none;
     padding: 0; }
-  .menu__item {
+  .menu__item,
+  .menu .menu-item {
     margin-left: 5.6rem; }
-  .menu__link:hover {
+  .menu__link:hover,
+  .menu .menu-item > a:hover {
     text-decoration: underline; }
   .menu__button {
     width: 6rem;
@@ -1111,10 +1116,12 @@ body > * {
         transition: 0.5s transform linear; }
       .menu--open .menu__list {
         transform: translateX(0); }
-      .menu__item {
+      .menu__item,
+      .menu .menu-item {
         border-bottom: 0.3rem solid #ffffff;
         margin: 0; }
-      .menu__link {
+      .menu__link,
+      .menu .menu-item > a {
         display: block;
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;
@@ -1122,7 +1129,8 @@ body > * {
         width: 100%;
         height: 100%;
         transition: 0.3s all linear; }
-        .menu__link:hover {
+        .menu__link:hover,
+        .menu .menu-item > a:hover {
           text-decoration: none;
           color: #202020;
           background-color: #ffffff; }
@@ -1440,6 +1448,8 @@ body > * {
       padding-top: 4.5rem; }
       .about__content {
         width: 100%; }
+      .about__text-wrapper > p {
+        margin-bottom: 1.6rem; }
       .about__text {
         margin-bottom: 1.6rem; }
       .about__image-wrapper {
@@ -1743,6 +1753,7 @@ body > * {
     display: grid;
     grid-gap: 3rem;
     grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 26rem;
     grid-auto-flow: row dense; }
   .gallery__image-wrapper:nth-child(7n + 1) {
     grid-row: span 2;
@@ -2230,6 +2241,14 @@ body > * {
     .pop-up__form {
       width: 90%;
       padding-top: 2.8rem; }
+      .pop-up__form::before, .pop-up__form::after {
+        width: 2rem;
+        height: 2rem; }
+      .pop-up__form::before {
+        left: 1.3rem; }
+      .pop-up__form::after {
+        top: 14rem;
+        left: 2.5rem; }
     .pop-up__form-cb {
       width: 90%; }
     .pop-up__title {
