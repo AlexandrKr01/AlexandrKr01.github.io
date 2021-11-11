@@ -1275,14 +1275,24 @@ body > * {
     .promo {
       padding-top: 17.1rem;
       padding-bottom: 10.6rem; }
+      .promo--404 {
+        padding-top: 2rem; }
       .promo::before {
         bottom: auto;
         top: 10rem; }
       .promo__content-container {
         width: 95%;
         transform: translateY(-31.2rem); }
+        .promo__content-container--404 {
+          flex-direction: column;
+          width: 100%;
+          transform: translateY(-11.8rem);
+          text-align: center; }
       .promo__content {
         width: 100%; }
+        .promo__content--404 {
+          margin-left: 0;
+          margin-top: 8rem; }
         .promo__content::before {
           width: 2.3rem;
           height: 9.2rem;
@@ -1292,6 +1302,11 @@ body > * {
         .promo__content::after {
           height: 24.8rem;
           margin-top: -33rem; }
+      .promo__title--404 {
+        font-size: 17rem;
+        line-height: 18rem; }
+      .promo__subcontent--404 {
+        margin: 0; }
       .promo__content-wrapper {
         border-right: none; }
       .promo__button {
@@ -1309,6 +1324,8 @@ body > * {
     .promo {
       padding-top: 0;
       padding-bottom: 4rem; }
+      .promo--404 {
+        padding-top: 13.5rem; }
       .promo__content-container {
         width: 100%;
         transform: none;
