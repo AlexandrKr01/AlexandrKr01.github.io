@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /assets/offer.pdf
+
+
+Sitemap: https://wiseflow.com.ua/sitemap.xml
